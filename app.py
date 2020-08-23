@@ -67,14 +67,9 @@ def download_files(state, dist):
 
     file = dist + ',' + state + '.csv'
     if file in files3:
-        @after_this_request
-        def delete_zip(response):
-            os.remove(f'{dist},{state}.zip')
-            return response
-
         handle = ZipFile(f'{dist},{state}.zip', 'w')
         handle.write(f'outputs/temp/{file}', 'temperature.csv', compress_type=ZIP_DEFLATED)
-        handle.write(f'outputs/umidity/{file}', 'humidity.csv', compress_type=ZIP_DEFLATED)
+        handle.write(f'outputs/humidity/{file}', 'humidity.csv', compress_type=ZIP_DEFLATED)
         handle.write(f'outputs/temp/{file}', 'rainfall.csv', compress_type=ZIP_DEFLATED)
         handle.close()
 
