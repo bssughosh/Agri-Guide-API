@@ -1,8 +1,10 @@
-from flask import Flask, jsonify, request, render_template, send_from_directory, after_this_request
+from flask import Flask, jsonify, request, render_template, send_from_directory
 import pandas as pd
 import numpy as np
 import os
 from zipfile import ZipFile, ZIP_DEFLATED
+
+from humidity_predictions import humidity_caller
 
 app = Flask(__name__)
 
@@ -31,7 +33,16 @@ def weather(state, dist):
         return jsonify(my_values, 200)
 
     else:
-        return jsonify({'message': 'File not found'}, 404)
+        humidity_caller(state, dist)
+        df2 = pd.read_csv(f'outputs/humidity/{file}')
+        my_values = {
+            # 'temperature': df1['Predicted'].to_list(),
+            'humidity': df2['Predicted'].to_list(),
+            # 'rainfall': df3['Predicted'].to_list()
+        }
+
+        return jsonify(my_values, 200)
+        # return jsonify({'message': 'File not found'}, 404)
 
 
 @app.route('/weather/file1/<string:state>/<string:dist>')
@@ -76,6 +87,5 @@ def download_files(state, dist):
         return send_from_directory('', f'{dist},{state}.zip', as_attachment=True)
     else:
         return jsonify({'message': 'File not found'}, 404)
-
 
 # app.run(port=4999)
