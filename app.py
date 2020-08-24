@@ -1,6 +1,5 @@
-from flask import Flask, jsonify, request, render_template, send_from_directory
+from flask import Flask, jsonify, send_from_directory
 import pandas as pd
-import numpy as np
 import os
 from zipfile import ZipFile, ZIP_DEFLATED
 from flask_httpauth import HTTPBasicAuth
