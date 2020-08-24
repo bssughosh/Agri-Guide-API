@@ -3,10 +3,23 @@ import pandas as pd
 import numpy as np
 import os
 from zipfile import ZipFile, ZIP_DEFLATED
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from humidity_predictions import humidity_caller
 
 app = Flask(__name__)
+auth = HTTPBasicAuth()
+
+users = {
+    "sughosh": generate_password_hash("hello")
+}
+
+
+@auth.verify_password
+def verify_password(username, password):
+    if username in users and check_password_hash(users.get(username), password):
+        return username
 
 
 @app.route('/')
@@ -46,6 +59,7 @@ def weather(state, dist):
 
 
 @app.route('/weather/file1/<string:state>/<string:dist>')
+@auth.login_required
 def download_temp_file(state, dist):
     file = f'{dist},{state}.csv'
     if file in os.listdir('outputs/temp'):
@@ -55,6 +69,7 @@ def download_temp_file(state, dist):
 
 
 @app.route('/weather/file2/<string:state>/<string:dist>')
+@auth.login_required
 def download_humidity_file(state, dist):
     file = f'{dist},{state}.csv'
     if file in os.listdir('outputs/humidity'):
@@ -64,6 +79,7 @@ def download_humidity_file(state, dist):
 
 
 @app.route('/weather/file3/<string:state>/<string:dist>')
+@auth.login_required
 def download_rainfall_file(state, dist):
     file = f'{dist},{state}.csv'
     if file in os.listdir('outputs/rainfall'):
@@ -73,6 +89,7 @@ def download_rainfall_file(state, dist):
 
 
 @app.route('/weather/files/<string:state>/<string:dist>')
+@auth.login_required
 def download_files(state, dist):
     files3 = os.listdir('outputs/rainfall')
 
@@ -87,5 +104,6 @@ def download_files(state, dist):
         return send_from_directory('', f'{dist},{state}.zip', as_attachment=True)
     else:
         return jsonify({'message': 'File not found'}, 404)
+
 
 # app.run(port=4999)
