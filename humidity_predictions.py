@@ -17,7 +17,10 @@ class LinearRegressionModel(nn.Module):
 
 
 def humidity_caller(state, dist):
-    df = pd.read_csv(f'datasets/{dist},{state}.csv')
+    base_url = 'https://raw.githubusercontent.com/bssughosh/project-modules/master/datasets/'
+    file = dist + '%2C' + state + '.csv'
+    file = file.replace('+', '%2B')
+    df = pd.read_csv(base_url + file)
     cols = ['date_time', 'maxtempC', 'mintempC', 'humidity', 'tempC', 'pressure']
     cols1 = ['maxtempC', 'mintempC', 'humidity', 'tempC', 'pressure']
     cols2 = ['year', 'month', 'maxtempC', 'mintempC', 'humidity', 'tempC', 'pressure']

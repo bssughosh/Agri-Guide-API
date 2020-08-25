@@ -105,4 +105,4 @@ def download_files(state, dist):
         return jsonify({'message': 'File not found'}, 404)
 
 
-# app.run(port=4999)
+app.run(port=4999)
