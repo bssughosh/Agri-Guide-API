@@ -4,11 +4,14 @@ import os
 from zipfile import ZipFile, ZIP_DEFLATED
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_cors import CORS
 
 from humidity_predictions import humidity_caller
+from temp_predictions import temperature_caller
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
+CORS(app)
 
 users = {
     "sughosh": generate_password_hash("hello")
@@ -39,22 +42,26 @@ def weather(state, dist):
         my_values = {
             'temperature': df1['Predicted'].to_list(),
             'humidity': df2['Predicted'].to_list(),
-            'rainfall': df3['Predicted'].to_list()
+            'rainfall': df3['Predicted'].round(2).to_list()
         }
 
-        return jsonify(my_values, 200)
+        return jsonify(my_values), 200
 
     else:
-        humidity_caller(state, dist)
-        df2 = pd.read_csv(f'outputs/humidity/{file}')
-        my_values = {
-            # 'temperature': df1['Predicted'].to_list(),
-            'humidity': df2['Predicted'].to_list(),
-            # 'rainfall': df3['Predicted'].to_list()
-        }
+        try:
+            temperature_caller(state, dist)
+            humidity_caller(state, dist)
+            df1 = pd.read_csv(f'outputs/temp/{file}')
+            df2 = pd.read_csv(f'outputs/humidity/{file}')
+            my_values = {
+                'temperature': df1['Predicted'].to_list(),
+                'humidity': df2['Predicted'].to_list(),
+                # 'rainfall': df3['Predicted'].to_list()
+            }
 
-        return jsonify(my_values, 200)
-        # return jsonify({'message': 'File not found'}, 404)
+            return jsonify(my_values), 200
+        except FileNotFoundError:
+            return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
 @app.route('/weather/file1/<string:state>/<string:dist>')
@@ -64,7 +71,7 @@ def download_temp_file(state, dist):
     if file in os.listdir('outputs/temp'):
         return send_from_directory('outputs/temp', f'{dist},{state}.csv', as_attachment=True)
     else:
-        return jsonify({'message': 'File not found'}, 404)
+        return jsonify({'message': 'File not found'}), 404
 
 
 @app.route('/weather/file2/<string:state>/<string:dist>')
@@ -74,7 +81,7 @@ def download_humidity_file(state, dist):
     if file in os.listdir('outputs/humidity'):
         return send_from_directory('outputs/humidity', f'{dist},{state}.csv', as_attachment=True)
     else:
-        return jsonify({'message': 'File not found'}, 404)
+        return jsonify({'message': 'File not found'}), 404
 
 
 @app.route('/weather/file3/<string:state>/<string:dist>')
@@ -84,7 +91,7 @@ def download_rainfall_file(state, dist):
     if file in os.listdir('outputs/rainfall'):
         return send_from_directory('outputs/rainfall', f'{dist},{state}.csv', as_attachment=True)
     else:
-        return jsonify({'message': 'File not found'}, 404)
+        return jsonify({'message': 'File not found'}), 404
 
 
 @app.route('/weather/files/<string:state>/<string:dist>')
@@ -102,7 +109,7 @@ def download_files(state, dist):
 
         return send_from_directory('', f'{dist},{state}.zip', as_attachment=True)
     else:
-        return jsonify({'message': 'File not found'}, 404)
+        return jsonify({'message': 'File not found'}), 404
 
 
-app.run(port=4999)
+# app.run(port=4999)

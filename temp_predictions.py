@@ -17,14 +17,15 @@ class LinearRegressionModel(nn.Module):
         return out
 
 
-def humidity_caller(state, dist):
+def temperature_caller(state, dist):
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = dist + '%2C' + state + '.csv'
     file = file.replace('+', '%2B')
     df = pd.read_csv(base_url + file)
-    cols = ['date_time', 'maxtempC', 'mintempC', 'humidity', 'tempC', 'pressure']
-    cols1 = ['maxtempC', 'mintempC', 'humidity', 'tempC', 'pressure']
-    cols2 = ['year', 'month', 'maxtempC', 'mintempC', 'humidity', 'tempC', 'pressure']
+    cols = ['date_time', 'maxtempC', 'mintempC', 'cloudcover', 'visibility', 'windspeedKmph', 'FeelsLikeC', 'tempC']
+    cols1 = ['maxtempC', 'mintempC', 'cloudcover', 'visibility', 'windspeedKmph', 'FeelsLikeC', 'tempC']
+    cols2 = ['year', 'month', 'maxtempC', 'mintempC', 'cloudcover', 'visibility', 'windspeedKmph', 'FeelsLikeC',
+             'tempC']
     df['date_time'] = pd.to_datetime(df['date_time'])
     df1 = df[cols]
 
@@ -49,7 +50,7 @@ def humidity_caller(state, dist):
     x1 = pd.DataFrame(x, columns=cols2)
 
     forecast_out = 12
-    x1['prediction'] = x1[['humidity']].shift(-forecast_out)
+    x1['prediction'] = x1[['tempC']].shift(-forecast_out)
 
     X = np.array(x1.drop(['prediction', 'year', 'month'], 1))
     X = X[:-forecast_out]
@@ -101,7 +102,7 @@ def humidity_caller(state, dist):
 
     forecast_out = 12
 
-    x1['prediction'] = x1[['humidity']].shift(-forecast_out)
+    x1['prediction'] = x1[['tempC']].shift(-forecast_out)
 
     X = np.array(x1.drop(['prediction', 'year', 'month'], 1))
     X = X[:-forecast_out]
@@ -122,7 +123,7 @@ def humidity_caller(state, dist):
         svm_prediction = svm_prediction.astype('int8')
         svm_prediction = pd.DataFrame(svm_prediction, columns=['Predicted'])
         x2.index = svm_prediction.index
-        svm_prediction['Original'] = x2['humidity']
+        svm_prediction['Original'] = x2['tempC']
 
         svm_prediction['diff'] = svm_prediction['Predicted'] - svm_prediction['Original']
         svm_prediction['diff'] = abs(svm_prediction['diff'])
@@ -148,7 +149,7 @@ def humidity_caller(state, dist):
 
     x1 = pd.DataFrame(x, columns=cols2)
     forecast_out = 12
-    x1['prediction'] = x1[['humidity']].shift(-forecast_out)
+    x1['prediction'] = x1[['tempC']].shift(-forecast_out)
 
     X = np.array(x1.drop(['prediction', 'year', 'month'], 1))
     X = X[:-forecast_out]
@@ -167,14 +168,13 @@ def humidity_caller(state, dist):
     svm_prediction['Month'] = range(1, 13)
 
     df8 = pd.DataFrame()
-    df8['Month'] = range(1,13)
+    df8['Month'] = range(1, 13)
     df8['SVM'] = svm_prediction['Predicted']
     df8['ANN'] = df4['Predicted']
     df3 = df2[df2['year'] == '2019']
     df3.reset_index(inplace=True, drop=True)
-    df8['Original'] = df3['humidity']
+    df8['Original'] = df3['tempC']
 
-    model_selected = -1
     c1 = 0
     c2 = 0
 
@@ -191,28 +191,6 @@ def humidity_caller(state, dist):
             c1 += 1
 
     if c1 > c2:
-        model_selected = 1
+        svm_prediction.to_csv(f'outputs/temp/{dist},{state}.csv', index=False, header=True)
     else:
-        model_selected = 2
-
-    c = []
-
-    for i, j in df8.iterrows():
-        d1 = abs(int(j[1]) - int(j[3]))
-        d2 = abs(int(j[2]) - int(j[3]))
-
-        if d1 < d2:
-            c.append(j[1])
-        elif d1 > d2:
-            c.append(j[2])
-        else:
-            if model_selected == 1:
-                c.append(j[1])
-            else:
-                c.append(j[2])
-
-    df5 = pd.DataFrame()
-    df5['Predicted'] = c
-    df5['Month'] = range(1, 13)
-
-    df5.to_csv(f'outputs/humidity/{dist},{state}.csv', index=False, header=True)
+        df4.to_csv(f'outputs/temp/{dist},{state}.csv', index=False, header=True)
