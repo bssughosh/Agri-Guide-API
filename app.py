@@ -8,6 +8,7 @@ from flask_cors import CORS
 
 from humidity_predictions import humidity_caller
 from temp_predictions import temperature_caller
+from rainfall_predictions import rain_caller
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -51,14 +52,15 @@ def weather(state, dist):
         try:
             temperature_caller(state, dist)
             humidity_caller(state, dist)
+            rain_caller(state, dist)
             df1 = pd.read_csv(f'outputs/temp/{file}')
             df2 = pd.read_csv(f'outputs/humidity/{file}')
+            df3 = pd.read_csv(f'outputs/rainfall/{file}')
             my_values = {
                 'temperature': df1['Predicted'].to_list(),
                 'humidity': df2['Predicted'].to_list(),
-                # 'rainfall': df3['Predicted'].to_list()
+                'rainfall': df3['Predicted'].to_list()
             }
-
             return jsonify(my_values), 200
         except FileNotFoundError:
             return jsonify({'message': 'The requested location cannot be processed'}), 404
