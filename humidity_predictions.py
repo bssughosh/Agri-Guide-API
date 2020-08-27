@@ -174,7 +174,6 @@ def humidity_caller(state, dist):
     df3.reset_index(inplace=True, drop=True)
     df8['Original'] = df3['humidity']
 
-    model_selected = -1
     c1 = 0
     c2 = 0
 
