@@ -167,7 +167,7 @@ def humidity_caller(state, dist):
     svm_prediction['Month'] = range(1, 13)
 
     df8 = pd.DataFrame()
-    df8['Month'] = range(1,13)
+    df8['Month'] = range(1, 13)
     df8['SVM'] = svm_prediction['Predicted']
     df8['ANN'] = df4['Predicted']
     df3 = df2[df2['year'] == '2019']

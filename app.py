@@ -66,6 +66,36 @@ def weather(state, dist):
             return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
+@app.route('/weather1/<string:state>/<string:dist>')
+def weather1(state, dist):
+    files1 = os.listdir('outputs/temp')
+
+    file = dist + ',' + state + '.csv'
+    if file in files1:
+        df1 = pd.read_csv(f'outputs/temp/{file}')
+
+        my_values = {
+            'temperature': df1['Predicted'].to_list(),
+
+        }
+
+        return jsonify(my_values), 200
+
+    else:
+        try:
+            temperature_caller(state, dist)
+
+            df1 = pd.read_csv(f'outputs/temp/{file}')
+
+            my_values = {
+                'temperature': df1['Predicted'].to_list(),
+
+            }
+            return jsonify(my_values), 200
+        except FileNotFoundError:
+            return jsonify({'message': 'The requested location cannot be processed'}), 404
+
+
 @app.route('/weather/file1/<string:state>/<string:dist>')
 @auth.login_required
 def download_temp_file(state, dist):
@@ -112,6 +142,5 @@ def download_files(state, dist):
         return send_from_directory('', f'{dist},{state}.zip', as_attachment=True)
     else:
         return jsonify({'message': 'File not found'}), 404
-
 
 # app.run(port=4999)

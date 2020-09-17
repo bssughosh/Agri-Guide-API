@@ -16,6 +16,8 @@ def rain_caller(state, dist):
     selected_state = state
     selected_district = dist
 
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
     values = []
     for month_loc, selected_month in enumerate(months):
         df1 = df[df['State'] == selected_state]
