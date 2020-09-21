@@ -32,10 +32,21 @@ def home():
 
 @app.route('/weather/<string:state>/<string:dist>')
 def weather(state, dist):
+    files1 = os.listdir('outputs/temp')
+    files2 = os.listdir('outputs/humidity')
     files3 = os.listdir('outputs/rainfall')
 
     file = dist + ',' + state + '.csv'
-    if file in files3:
+    try:
+        if file not in files1:
+            temperature_caller(state, dist)
+
+        if file not in files2:
+            humidity_caller(state, dist)
+
+        if file not in files3:
+            rain_caller(state, dist)
+
         df1 = pd.read_csv(f'outputs/temp/{file}')
         df2 = pd.read_csv(f'outputs/humidity/{file}')
         df3 = pd.read_csv(f'outputs/rainfall/{file}')
@@ -48,22 +59,8 @@ def weather(state, dist):
 
         return jsonify(my_values), 200
 
-    else:
-        try:
-            temperature_caller(state, dist)
-            humidity_caller(state, dist)
-            rain_caller(state, dist)
-            df1 = pd.read_csv(f'outputs/temp/{file}')
-            df2 = pd.read_csv(f'outputs/humidity/{file}')
-            df3 = pd.read_csv(f'outputs/rainfall/{file}')
-            my_values = {
-                'temperature': df1['Predicted'].to_list(),
-                'humidity': df2['Predicted'].to_list(),
-                'rainfall': df3['Predicted'].to_list()
-            }
-            return jsonify(my_values), 200
-        except FileNotFoundError:
-            return jsonify({'message': 'The requested location cannot be processed'}), 404
+    except FileNotFoundError:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
 @app.route('/weather1/<string:state>/<string:dist>')
@@ -142,5 +139,6 @@ def download_files(state, dist):
         return send_from_directory('', f'{dist},{state}.zip', as_attachment=True)
     else:
         return jsonify({'message': 'File not found'}), 404
+
 
 # app.run(port=4999)
