@@ -69,10 +69,10 @@ def weather1(state, dist):
 
     file = dist + ',' + state + '.csv'
     if file in files1:
-        df1 = pd.read_csv(f'outputs/temp/{file}')
+        df1 = pd.read_csv(f'outputs/humidity/{file}')
 
         my_values = {
-            'temperature': df1['Predicted'].to_list(),
+            'humidity': df1['Predicted'].to_list(),
 
         }
 
@@ -80,12 +80,12 @@ def weather1(state, dist):
 
     else:
         try:
-            temperature_caller(state, dist)
+            humidity_caller(state, dist)
 
-            df1 = pd.read_csv(f'outputs/temp/{file}')
+            df1 = pd.read_csv(f'outputs/humidity/{file}')
 
             my_values = {
-                'temperature': df1['Predicted'].to_list(),
+                'humidity': df1['Predicted'].to_list(),
 
             }
             return jsonify(my_values), 200
@@ -139,6 +139,58 @@ def download_files(state, dist):
         return send_from_directory('', f'{dist},{state}.zip', as_attachment=True)
     else:
         return jsonify({'message': 'File not found'}), 404
+
+
+def preprocessing(s):
+    s = s.replace('+', ' ')
+    s = s.capitalize()
+    return s
+
+
+@app.route('/get_state')
+def get_state():
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
+    df = pd.read_csv(base_url + file)
+
+    df['State'] = df['State'].apply(lambda c: preprocessing(c))
+    res = {}
+    res1 = []
+
+    states = list(df['State'].unique())
+
+    for i, j in enumerate(states):
+        t = {'id': str(i + 1), 'name': j}
+        res1.append(t)
+
+    res['state'] = res1
+    return jsonify(res), 200
+
+
+@app.route('/get_dist/<int:state_id>/')
+def get_dist(state_id):
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
+    df = pd.read_csv(base_url + file)
+
+    df['State'] = df['State'].apply(lambda c: preprocessing(c))
+    df['District'] = df['District'].apply(lambda c: preprocessing(c))
+    res = {}
+    res1 = []
+
+    k = 1
+    p = df.iloc[0, 0]
+    for i, j in df.iterrows():
+        if j[0] != p:
+            k += 1
+            p = j[0]
+        if state_id == k:
+            t = {'id': str(i), 'state_id': str(k), 'name': j[1]}
+            res1.append(t)
+
+    res['district'] = res1
+
+    return jsonify(res), 200
 
 
 # app.run(port=4999)

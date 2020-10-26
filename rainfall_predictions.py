@@ -38,6 +38,7 @@ def rain_caller(state, dist):
     state1 = state.replace('+', ' ')
 
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    # base_url = 'D:\\ProjectData\\datasets\\weather\\'
     file1 = 'rainfall_data_3.csv'
 
     rain = pd.read_csv(base_url + file1)
@@ -3093,3 +3094,5 @@ def rain_caller(state, dist):
     values['Month'] = range(1, 13)
 
     values.to_csv(f'outputs/rainfall/{dist},{state}.csv', index=False, header=True)
+
+
