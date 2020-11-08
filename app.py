@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify, send_from_directory, request
 import pandas as pd
 import os
 from zipfile import ZipFile, ZIP_DEFLATED
@@ -30,8 +30,12 @@ def home():
     return 'Hello World'
 
 
-@app.route('/weather/<string:state>/<string:dist>')
-def weather(state, dist):
+@app.route('/weather')
+def weather():
+    state = request.args.get('state')
+    dist = request.args.get('dist')
+    if state is None or dist is None:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
     files1 = os.listdir('outputs/temp')
     files2 = os.listdir('outputs/humidity')
     files3 = os.listdir('outputs/rainfall')
@@ -93,9 +97,14 @@ def weather1(state, dist):
             return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
-@app.route('/weather/file1/<string:state>/<string:dist>')
+@app.route('/weather/file1')
 @auth.login_required
-def download_temp_file(state, dist):
+def download_temp_file():
+    state = request.args.get('state')
+    dist = request.args.get('dist')
+    if state is None or dist is None:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
+
     file = f'{dist},{state}.csv'
     if file in os.listdir('outputs/temp'):
         return send_from_directory('outputs/temp', f'{dist},{state}.csv', as_attachment=True)
@@ -103,9 +112,14 @@ def download_temp_file(state, dist):
         return jsonify({'message': 'File not found'}), 404
 
 
-@app.route('/weather/file2/<string:state>/<string:dist>')
+@app.route('/weather/file2')
 @auth.login_required
-def download_humidity_file(state, dist):
+def download_humidity_file():
+    state = request.args.get('state')
+    dist = request.args.get('dist')
+    if state is None or dist is None:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
+
     file = f'{dist},{state}.csv'
     if file in os.listdir('outputs/humidity'):
         return send_from_directory('outputs/humidity', f'{dist},{state}.csv', as_attachment=True)
@@ -113,9 +127,14 @@ def download_humidity_file(state, dist):
         return jsonify({'message': 'File not found'}), 404
 
 
-@app.route('/weather/file3/<string:state>/<string:dist>')
+@app.route('/weather/file3')
 @auth.login_required
-def download_rainfall_file(state, dist):
+def download_rainfall_file():
+    state = request.args.get('state')
+    dist = request.args.get('dist')
+    if state is None or dist is None:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
+
     file = f'{dist},{state}.csv'
     if file in os.listdir('outputs/rainfall'):
         return send_from_directory('outputs/rainfall', f'{dist},{state}.csv', as_attachment=True)
@@ -123,9 +142,14 @@ def download_rainfall_file(state, dist):
         return jsonify({'message': 'File not found'}), 404
 
 
-@app.route('/weather/files/<string:state>/<string:dist>')
+@app.route('/weather/files')
 @auth.login_required
-def download_files(state, dist):
+def download_files():
+    state = request.args.get('state')
+    dist = request.args.get('dist')
+    if state is None or dist is None:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
+
     files3 = os.listdir('outputs/rainfall')
 
     file = dist + ',' + state + '.csv'
@@ -147,7 +171,7 @@ def preprocessing(s):
     return s
 
 
-@app.route('/get_state')
+@app.route('/get_states')
 def get_state():
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
@@ -167,12 +191,19 @@ def get_state():
     return jsonify(res), 200
 
 
-@app.route('/get_dist/<int:state_id>/')
-def get_dist(state_id):
+@app.route('/get_dists')
+def get_dist():
+    state_id = request.args.get('state_id')
+    if state_id is None:
+        return jsonify({'message': 'State ID not found'}), 404
+    try:
+        state_id = int(state_id)
+    except ValueError:
+        return jsonify({'message': 'State ID not found'}), 404
+
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
     df = pd.read_csv(base_url + file)
-
     df['State'] = df['State'].apply(lambda c: preprocessing(c))
     df['District'] = df['District'].apply(lambda c: preprocessing(c))
     res = {}
@@ -189,7 +220,6 @@ def get_dist(state_id):
             res1.append(t)
 
     res['district'] = res1
-
     return jsonify(res), 200
 
 
