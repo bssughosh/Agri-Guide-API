@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from humidity_predictions import humidity_caller
 from rainfall_predictions import rain_caller
 from temp_predictions import temperature_caller
-from weather_filters import multiple_states
+from weather_filters import multiple_states, single_loc
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -125,6 +125,19 @@ def download_weather_filters():
 
     if len(states) > 1:
         multiple_states(states, years, params)
+        handle = ZipFile('required_downloads.zip', 'w')
+        if 'temp' in params:
+            handle.write('filter_outputs/weather/temp.csv', 'temperature.csv', compress_type=ZIP_DEFLATED)
+        if 'humidity' in params:
+            handle.write('filter_outputs/weather/humidity.csv', 'humidity.csv', compress_type=ZIP_DEFLATED)
+        if 'rainfall' in params:
+            handle.write('filter_outputs/weather/rain.csv', 'rainfall.csv', compress_type=ZIP_DEFLATED)
+        handle.close()
+
+        return send_from_directory('', 'required_downloads.zip', as_attachment=True), 200
+
+    if len(states) == 1 and len(dists) == 1:
+        single_loc(states[0], dists[0], years, params)
         handle = ZipFile('required_downloads.zip', 'w')
         if 'temp' in params:
             handle.write('filter_outputs/weather/temp.csv', 'temperature.csv', compress_type=ZIP_DEFLATED)

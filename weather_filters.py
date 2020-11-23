@@ -6,6 +6,8 @@ import pandas as pd
 pd.options.mode.chained_assignment = None
 
 
+# region single location
+
 def fetch_single_loc_rainfall_data(state, dist, years):
     dist1 = dist.replace('+', ' ') if len(dist) > 0 else ''
     state1 = state.replace('+', ' ')
@@ -84,6 +86,22 @@ def fetch_single_loc_humidity_data(state, dist):
     res = pd.DataFrame(res, columns=cols)
     return res
 
+
+# endregion
+
+def single_loc(state, dist, years, params):
+    if 'temp' in params:
+        temp_res = fetch_single_loc_temp_data(state, dist, years)
+        temp_res.to_csv('filter_outputs/weather/temp.csv')
+    if 'humidity' in params:
+        humidity_res = fetch_single_loc_humidity_data(state, dist)
+        humidity_res.to_csv('filter_outputs/weather/humidity.csv')
+    if 'rainfall' in params:
+        rain_res = fetch_single_loc_rainfall_data(state, dist, years)
+        rain_res.to_csv('filter_outputs/weather/rain.csv')
+
+
+# region multiple states
 
 def fetch_multiple_states_rainfall_data(states, years):
     states1 = [state.replace('+', ' ') for state in states]
@@ -191,6 +209,8 @@ def fetch_multiple_states_humidity_data(states):
     res = pd.DataFrame(res, columns=cols)
     return res
 
+
+# endregion
 
 def multiple_states(states, years, params):
     if 'temp' in params:
