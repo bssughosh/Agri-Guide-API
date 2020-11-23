@@ -1,10 +1,11 @@
-from sklearn.linear_model import LinearRegression
-from sklearn.svm import SVR
+import enum
+
+import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
-import pandas as pd
-import numpy as np
-import enum
+from sklearn.linear_model import LinearRegression
+from sklearn.svm import SVR
 
 pd.options.mode.chained_assignment = None
 
@@ -38,7 +39,6 @@ def rain_caller(state, dist):
     state1 = state.replace('+', ' ')
 
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
-    # base_url = 'D:\\ProjectData\\datasets\\weather\\'
     file1 = 'rainfall_data_3.csv'
 
     rain = pd.read_csv(base_url + file1)

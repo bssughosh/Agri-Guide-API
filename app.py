@@ -1,14 +1,16 @@
-from flask import Flask, jsonify, send_from_directory, request
-import pandas as pd
 import os
 from zipfile import ZipFile, ZIP_DEFLATED
+
+import pandas as pd
+from flask import Flask, jsonify, send_from_directory, request
+from flask_cors import CORS
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_cors import CORS
 
 from humidity_predictions import humidity_caller
-from temp_predictions import temperature_caller
 from rainfall_predictions import rain_caller
+from temp_predictions import temperature_caller
+from weather_filters import multiple_states
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -95,6 +97,46 @@ def weather1(state, dist):
             return jsonify(my_values), 200
         except FileNotFoundError:
             return jsonify({'message': 'The requested location cannot be processed'}), 404
+
+
+@app.route('/weather/downloads')
+def download_weather_filters():
+    """
+    states: List of states\n
+    dists: Will be used only when len(states) == 1\n
+    years: If years == 0 then all years else will accept length of 2\n
+    params: temp,humidity,rainfall\n
+    :return: ZIP file containing the required CSV files
+    """
+    states = request.args.getlist('states')
+    dists = request.args.get('dists')
+    years = request.args.getlist('years')
+    params = request.args.getlist('params')
+
+    if len(states) == 1:
+        states = states[0].split(',')
+    if len(dists) == 1:
+        dists = dists[0].split(',')
+    if len(years) == 1:
+        years = years[0].split(',')
+        years = [int(i) for i in years]
+    if len(params) == 1:
+        params = params[0].split(',')
+
+    if len(states) > 1:
+        multiple_states(states, years, params)
+        handle = ZipFile('required_downloads.zip', 'w')
+        if 'temp' in params:
+            handle.write('filter_outputs/weather/temp.csv', 'temperature.csv', compress_type=ZIP_DEFLATED)
+        if 'humidity' in params:
+            handle.write('filter_outputs/weather/humidity.csv', 'humidity.csv', compress_type=ZIP_DEFLATED)
+        if 'rainfall' in params:
+            handle.write('filter_outputs/weather/rain.csv', 'rainfall.csv', compress_type=ZIP_DEFLATED)
+        handle.close()
+
+        return send_from_directory('', 'required_downloads.zip', as_attachment=True), 200
+
+    return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
 @app.route('/weather/file1')
@@ -223,4 +265,4 @@ def get_dist():
     return jsonify(res), 200
 
 
-# app.run(port=4999)
+app.run(port=4999)

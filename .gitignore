@@ -1,2 +1,5 @@
 *.zip
 .ipynb_checkpoints
+temp/
+.pytest_cache/
+filter_outputs/
