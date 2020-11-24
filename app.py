@@ -10,7 +10,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from humidity_predictions import humidity_caller
 from rainfall_predictions import rain_caller
 from temp_predictions import temperature_caller
-from weather_filters import multiple_states, single_loc
+from weather_filters import multiple_states, single_loc, multiple_dists
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -109,22 +109,32 @@ def download_weather_filters():
     :return: ZIP file containing the required CSV files
     """
     states = request.args.getlist('states')
-    dists = request.args.get('dists')
+    dists = request.args.getlist('dists')
     years = request.args.getlist('years')
     params = request.args.getlist('params')
+    try:
+        if len(states) == 1:
+            states = states[0].split(',')
+        if len(dists) == 1:
+            dists = dists[0].split(',')
+        if len(years) == 1:
+            years = years[0].split(',')
+            years = [int(i) for i in years]
+        if len(params) == 1:
+            params = params[0].split(',')
 
-    if len(states) == 1:
-        states = states[0].split(',')
-    if len(dists) == 1:
-        dists = dists[0].split(',')
-    if len(years) == 1:
-        years = years[0].split(',')
-        years = [int(i) for i in years]
-    if len(params) == 1:
-        params = params[0].split(',')
+        if len(states) > 1:
+            multiple_states(states, years, params)
 
-    if len(states) > 1:
-        multiple_states(states, years, params)
+        if len(states) == 1 and len(dists) > 1:
+            multiple_dists(states[0], dists, years, params)
+
+        if len(states) == 1 and len(dists) == 1:
+            if dists == ['0']:
+                multiple_dists(states[0], dists, years, params)
+            else:
+                single_loc(states[0], dists[0], years, params)
+
         handle = ZipFile('required_downloads.zip', 'w')
         if 'temp' in params:
             handle.write('filter_outputs/weather/temp.csv', 'temperature.csv', compress_type=ZIP_DEFLATED)
@@ -136,20 +146,8 @@ def download_weather_filters():
 
         return send_from_directory('', 'required_downloads.zip', as_attachment=True), 200
 
-    if len(states) == 1 and len(dists) == 1:
-        single_loc(states[0], dists[0], years, params)
-        handle = ZipFile('required_downloads.zip', 'w')
-        if 'temp' in params:
-            handle.write('filter_outputs/weather/temp.csv', 'temperature.csv', compress_type=ZIP_DEFLATED)
-        if 'humidity' in params:
-            handle.write('filter_outputs/weather/humidity.csv', 'humidity.csv', compress_type=ZIP_DEFLATED)
-        if 'rainfall' in params:
-            handle.write('filter_outputs/weather/rain.csv', 'rainfall.csv', compress_type=ZIP_DEFLATED)
-        handle.close()
-
-        return send_from_directory('', 'required_downloads.zip', as_attachment=True), 200
-
-    return jsonify({'message': 'The requested location cannot be processed'}), 404
+    except:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
 @app.route('/weather/file1')
