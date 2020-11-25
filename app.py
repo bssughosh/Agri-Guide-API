@@ -258,7 +258,7 @@ def get_state_for_state_id():
     for s in state_id:
         res.append(states[s])
 
-    return jsonify(res), 200
+    return jsonify({'states': res}), 200
 
 
 @app.route('/get_dist_value')
@@ -275,7 +275,7 @@ def get_dist_for_dist_id():
     for d in dist_id:
         res.append(dists[d])
 
-    return jsonify(res), 200
+    return jsonify({'dists': res}), 200
 
 
 @app.route('/get_dists')
