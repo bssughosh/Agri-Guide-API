@@ -309,5 +309,4 @@ def get_dist():
     res['district'] = res1
     return jsonify(res), 200
 
-
 # app.run(port=4999)
