@@ -220,7 +220,7 @@ def download_files():
 
 def preprocessing(s):
     s = s.replace('+', ' ')
-    s = s.capitalize()
+    s = s.title()
     return s
 
 
@@ -241,6 +241,40 @@ def get_state():
         res1.append(t)
 
     res['state'] = res1
+    return jsonify(res), 200
+
+
+@app.route('/get_state_value')
+def get_state_for_state_id():
+    state_id = request.args.getlist('state_id')
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
+    df = pd.read_csv(base_url + file)
+    if len(state_id) == 1:
+        state_id = state_id[0].split(',')
+        state_id = [(int(s) - 1) for s in state_id]
+    states = list(df['State'].unique())
+    res = []
+    for s in state_id:
+        res.append(states[s])
+
+    return jsonify(res), 200
+
+
+@app.route('/get_dist_value')
+def get_state_for_state_id():
+    dist_id = request.args.getlist('dist_id')
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
+    df = pd.read_csv(base_url + file)
+    if len(dist_id) == 1:
+        dist_id = dist_id[0].split(',')
+        dist_id = [int(d) for d in dist_id]
+    dists = list(df['District'].unique())
+    res = []
+    for d in dist_id:
+        res.append(dists[d])
+
     return jsonify(res), 200
 
 
@@ -275,4 +309,5 @@ def get_dist():
     res['district'] = res1
     return jsonify(res), 200
 
-# app.run(port=4999)
+
+app.run(port=4999)
