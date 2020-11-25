@@ -262,7 +262,7 @@ def get_state_for_state_id():
 
 
 @app.route('/get_dist_value')
-def get_state_for_state_id():
+def get_dist_for_dist_id():
     dist_id = request.args.getlist('dist_id')
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
