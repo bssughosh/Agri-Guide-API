@@ -29,7 +29,7 @@ def verify_password(username, password):
 
 @app.route('/')
 def home():
-    return 'Hello World'
+    return 'Agri Guide'
 
 
 @app.route('/weather')
@@ -275,5 +275,4 @@ def get_dist():
     res['district'] = res1
     return jsonify(res), 200
 
-
-app.run(port=4999)
+# app.run(port=4999)
