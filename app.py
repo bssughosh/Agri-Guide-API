@@ -270,7 +270,7 @@ def get_dist_for_dist_id():
     if len(dist_id) == 1:
         dist_id = dist_id[0].split(',')
         dist_id = [int(d) for d in dist_id]
-    dists = list(df['District'].unique())
+    dists = list(df['District'])
     res = []
     for d in dist_id:
         res.append(dists[d])
