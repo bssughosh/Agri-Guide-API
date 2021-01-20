@@ -133,6 +133,147 @@ def ANN1(data, selected_season, feature_set):
     return predicted_new[-1]
 
 
+def SVM2(data, feature_set, state, dist):
+    independent_variables = feature_set
+    dependent = 'Pointer'
+
+    X = np.array(data[independent_variables][:-1])
+    y = np.array(data[dependent][:-1])
+    x_forecast = np.array(data[independent_variables][-1:])
+    y2 = np.array(data[dependent][-1:])
+
+    i = 300
+    ind = i
+    mini = (np.Inf, np.Inf)
+
+    while i <= 3000:
+        svm = SVR(kernel='rbf', C=i)
+        svm.fit(X, y)
+
+        svm_prediction = svm.predict(x_forecast)
+        svm_prediction = pd.DataFrame(svm_prediction, columns=['Predicted'])
+        svm_prediction['Original'] = y2
+
+        svm_prediction['diff'] = svm_prediction['Predicted'] - svm_prediction['Original']
+        svm_prediction['diff'] = abs(svm_prediction['diff'])
+
+        average_error = svm_prediction['diff'].sum()
+        max_difference = svm_prediction['diff'].max()
+        average_error = average_error / 1
+        if average_error < mini[0]:
+            mini = (average_error, max_difference)
+            ind = i
+        elif average_error == mini[0]:
+            if max_difference < mini[1]:
+                mini = (average_error, max_difference)
+                ind = i
+        i += 1
+
+    X = np.array(data[independent_variables])
+    y = np.array(data[dependent])
+
+    temp_2020_df = pd.read_csv(f'outputs/temp/{dist},{state}.csv')
+    temp_2019 = temp_2020_df['Predicted'].to_list()
+    del temp_2020_df
+
+    rain_2020_df = pd.read_csv(f'outputs/rainfall/{dist},{state}.csv')
+    rain_2019 = rain_2020_df['Predicted'].to_list()
+    del rain_2020_df
+
+    if independent_variables == Features.f1.value:
+        x_forecast = np.array([sum(rain_2019), (sum(temp_2019) / len(temp_2019))])
+    elif independent_variables == Features.f2.value:
+        x_forecast = np.array([sum(rain_2019), ]).reshape(-1, 1)
+    else:
+        x_forecast = np.array([(sum(temp_2019) / len(temp_2019)), ]).reshape(-1, 1)
+
+    svm = SVR(kernel='rbf', C=ind)
+    svm.fit(X, y)
+
+    svm_prediction = svm.predict(x_forecast)
+    return svm_prediction[-1]
+
+
+def MLR2(data, feature_set, state, dist):
+    independent_variables = feature_set
+    dependent = 'Pointer'
+
+    X = np.array(data[independent_variables])
+    y = np.array(data[dependent])
+    temp_2020_df = pd.read_csv(f'outputs/temp/{dist},{state}.csv')
+    temp_2019 = temp_2020_df['Predicted'].to_list()
+    del temp_2020_df
+
+    rain_2020_df = pd.read_csv(f'outputs/rainfall/{dist},{state}.csv')
+    rain_2019 = rain_2020_df['Predicted'].to_list()
+    del rain_2020_df
+
+    if independent_variables == Features.f1.value:
+        x_forecast = np.array([sum(rain_2019), (sum(temp_2019) / len(temp_2019))])
+    elif independent_variables == Features.f2.value:
+        x_forecast = np.array([sum(rain_2019), ]).reshape(-1, 1)
+    else:
+        x_forecast = np.array([(sum(temp_2019) / len(temp_2019)), ]).reshape(-1, 1)
+
+    lr = LinearRegression()
+    lr.fit(X, y)
+
+    lr_forecast = lr.predict(x_forecast)
+    return lr_forecast[-1]
+
+
+def ANN2(data, selected_season, feature_set, state, dist):
+    independent_variables = feature_set
+    dependent = ['Pointer']
+
+    X = np.array(data[independent_variables])
+    y = np.array(data[dependent])
+
+    temp_2020_df = pd.read_csv(f'outputs/temp/{dist},{state}.csv')
+    temp_2019 = temp_2020_df['Predicted'].to_list()
+    del temp_2020_df
+
+    rain_2020_df = pd.read_csv(f'outputs/rainfall/{dist},{state}.csv')
+    rain_2019 = rain_2020_df['Predicted'].to_list()
+    del rain_2020_df
+
+    if independent_variables == Features.f1.value:
+        x_forecast = np.array([sum(rain_2019), (sum(temp_2019) / len(temp_2019))])
+    elif independent_variables == Features.f2.value:
+        x_forecast = np.array([sum(rain_2019), ]).reshape(-1, 1)
+    else:
+        x_forecast = np.array([(sum(temp_2019) / len(temp_2019)), ]).reshape(-1, 1)
+
+    input_dim = X.shape[1]
+    output_dim = y.shape[1]
+
+    model = LinearRegressionModel(input_dim, output_dim)
+
+    criterion = nn.MSELoss()
+    if selected_season == 'Kharif':
+        learning_rate = 0.0000001
+    else:
+        learning_rate = 0.000001
+
+    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+
+    epochs = 200
+
+    for epoch in range(epochs):
+        epoch += 1
+        inputs = torch.from_numpy(X.astype(np.float32))
+        labels = torch.from_numpy(y.astype(np.float32))
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+    predicted_new = model(torch.FloatTensor(x_forecast)).data.numpy()
+    predicted_new = predicted_new.reshape(1, )
+    return predicted_new[-1]
+
+
 def yield_caller(state, dist, season, crop):
     dist1 = dist.replace('+', ' ')
     state1 = state.replace('+', ' ')
@@ -221,5 +362,41 @@ def yield_caller(state, dist, season, crop):
             ann_result = ANN1(compiled_data, season, feature.value)
         values.append(ann_result)
 
+    diff = [abs(values[0] - i) for i in values]
+    diff = diff[1:]
 
-yield_caller('maharashtra', 'buldana', 'Kharif', 'Arhar/Tur')
+    best_combination_index = diff.index(min(diff))
+    res = 0
+    if best_combination_index == 0:
+        res = SVM2(compiled_data, Features.f1.value, state, dist)
+    elif best_combination_index == 1:
+        res = MLR2(compiled_data, Features.f1.value, state, dist)
+    elif best_combination_index == 2:
+        res = ANN2(compiled_data, season, Features.f1.value, state, dist)
+        while res < 0:
+            res = ANN2(compiled_data, season, Features.f1.value, state, dist)
+
+    elif best_combination_index == 3:
+        res = SVM2(compiled_data, Features.f2.value, state, dist)
+    elif best_combination_index == 4:
+        res = MLR2(compiled_data, Features.f2.value, state, dist)
+    elif best_combination_index == 5:
+        res = ANN2(compiled_data, season, Features.f2.value, state, dist)
+        while res < 0:
+            res = ANN2(compiled_data, season, Features.f2.value, state, dist)
+
+    elif best_combination_index == 6:
+        res = SVM2(compiled_data, Features.f3.value, state, dist)
+    elif best_combination_index == 7:
+        res = MLR2(compiled_data, Features.f3.value, state, dist)
+    elif best_combination_index == 8:
+        res = ANN2(compiled_data, season, Features.f3.value, state, dist)
+        while res < 0:
+            res = ANN2(compiled_data, season, Features.f3.value, state, dist)
+
+    values = np.array([round(res, 3), ]).reshape(-1, 1)
+    values = pd.DataFrame(values, columns=['Predicted'])
+
+    removeSpecialChars = crop.translate({ord(c): " " for c in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
+
+    values.to_csv(f'outputs/yield/{dist},{state},{season},{removeSpecialChars}.csv', index=False, header=True)

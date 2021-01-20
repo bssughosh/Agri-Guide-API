@@ -11,6 +11,7 @@ from humidity_predictions import humidity_caller
 from rainfall_predictions import rain_caller
 from temp_predictions import temperature_caller
 from weather_filters import multiple_states, single_loc, multiple_dists
+from yield_prediction import yield_caller
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -30,6 +31,7 @@ def verify_password(username, password):
 
 @app.route('/')
 def home():
+    print(f'/home endpoint called ')
     return 'Agri Guide'
 
 
@@ -37,6 +39,7 @@ def home():
 def weather():
     state = request.args.get('state')
     dist = request.args.get('dist')
+    print(f'/weather endpoint called with state={state} and dist={dist}')
     if state is None or dist is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
     files1 = os.listdir('outputs/temp')
@@ -54,7 +57,7 @@ def weather():
         if file not in files3:
             rain_caller(state, dist)
 
-        print(f'All weather for state = {state} and district = {dist}')
+        print(f'All weather prediction complete for state={state} and dist={dist}')
 
         df1 = pd.read_csv(f'outputs/temp/{file}')
         df2 = pd.read_csv(f'outputs/humidity/{file}')
@@ -96,6 +99,9 @@ def download_weather_filters():
         if len(params) == 1:
             params = params[0].split(',')
 
+        print(f'/weather/downloads endpoint called with states={states}, '
+              f'dists={dists}, years={years} and params={params}')
+
         if len(states) > 1:
             multiple_states(states, years, params)
 
@@ -117,6 +123,9 @@ def download_weather_filters():
             handle.write('filter_outputs/weather/rain.csv', 'rainfall.csv', compress_type=ZIP_DEFLATED)
         handle.close()
 
+        print(f'ZipFile created for states={states}, '
+              f'dists={dists}, years={years} and params={params}')
+
         return send_from_directory('', 'required_downloads.zip', as_attachment=True), 200
 
     except:
@@ -128,6 +137,8 @@ def download_weather_filters():
 def download_weather_predicted_files():
     state = request.args.get('state')
     dist = request.args.get('dist')
+    print(f'/weather/files endpoint called with state={state} and '
+          f'dist={dist}')
     if state is None or dist is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
@@ -140,6 +151,9 @@ def download_weather_predicted_files():
         handle.write(f'outputs/humidity/{file}', 'humidity.csv', compress_type=ZIP_DEFLATED)
         handle.write(f'outputs/temp/{file}', 'rainfall.csv', compress_type=ZIP_DEFLATED)
         handle.close()
+
+        print(f'ZipFile created for state={state} and '
+              f'dist={dist}')
 
         return send_from_directory('', f'{dist},{state}.zip', as_attachment=True)
     else:
@@ -154,6 +168,7 @@ def preprocessing(s):
 
 @app.route('/get_states')
 def get_state():
+    print(f'/get_states endpoint called')
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
     df = pd.read_csv(base_url + file)
@@ -181,29 +196,15 @@ def get_state_for_state_id():
     if len(state_id) == 1:
         state_id = state_id[0].split(',')
         state_id = [(int(s) - 1) for s in state_id]
+    print(f'/get_state_value endpoint called with state_id={state_id}')
     states = list(df['State'].unique())
     res = []
     for s in state_id:
         res.append(states[s])
 
+    print(f'/get_state_value endpoint returned => {res}')
+
     return jsonify({'states': res}), 200
-
-
-@app.route('/get_dist_value')
-def get_dist_for_dist_id():
-    dist_id = request.args.getlist('dist_id')
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
-    file = 'places.csv'
-    df = pd.read_csv(base_url + file)
-    if len(dist_id) == 1:
-        dist_id = dist_id[0].split(',')
-        dist_id = [int(d) for d in dist_id]
-    dists = list(df['District'])
-    res = []
-    for d in dist_id:
-        res.append(dists[d])
-
-    return jsonify({'dists': res}), 200
 
 
 @app.route('/get_dists')
@@ -215,6 +216,8 @@ def get_dist():
         state_id = int(state_id)
     except ValueError:
         return jsonify({'message': 'State ID not found'}), 404
+
+    print(f'/get_dists endpoint called with state_id={state_id}')
 
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
@@ -238,10 +241,32 @@ def get_dist():
     return jsonify(res), 200
 
 
+@app.route('/get_dist_value')
+def get_dist_for_dist_id():
+    dist_id = request.args.getlist('dist_id')
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
+    df = pd.read_csv(base_url + file)
+    if len(dist_id) == 1:
+        dist_id = dist_id[0].split(',')
+        dist_id = [int(d) for d in dist_id]
+    print(f'/get_dist_value endpoint called with dist_id={dist_id}')
+    dists = list(df['District'])
+    res = []
+    for d in dist_id:
+        res.append(dists[d])
+
+    print(f'/get_dist_value endpoint returned => {res}')
+
+    return jsonify({'dists': res}), 200
+
+
 @app.route('/get_types_of_crops')
 def get_types_of_crops():
     state = request.args.get('state')
-    dist = request.args.get('district')
+    dist = request.args.get('dist')
+    print(f'/get_types_of_crops endpoint called with state={state} and '
+          f'dist={dist}')
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
     file = 'found1_all_18.csv'
     df = pd.read_csv(base_url + file)
@@ -257,8 +282,11 @@ def get_types_of_crops():
 @app.route('/get_crops')
 def get_crops():
     state = request.args.get('state')
-    dist = request.args.get('district')
+    dist = request.args.get('dist')
     season = request.args.get('season')
+    print(f'/get_crops endpoint called with state={state}, '
+          f'dist={dist} and season={season}')
+
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
     file = 'found1_all_18.csv'
     df = pd.read_csv(base_url + file)
@@ -270,5 +298,41 @@ def get_crops():
         crops = list(df1['Crop'].unique())
 
     return jsonify({'crops': crops}), 200
+
+
+@app.route('/yield')
+def predict_yield():
+    state = request.args.get('state')
+    dist = request.args.get('dist')
+    season = request.args.get('season')
+    crop = request.args.get('crop')
+    if state is None or dist is None or season is None or crop is None:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
+
+    print(f'/yield endpoint called with state={state}, '
+          f'dist={dist}, season={season} and crop={crop}')
+
+    files = os.listdir('outputs/yield')
+
+    removeSpecialChars = crop.translate({ord(c): " " for c in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
+
+    file = dist + ',' + state + ',' + season + ',' + removeSpecialChars + '.csv'
+    try:
+        if file not in files:
+            yield_caller(state, dist, season, crop)
+
+        print(f'All yield prediction complete for state={state}, dist={dist}'
+              f', season={season} and crop={crop}')
+
+        df1 = pd.read_csv(f'outputs/yield/{file}')
+
+        my_values = {
+            'yield': df1['Predicted'].to_list(),
+        }
+
+        return jsonify(my_values), 200
+
+    except FileNotFoundError:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 # app.run(port=4999)
