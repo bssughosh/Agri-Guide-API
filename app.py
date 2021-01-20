@@ -11,6 +11,7 @@ from humidity_predictions import humidity_caller
 from rainfall_predictions import rain_caller
 from temp_predictions import temperature_caller
 from weather_filters import multiple_states, single_loc, multiple_dists
+from yield_prediction import yield_caller
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -297,5 +298,41 @@ def get_crops():
         crops = list(df1['Crop'].unique())
 
     return jsonify({'crops': crops}), 200
+
+
+@app.route('/yield')
+def predict_yield():
+    state = request.args.get('state')
+    dist = request.args.get('dist')
+    season = request.args.get('season')
+    crop = request.args.get('crop')
+    if state is None or dist is None or season is None or crop is None:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
+
+    print(f'/yield endpoint called with state={state}, '
+          f'dist={dist}, season={season} and crop={crop}')
+
+    files = os.listdir('outputs/yield')
+
+    removeSpecialChars = crop.translate({ord(c): " " for c in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
+
+    file = dist + ',' + state + ',' + season + ',' + removeSpecialChars + '.csv'
+    try:
+        if file not in files:
+            yield_caller(state, dist, season, crop)
+
+        print(f'All yield prediction complete for state={state}, dist={dist}'
+              f', season={season} and crop={crop}')
+
+        df1 = pd.read_csv(f'outputs/yield/{file}')
+
+        my_values = {
+            'yield': df1['Predicted'].to_list(),
+        }
+
+        return jsonify(my_values), 200
+
+    except FileNotFoundError:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 # app.run(port=4999)

@@ -397,4 +397,6 @@ def yield_caller(state, dist, season, crop):
     values = np.array([round(res, 3), ]).reshape(-1, 1)
     values = pd.DataFrame(values, columns=['Predicted'])
 
-    values.to_csv(f'outputs/yield/{dist},{state}.csv', index=False, header=True)
+    removeSpecialChars = crop.translate({ord(c): " " for c in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
+
+    values.to_csv(f'outputs/yield/{dist},{state},{season},{removeSpecialChars}.csv', index=False, header=True)
