@@ -326,4 +326,22 @@ def get_types_of_crops():
     return jsonify({'seasons': seasons}), 200
 
 
+@app.route('/get_crops')
+def get_crops():
+    state = request.args.get('state')
+    dist = request.args.get('district')
+    season = request.args.get('season')
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
+    file = 'found1_all_18.csv'
+    df = pd.read_csv(base_url + file)
+    df1 = df[df['State'] == state]
+    df1 = df1[df1['District'] == dist]
+    df1 = df1[df1['Season'] == season]
+    crops = []
+    if df1.shape[0] > 0:
+        crops = list(df1['Crop'].unique())
+
+    return jsonify({'crops': crops}), 200
+
+
 app.run(port=4999)
