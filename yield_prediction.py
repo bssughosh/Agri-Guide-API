@@ -11,9 +11,9 @@ pd.options.mode.chained_assignment = None
 
 
 class Features(enum.Enum):
-    f1 = ['Rain']
-    f2 = ['Temp']
-    f3 = ['Rain', 'Temp']
+    f1 = ['Rain', 'Temp']
+    f2 = ['Rain']
+    f3 = ['Temp']
 
 
 def negative_checker(s):
@@ -146,8 +146,8 @@ def yield_caller(state, dist, season, crop):
     mas1 = mas1[mas1['District_Name'] == dist1]
 
     mas1.reset_index(drop=True, inplace=True)
-    cols1 = ['Season', 'Crop']
-    for col in cols1:
+    cols = ['Season', 'Crop']
+    for col in cols:
         mas1[col] = mas1[col].apply(lambda x: x.strip())
 
     mas2 = mas1[mas1['Season'] == season]
@@ -158,11 +158,11 @@ def yield_caller(state, dist, season, crop):
     mas2['Pointer'] = (mas2['Production'] * 10) / mas2['Area']
 
     if season == 'Kharif':
-        cols = ['Year', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        cols1 = ['Year', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        rain_cols = ['Year', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        temp_cols = ['Year', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     else:
-        cols = ['Year', 'Jan', 'Feb', 'Mar', 'Oct', 'Nov', 'Dec']
-        cols1 = ['Year', 'Jan', 'Feb', 'Mar', 'Oct', 'Nov', 'Dec']
+        rain_cols = ['Year', 'Jan', 'Feb', 'Mar', 'Oct', 'Nov', 'Dec']
+        temp_cols = ['Year', 'Jan', 'Feb', 'Mar', 'Oct', 'Nov', 'Dec']
 
     file2 = 'weather/rainfall_data_3.csv'
     rain = pd.read_csv(base_url + file2)
@@ -175,7 +175,7 @@ def yield_caller(state, dist, season, crop):
             rain2.append(j)
     rain2 = pd.DataFrame(rain2, columns=rain1.columns)
     rain2.reset_index(drop=True, inplace=True)
-    rain3 = rain2[cols]
+    rain3 = rain2[rain_cols]
 
     file3 = 'weather/whole_temp_2.csv'
     temp = pd.read_csv(base_url + file3)
@@ -188,13 +188,13 @@ def yield_caller(state, dist, season, crop):
             temp2.append(j)
     temp2 = pd.DataFrame(temp2, columns=temp1.columns)
     temp2.reset_index(drop=True, inplace=True)
-    temp3 = temp2[cols1]
+    temp3 = temp2[temp_cols]
 
-    cols1 = cols1[1:]
-    cols = cols[1:]
+    temp_cols = temp_cols[1:]
+    rain_cols = rain_cols[1:]
 
-    temp_avg = temp3[cols1].mean(axis=1)
-    rain_sum = rain3[cols].sum(axis=1)
+    temp_avg = temp3[temp_cols].mean(axis=1)
+    rain_sum = rain3[rain_cols].sum(axis=1)
 
     compiled_data = pd.DataFrame()
     compiled_data['Production'] = mas2['Production']
@@ -203,16 +203,16 @@ def yield_caller(state, dist, season, crop):
     compiled_data['Temp'] = temp_avg
     compiled_data['Rain'] = rain_sum
 
-    z = compiled_data['Pointer'].between(compiled_data['Pointer'].quantile(.05),
-                                         compiled_data['Pointer'].quantile(.95), )
-    to_rem = []
-    for i, j in enumerate(z):
+    data_after_outlier_analysis = compiled_data['Pointer'].between(compiled_data['Pointer'].quantile(.05),
+                                                                   compiled_data['Pointer'].quantile(.95), )
+    indices_to_drop = []
+    for i, j in enumerate(data_after_outlier_analysis):
         if not j:
-            to_rem.append(i)
-    compiled_data = compiled_data.drop(to_rem)
+            indices_to_drop.append(i)
+    compiled_data = compiled_data.drop(indices_to_drop)
     compiled_data.reset_index(drop=True, inplace=True)
 
-    values = [compiled_data.iloc[-1, 2]]
+    values = [compiled_data.iloc[-1, 2]]  # Actual Value
     for feature in Features:
         values.append(SVM1(compiled_data, feature.value))
         values.append(MLR1(compiled_data, feature.value))

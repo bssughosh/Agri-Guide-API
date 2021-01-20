@@ -24,6 +24,7 @@ users = {
 @auth.verify_password
 def verify_password(username, password):
     if username in users and check_password_hash(users.get(username), password):
+        print('Authenticated')
         return username
 
 
@@ -52,6 +53,8 @@ def weather():
 
         if file not in files3:
             rain_caller(state, dist)
+
+        print(f'All weather for state = {state} and district = {dist}')
 
         df1 = pd.read_csv(f'outputs/temp/{file}')
         df2 = pd.read_csv(f'outputs/humidity/{file}')
@@ -268,5 +271,4 @@ def get_crops():
 
     return jsonify({'crops': crops}), 200
 
-
-app.run(port=4999)
+# app.run(port=4999)
