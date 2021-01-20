@@ -69,36 +69,6 @@ def weather():
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
-@app.route('/weather1/<string:state>/<string:dist>')
-def weather1(state, dist):
-    files1 = os.listdir('outputs/temp')
-
-    file = dist + ',' + state + '.csv'
-    if file in files1:
-        df1 = pd.read_csv(f'outputs/humidity/{file}')
-
-        my_values = {
-            'humidity': df1['Predicted'].to_list(),
-
-        }
-
-        return jsonify(my_values), 200
-
-    else:
-        try:
-            humidity_caller(state, dist)
-
-            df1 = pd.read_csv(f'outputs/humidity/{file}')
-
-            my_values = {
-                'humidity': df1['Predicted'].to_list(),
-
-            }
-            return jsonify(my_values), 200
-        except FileNotFoundError:
-            return jsonify({'message': 'The requested location cannot be processed'}), 404
-
-
 @app.route('/weather/downloads')
 def download_weather_filters():
     """
@@ -150,54 +120,9 @@ def download_weather_filters():
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
-@app.route('/weather/file1')
-@auth.login_required
-def download_temp_file():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
-    if state is None or dist is None:
-        return jsonify({'message': 'The requested location cannot be processed'}), 404
-
-    file = f'{dist},{state}.csv'
-    if file in os.listdir('outputs/temp'):
-        return send_from_directory('outputs/temp', f'{dist},{state}.csv', as_attachment=True)
-    else:
-        return jsonify({'message': 'File not found'}), 404
-
-
-@app.route('/weather/file2')
-@auth.login_required
-def download_humidity_file():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
-    if state is None or dist is None:
-        return jsonify({'message': 'The requested location cannot be processed'}), 404
-
-    file = f'{dist},{state}.csv'
-    if file in os.listdir('outputs/humidity'):
-        return send_from_directory('outputs/humidity', f'{dist},{state}.csv', as_attachment=True)
-    else:
-        return jsonify({'message': 'File not found'}), 404
-
-
-@app.route('/weather/file3')
-@auth.login_required
-def download_rainfall_file():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
-    if state is None or dist is None:
-        return jsonify({'message': 'The requested location cannot be processed'}), 404
-
-    file = f'{dist},{state}.csv'
-    if file in os.listdir('outputs/rainfall'):
-        return send_from_directory('outputs/rainfall', f'{dist},{state}.csv', as_attachment=True)
-    else:
-        return jsonify({'message': 'File not found'}), 404
-
-
 @app.route('/weather/files')
 @auth.login_required
-def download_files():
+def download_weather_predicted_files():
     state = request.args.get('state')
     dist = request.args.get('dist')
     if state is None or dist is None:
