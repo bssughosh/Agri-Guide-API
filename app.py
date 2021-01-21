@@ -261,8 +261,8 @@ def get_dist_for_dist_id():
     return jsonify({'dists': res}), 200
 
 
-@app.route('/get_types_of_crops')
-def get_types_of_crops():
+@app.route('/get_seasons')
+def get_seasons():
     state = request.args.get('state')
     dist = request.args.get('dist')
     print(f'/get_types_of_crops endpoint called with state={state} and '
@@ -290,12 +290,18 @@ def get_crops():
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
     file = 'found1_all_18.csv'
     df = pd.read_csv(base_url + file)
+    all_crops = list(df['Crop'].unique())
+    all_crops_dict = {}
+    for i, crop in enumerate(all_crops):
+        all_crops_dict[crop] = str(i)
+
     df1 = df[df['State'] == state]
     df1 = df1[df1['District'] == dist]
     df1 = df1[df1['Season'] == season]
     crops = []
     if df1.shape[0] > 0:
         crops = list(df1['Crop'].unique())
+        crops = [all_crops_dict[crop] for crop in crops]
 
     return jsonify({'crops': crops}), 200
 
@@ -314,9 +320,7 @@ def predict_yield():
 
     files = os.listdir('outputs/yield')
 
-    removeSpecialChars = crop.translate({ord(c): " " for c in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
-
-    file = dist + ',' + state + ',' + season + ',' + removeSpecialChars + '.csv'
+    file = dist + ',' + state + ',' + season + ',' + crop + '.csv'
     try:
         if file not in files:
             yield_caller(state, dist, season, crop)
