@@ -287,6 +287,8 @@ def yield_caller(state, dist, season, crop_id):
     for i, crop in enumerate(all_crops):
         all_crops_dict[str(i)] = crop
 
+    print(f'yield_caller was called with crop name={all_crops_dict[crop_id]}')
+
     file1 = 'yield/Master_data_1.csv'
 
     mas = pd.read_csv(base_url + file1)
