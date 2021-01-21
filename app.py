@@ -298,12 +298,13 @@ def get_crops():
     df1 = df[df['State'] == state]
     df1 = df1[df1['District'] == dist]
     df1 = df1[df1['Season'] == season]
-    crops = []
+    crops_res = []
     if df1.shape[0] > 0:
         crops = list(df1['Crop'].unique())
-        crops = [all_crops_dict[crop] for crop in crops]
+        for crop in crops:
+            crops_res.append({'crop_id': all_crops_dict[crop], 'name': crop, })
 
-    return jsonify({'crops': crops}), 200
+    return jsonify({'crops': crops_res}), 200
 
 
 @app.route('/yield')
