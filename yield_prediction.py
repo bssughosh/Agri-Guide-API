@@ -274,11 +274,19 @@ def ANN2(data, selected_season, feature_set, state, dist):
     return predicted_new[-1]
 
 
-def yield_caller(state, dist, season, crop):
+def yield_caller(state, dist, season, crop_id):
     dist1 = dist.replace('+', ' ')
     state1 = state.replace('+', ' ')
 
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/'
+    file = 'yield/found1_all_18.csv'
+
+    df = pd.read_csv(base_url + file)
+    all_crops = list(df['Crop'].unique())
+    all_crops_dict = {}
+    for i, crop in enumerate(all_crops):
+        all_crops_dict[str(i)] = crop
+
     file1 = 'yield/Master_data_1.csv'
 
     mas = pd.read_csv(base_url + file1)
@@ -292,7 +300,7 @@ def yield_caller(state, dist, season, crop):
         mas1[col] = mas1[col].apply(lambda x: x.strip())
 
     mas2 = mas1[mas1['Season'] == season]
-    mas2 = mas2[mas2['Crop'] == crop]
+    mas2 = mas2[mas2['Crop'] == all_crops_dict[crop_id]]
 
     mas2.reset_index(drop=True, inplace=True)
 
@@ -397,6 +405,4 @@ def yield_caller(state, dist, season, crop):
     values = np.array([round(res, 3), ]).reshape(-1, 1)
     values = pd.DataFrame(values, columns=['Predicted'])
 
-    removeSpecialChars = crop.translate({ord(c): " " for c in "!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
-
-    values.to_csv(f'outputs/yield/{dist},{state},{season},{removeSpecialChars}.csv', index=False, header=True)
+    values.to_csv(f'outputs/yield/{dist},{state},{season},{crop_id}.csv', index=False, header=True)
