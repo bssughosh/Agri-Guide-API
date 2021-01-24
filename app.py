@@ -42,6 +42,12 @@ def weather():
     print(f'/weather endpoint called with state={state} and dist={dist}')
     if state is None or dist is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
+
+    if state == 'Test' and dist == 'Test':
+        return jsonify({'temperature': [1, ],
+                        'humidity': [2, ],
+                        'rainfall': [3, ]})
+
     files1 = os.listdir('outputs/temp')
     files2 = os.listdir('outputs/humidity')
     files3 = os.listdir('outputs/rainfall')
@@ -168,6 +174,7 @@ def preprocessing(s):
 
 @app.route('/get_states')
 def get_state():
+    isTest = request.args.get('isTest')
     print(f'/get_states endpoint called')
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
@@ -183,6 +190,9 @@ def get_state():
         t = {'id': str(i + 1), 'name': j}
         res1.append(t)
 
+    if isTest == 'true':
+        return jsonify({'state': [{'id': 'Test', 'name': 'Test'}, ]})
+
     res['state'] = res1
     return jsonify(res), 200
 
@@ -197,6 +207,8 @@ def get_state_for_state_id():
         state_id = state_id[0].split(',')
         state_id = [(int(s) - 1) for s in state_id]
     print(f'/get_state_value endpoint called with state_id={state_id}')
+    if state_id == [1000, ]:
+        return jsonify({'states': ['Test', ]})
     states = list(df['State'].unique())
     res = []
     for s in state_id:
@@ -214,6 +226,8 @@ def get_dist():
         return jsonify({'message': 'State ID not found'}), 404
     try:
         state_id = int(state_id)
+        if state_id == 1000:
+            return jsonify({'district': [{'id': 'Test', 'state_id': 'Test', 'name': 'Test'}, ]})
     except ValueError:
         return jsonify({'message': 'State ID not found'}), 404
 
@@ -251,6 +265,8 @@ def get_dist_for_dist_id():
         dist_id = dist_id[0].split(',')
         dist_id = [int(d) for d in dist_id]
     print(f'/get_dist_value endpoint called with dist_id={dist_id}')
+    if dist_id == [1000, ]:
+        return jsonify({'dists': ['Test', ]})
     dists = list(df['District'])
     res = []
     for d in dist_id:
@@ -267,6 +283,8 @@ def get_seasons():
     dist = request.args.get('dist')
     print(f'/get_types_of_crops endpoint called with state={state} and '
           f'dist={dist}')
+    if state == 'Test' and dist == 'Test':
+        return jsonify({'seasons': ['Test', ]})
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
     file = 'found1_all_18.csv'
     df = pd.read_csv(base_url + file)
@@ -286,7 +304,8 @@ def get_crops():
     season = request.args.get('season')
     print(f'/get_crops endpoint called with state={state}, '
           f'dist={dist} and season={season}')
-
+    if state == 'Test' and dist == 'Test' and season == 'Test':
+        return jsonify({'crops': [{'crop_id': 'Test', 'name': 'Test', }, ]})
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
     file = 'found1_all_18.csv'
     df = pd.read_csv(base_url + file)
@@ -318,7 +337,8 @@ def predict_yield():
 
     print(f'/yield endpoint called with state={state}, '
           f'dist={dist}, season={season} and crop={crop}')
-
+    if state == 'Test' and dist == 'Test' and season == 'Test' and crop == 'Test':
+        return jsonify({'yield': [1.0, ]})
     files = os.listdir('outputs/yield')
 
     file = dist + ',' + state + ',' + season + ',' + crop + '.csv'
