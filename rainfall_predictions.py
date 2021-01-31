@@ -53,7 +53,8 @@ def rain_caller(state, dist):
     temp1 = temp1[temp1['District'] == dist1]
     temp1.reset_index(drop=True, inplace=True)
 
-    file3 = f'{dist},{state}.csv'
+    file3 = dist + '%2C' + state + '.csv'
+    file3 = file3.replace('+', '%2B')
 
     humidity = pd.read_csv(base_url + file3)
 
@@ -3094,5 +3095,3 @@ def rain_caller(state, dist):
     values['Month'] = range(1, 13)
 
     values.to_csv(f'outputs/rainfall/{dist},{state}.csv', index=False, header=True)
-
-
