@@ -9,7 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from humidity_predictions import humidity_caller
 from rainfall_predictions import rain_caller
-from statistics_data_fetcher import fetch_rainfall_whole_data, fetch_temp_whole_data
+from statistics_data_fetcher import fetch_rainfall_whole_data, fetch_temp_whole_data, fetch_humidity_whole_data
 from temp_predictions import temperature_caller
 from weather_filters import multiple_states, single_loc, multiple_dists
 from yield_prediction import yield_caller
@@ -370,7 +370,7 @@ def generate_statistics_data():
     if state is None or dist is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
-    print(f'/statistics_data endpoint called with state={state} and'
+    print(f'/statistics_data endpoint called with state={state} and '
           f'dist={dist}')
 
     if state == 'Test' and dist == 'Test':
@@ -379,8 +379,10 @@ def generate_statistics_data():
     try:
         rain = fetch_rainfall_whole_data(state, dist)
         temp = fetch_temp_whole_data(state, dist)
+        humidity = fetch_humidity_whole_data(state, dist)
 
         res['temperature'] = temp
+        res['humidity'] = humidity
         res['rainfall'] = rain
     except:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
