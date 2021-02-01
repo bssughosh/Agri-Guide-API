@@ -40,6 +40,8 @@ def home():
 def weather():
     state = request.args.get('state')
     dist = request.args.get('dist')
+    state = state.replace(' ', '+')
+    dist = dist.replace(' ', '+')
     print(f'/weather endpoint called with state={state} and dist={dist}')
     if state is None or dist is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
@@ -98,8 +100,10 @@ def download_weather_filters():
     try:
         if len(states) == 1:
             states = states[0].split(',')
+            states = [state.replace(' ', '+') for state in states]
         if len(dists) == 1:
             dists = dists[0].split(',')
+            dists = [dist.replace(' ', '+') for dist in dists]
         if len(years) == 1:
             years = years[0].split(',')
             years = [int(i) for i in years]
@@ -144,6 +148,9 @@ def download_weather_filters():
 def download_weather_predicted_files():
     state = request.args.get('state')
     dist = request.args.get('dist')
+    state = state.replace(' ', '+')
+    dist = dist.replace(' ', '+')
+
     print(f'/weather/files endpoint called with state={state} and '
           f'dist={dist}')
     if state is None or dist is None:
@@ -333,6 +340,9 @@ def predict_yield():
     dist = request.args.get('dist')
     season = request.args.get('season')
     crop = request.args.get('crop')
+
+    state = state.replace(' ', '+')
+    dist = dist.replace(' ', '+')
     if state is None or dist is None or season is None or crop is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
@@ -366,6 +376,9 @@ def predict_yield():
 def generate_statistics_data():
     state = request.args.get('state')
     dist = request.args.get('dist')
+
+    state = state.replace(' ', '+')
+    dist = dist.replace(' ', '+')
 
     if state is None or dist is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404

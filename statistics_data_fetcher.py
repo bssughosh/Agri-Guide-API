@@ -51,7 +51,7 @@ def fetch_temp_whole_data(state, dist):
 def fetch_humidity_whole_data(state, dist):
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = dist + '%2C' + state + '.csv'
-    file = file.replace(' ', '%2B')
+    file = file.replace('+', '%2B')
     print(base_url + file)
     humidity = pd.read_csv(base_url + file)
 
