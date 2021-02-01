@@ -33,6 +33,17 @@ _keyNameYield = 'yield'
 _keyNameName = 'name'
 _keyNameCropId = 'crop_id'
 
+_queryParamState = 'state'
+_queryParamDist = 'dist'
+_queryParamStates = 'states'
+_queryParamDists = 'dists'
+_queryParamYears = 'years'
+_queryParamParams = 'params'
+_queryParamStateId = 'state_id'
+_queryParamDistId = 'dist_id'
+_queryParamSeason = 'season'
+_queryParamCrop = 'crop'
+
 users = {
     "sughosh": generate_password_hash("hello")
 }
@@ -53,8 +64,8 @@ def home():
 
 @app.route('/weather')
 def weather():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
     state = state.replace(' ', '+')
     dist = dist.replace(' ', '+')
     print(f'/weather endpoint called with state={state} and dist={dist}')
@@ -108,10 +119,10 @@ def download_weather_filters():
     params: temp,humidity,rainfall\n
     :return: ZIP file containing the required CSV files
     """
-    states = request.args.getlist('states')
-    dists = request.args.getlist('dists')
-    years = request.args.getlist('years')
-    params = request.args.getlist('params')
+    states = request.args.getlist(_queryParamStates)
+    dists = request.args.getlist(_queryParamDists)
+    years = request.args.getlist(_queryParamYears)
+    params = request.args.getlist(_queryParamParams)
     try:
         if len(states) == 1:
             states = states[0].split(',')
@@ -161,8 +172,8 @@ def download_weather_filters():
 @app.route('/weather/files')
 @auth.login_required
 def download_weather_predicted_files():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
     state = state.replace(' ', '+')
     dist = dist.replace(' ', '+')
 
@@ -222,7 +233,7 @@ def get_state():
 
 @app.route('/get_state_value')
 def get_state_for_state_id():
-    state_id = request.args.getlist('state_id')
+    state_id = request.args.getlist(_queryParamStateId)
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
     df = pd.read_csv(base_url + file)
@@ -244,7 +255,7 @@ def get_state_for_state_id():
 
 @app.route('/get_dists')
 def get_dist():
-    state_id = request.args.get('state_id')
+    state_id = request.args.get(_queryParamStateId)
     if state_id is None:
         return jsonify({'message': 'State ID not found'}), 404
     try:
@@ -280,7 +291,7 @@ def get_dist():
 
 @app.route('/get_dist_value')
 def get_dist_for_dist_id():
-    dist_id = request.args.getlist('dist_id')
+    dist_id = request.args.getlist(_queryParamDistId)
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
     df = pd.read_csv(base_url + file)
@@ -302,8 +313,8 @@ def get_dist_for_dist_id():
 
 @app.route('/get_seasons')
 def get_seasons():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
     print(f'/get_types_of_crops endpoint called with state={state} and '
           f'dist={dist}')
     if state == 'Test' and dist == 'Test':
@@ -322,9 +333,9 @@ def get_seasons():
 
 @app.route('/get_crops')
 def get_crops():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
-    season = request.args.get('season')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+    season = request.args.get(_queryParamSeason)
     print(f'/get_crops endpoint called with state={state}, '
           f'dist={dist} and season={season}')
     if state == 'Test' and dist == 'Test' and season == 'Test':
@@ -351,10 +362,10 @@ def get_crops():
 
 @app.route('/yield')
 def predict_yield():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
-    season = request.args.get('season')
-    crop = request.args.get('crop')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+    season = request.args.get(_queryParamSeason)
+    crop = request.args.get(_queryParamCrop)
 
     state = state.replace(' ', '+')
     dist = dist.replace(' ', '+')
@@ -389,8 +400,8 @@ def predict_yield():
 
 @app.route('/statistics_data')
 def generate_statistics_data():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
 
     state = state.replace(' ', '+')
     dist = dist.replace(' ', '+')
@@ -418,5 +429,4 @@ def generate_statistics_data():
 
     return jsonify(res), 200
 
-
-app.run(port=4999)
+# app.run(port=4999)
