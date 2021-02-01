@@ -429,4 +429,5 @@ def generate_statistics_data():
 
     return jsonify(res), 200
 
-# app.run(port=4999)
+
+app.run(port=4999)
