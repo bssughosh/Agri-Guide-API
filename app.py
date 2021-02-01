@@ -18,6 +18,32 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()
 CORS(app)
 
+_keyNameTemperature = 'temperature'
+_keyNameHumidity = 'humidity'
+_keyNameRainfall = 'rainfall'
+_keyNameDists = 'dists'
+_keyNameDistrict = 'district'
+_keyNameState = 'state'
+_keyNameStates = 'states'
+_keyNameId = 'id'
+_keyNameStateId = 'state_id'
+_keyNameSeasons = 'seasons'
+_keyNameCrops = 'crops'
+_keyNameYield = 'yield'
+_keyNameName = 'name'
+_keyNameCropId = 'crop_id'
+
+_queryParamState = 'state'
+_queryParamDist = 'dist'
+_queryParamStates = 'states'
+_queryParamDists = 'dists'
+_queryParamYears = 'years'
+_queryParamParams = 'params'
+_queryParamStateId = 'state_id'
+_queryParamDistId = 'dist_id'
+_queryParamSeason = 'season'
+_queryParamCrop = 'crop'
+
 users = {
     "sughosh": generate_password_hash("hello")
 }
@@ -38,16 +64,18 @@ def home():
 
 @app.route('/weather')
 def weather():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+    state = state.replace(' ', '+')
+    dist = dist.replace(' ', '+')
     print(f'/weather endpoint called with state={state} and dist={dist}')
     if state is None or dist is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
     if state == 'Test' and dist == 'Test':
-        return jsonify({'temperature': [1, ],
-                        'humidity': [2, ],
-                        'rainfall': [3, ]})
+        return jsonify({_keyNameTemperature: [1, ],
+                        _keyNameHumidity: [2, ],
+                        _keyNameRainfall: [3, ]})
 
     files1 = os.listdir('outputs/temp')
     files2 = os.listdir('outputs/humidity')
@@ -71,9 +99,9 @@ def weather():
         df3 = pd.read_csv(f'outputs/rainfall/{file}')
 
         my_values = {
-            'temperature': df1['Predicted'].to_list(),
-            'humidity': df2['Predicted'].to_list(),
-            'rainfall': df3['Predicted'].round(2).to_list()
+            _keyNameTemperature: df1['Predicted'].to_list(),
+            _keyNameHumidity: df2['Predicted'].to_list(),
+            _keyNameRainfall: df3['Predicted'].round(2).to_list()
         }
 
         return jsonify(my_values), 200
@@ -91,15 +119,17 @@ def download_weather_filters():
     params: temp,humidity,rainfall\n
     :return: ZIP file containing the required CSV files
     """
-    states = request.args.getlist('states')
-    dists = request.args.getlist('dists')
-    years = request.args.getlist('years')
-    params = request.args.getlist('params')
+    states = request.args.getlist(_queryParamStates)
+    dists = request.args.getlist(_queryParamDists)
+    years = request.args.getlist(_queryParamYears)
+    params = request.args.getlist(_queryParamParams)
     try:
         if len(states) == 1:
             states = states[0].split(',')
+            states = [state.replace(' ', '+') for state in states]
         if len(dists) == 1:
             dists = dists[0].split(',')
+            dists = [dist.replace(' ', '+') for dist in dists]
         if len(years) == 1:
             years = years[0].split(',')
             years = [int(i) for i in years]
@@ -142,8 +172,11 @@ def download_weather_filters():
 @app.route('/weather/files')
 @auth.login_required
 def download_weather_predicted_files():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+    state = state.replace(' ', '+')
+    dist = dist.replace(' ', '+')
+
     print(f'/weather/files endpoint called with state={state} and '
           f'dist={dist}')
     if state is None or dist is None:
@@ -188,19 +221,19 @@ def get_state():
     states = list(df['State'].unique())
 
     for i, j in enumerate(states):
-        t = {'id': str(i + 1), 'name': j}
+        t = {_keyNameId: str(i + 1), _keyNameName: j}
         res1.append(t)
 
     if isTest == 'true':
-        return jsonify({'state': [{'id': 'Test', 'name': 'Test'}, ]})
+        return jsonify({_keyNameState: [{_keyNameId: 'Test', _keyNameName: 'Test'}, ]})
 
-    res['state'] = res1
+    res[_keyNameState] = res1
     return jsonify(res), 200
 
 
 @app.route('/get_state_value')
 def get_state_for_state_id():
-    state_id = request.args.getlist('state_id')
+    state_id = request.args.getlist(_queryParamStateId)
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
     df = pd.read_csv(base_url + file)
@@ -209,7 +242,7 @@ def get_state_for_state_id():
         state_id = [(int(s) - 1) for s in state_id]
     print(f'/get_state_value endpoint called with state_id={state_id}')
     if state_id == [1000, ]:
-        return jsonify({'states': ['Test', ]})
+        return jsonify({_keyNameStates: ['Test', ]})
     states = list(df['State'].unique())
     res = []
     for s in state_id:
@@ -217,18 +250,18 @@ def get_state_for_state_id():
 
     print(f'/get_state_value endpoint returned => {res}')
 
-    return jsonify({'states': res}), 200
+    return jsonify({_keyNameStates: res}), 200
 
 
 @app.route('/get_dists')
 def get_dist():
-    state_id = request.args.get('state_id')
+    state_id = request.args.get(_queryParamStateId)
     if state_id is None:
         return jsonify({'message': 'State ID not found'}), 404
     try:
         state_id = int(state_id)
         if state_id == 1000:
-            return jsonify({'district': [{'id': 'Test', 'state_id': 'Test', 'name': 'Test'}, ]})
+            return jsonify({_keyNameDistrict: [{_keyNameId: 'Test', _keyNameStateId: 'Test', _keyNameName: 'Test'}, ]})
     except ValueError:
         return jsonify({'message': 'State ID not found'}), 404
 
@@ -249,16 +282,16 @@ def get_dist():
             k += 1
             p = j[0]
         if state_id == k:
-            t = {'id': str(i), 'state_id': str(k), 'name': j[1]}
+            t = {_keyNameId: str(i), _keyNameStateId: str(k), _keyNameName: j[1]}
             res1.append(t)
 
-    res['district'] = res1
+    res[_keyNameDistrict] = res1
     return jsonify(res), 200
 
 
 @app.route('/get_dist_value')
 def get_dist_for_dist_id():
-    dist_id = request.args.getlist('dist_id')
+    dist_id = request.args.getlist(_queryParamDistId)
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = 'places.csv'
     df = pd.read_csv(base_url + file)
@@ -267,7 +300,7 @@ def get_dist_for_dist_id():
         dist_id = [int(d) for d in dist_id]
     print(f'/get_dist_value endpoint called with dist_id={dist_id}')
     if dist_id == [1000, ]:
-        return jsonify({'dists': ['Test', ]})
+        return jsonify({_keyNameDists: ['Test', ]})
     dists = list(df['District'])
     res = []
     for d in dist_id:
@@ -275,17 +308,17 @@ def get_dist_for_dist_id():
 
     print(f'/get_dist_value endpoint returned => {res}')
 
-    return jsonify({'dists': res}), 200
+    return jsonify({_keyNameDists: res}), 200
 
 
 @app.route('/get_seasons')
 def get_seasons():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
     print(f'/get_types_of_crops endpoint called with state={state} and '
           f'dist={dist}')
     if state == 'Test' and dist == 'Test':
-        return jsonify({'seasons': ['Test', ]})
+        return jsonify({_keyNameSeasons: ['Test', ]})
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
     file = 'found1_all_18.csv'
     df = pd.read_csv(base_url + file)
@@ -295,18 +328,18 @@ def get_seasons():
     if df1.shape[0] > 0:
         seasons = list(df1['Season'].unique())
 
-    return jsonify({'seasons': seasons}), 200
+    return jsonify({_keyNameSeasons: seasons}), 200
 
 
 @app.route('/get_crops')
 def get_crops():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
-    season = request.args.get('season')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+    season = request.args.get(_queryParamSeason)
     print(f'/get_crops endpoint called with state={state}, '
           f'dist={dist} and season={season}')
     if state == 'Test' and dist == 'Test' and season == 'Test':
-        return jsonify({'crops': [{'crop_id': 'Test', 'name': 'Test', }, ]})
+        return jsonify({_keyNameCrops: [{_keyNameCropId: 'Test', _keyNameName: 'Test', }, ]})
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
     file = 'found1_all_18.csv'
     df = pd.read_csv(base_url + file)
@@ -322,24 +355,27 @@ def get_crops():
     if df1.shape[0] > 0:
         crops = list(df1['Crop'].unique())
         for crop in crops:
-            crops_res.append({'crop_id': all_crops_dict[crop], 'name': crop, })
+            crops_res.append({_keyNameCropId: all_crops_dict[crop], _keyNameName: crop, })
 
-    return jsonify({'crops': crops_res}), 200
+    return jsonify({_keyNameCrops: crops_res}), 200
 
 
 @app.route('/yield')
 def predict_yield():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
-    season = request.args.get('season')
-    crop = request.args.get('crop')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+    season = request.args.get(_queryParamSeason)
+    crop = request.args.get(_queryParamCrop)
+
+    state = state.replace(' ', '+')
+    dist = dist.replace(' ', '+')
     if state is None or dist is None or season is None or crop is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
     print(f'/yield endpoint called with state={state}, '
           f'dist={dist}, season={season} and crop={crop}')
     if state == 'Test' and dist == 'Test' and season == 'Test' and crop == 'Test':
-        return jsonify({'yield': [1.0, ]})
+        return jsonify({_keyNameYield: [1.0, ]})
     files = os.listdir('outputs/yield')
 
     file = dist + ',' + state + ',' + season + ',' + crop + '.csv'
@@ -353,7 +389,7 @@ def predict_yield():
         df1 = pd.read_csv(f'outputs/yield/{file}')
 
         my_values = {
-            'yield': df1['Predicted'].to_list(),
+            _keyNameYield: df1['Predicted'].to_list(),
         }
 
         return jsonify(my_values), 200
@@ -364,8 +400,11 @@ def predict_yield():
 
 @app.route('/statistics_data')
 def generate_statistics_data():
-    state = request.args.get('state')
-    dist = request.args.get('dist')
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+
+    state = state.replace(' ', '+')
+    dist = dist.replace(' ', '+')
 
     if state is None or dist is None:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
@@ -374,16 +413,17 @@ def generate_statistics_data():
           f'dist={dist}')
 
     if state == 'Test' and dist == 'Test':
-        return jsonify({'temperature': [{'y1': 'Test'}], 'humidity': [{'y1': 'Test'}], 'rainfall': [{'y1': 'Test'}]})
+        return jsonify({_keyNameTemperature: [{'y1': 'Test'}], _keyNameHumidity: [{'y1': 'Test'}],
+                        _keyNameRainfall: [{'y1': 'Test'}, ]})
     res = {}
     try:
         rain = fetch_rainfall_whole_data(state, dist)
         temp = fetch_temp_whole_data(state, dist)
         humidity = fetch_humidity_whole_data(state, dist)
 
-        res['temperature'] = temp
-        res['humidity'] = humidity
-        res['rainfall'] = rain
+        res[_keyNameTemperature] = temp
+        res[_keyNameHumidity] = humidity
+        res[_keyNameRainfall] = rain
     except:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
