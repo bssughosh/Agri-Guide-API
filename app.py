@@ -429,4 +429,7 @@ def generate_statistics_data():
 
     return jsonify(res), 200
 
+
 # app.run(port=4999)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=4999, debug=True)
