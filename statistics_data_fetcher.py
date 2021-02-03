@@ -71,6 +71,7 @@ def fetch_humidity_whole_data(state, dist):
     res = []
 
     for i, j in h3.iterrows():
-        res.append({str(int(j[0])): round(j[1], 0)})
+        if int(j[0]) < 2020:
+            res.append({str(int(j[0])): round(j[1], 0)})
 
     return res
