@@ -1,13 +1,12 @@
+import multiprocessing
 import os
 import time
 
 import pandas as pd
 
 from humidity_predictions import humidity_caller
-from rainfall_predictions import rain_caller
+from rainfall_predictions_new import rain_caller
 from temp_predictions import temperature_caller
-
-# import multiprocessing
 
 base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
 places_file = 'places.csv'
@@ -25,22 +24,48 @@ for state, dist in zip(all_states, all_dists):
     try:
         file = dist + ',' + state + '.csv'
         print(f'Started for {dist},{state}')
-        t0 = time.time()
+        tempP = False
+        humidP = False
+        rainP = False
         if file not in files1:
-            temperature_caller(state, dist)
+            tempP = True
 
-        print(f'Temperature prediction for {dist},{state} is done in {time.time() - t0}')
+        if file not in files2:
+            humidP = True
+
+        if file not in files3:
+            rainP = True
+        p1 = multiprocessing.Process(temperature_caller, args=(state, dist,), )
+        p2 = multiprocessing.Process(humidity_caller, args=(state, dist,), )
+        p3 = multiprocessing.Process(rain_caller, args=(state, dist,), )
+
+        t0 = time.time()
+        if tempP:
+            p1.start()
+        else:
+            print(f'Temperature prediction for {dist},{state} is done')
 
         t1 = time.time()
-        if file not in files2:
-            humidity_caller(state, dist)
-
-        print(f'Humidity prediction for {dist},{state} is done in {time.time() - t1}')
+        if humidP:
+            p2.start()
+        else:
+            print(f'Humidity prediction for {dist},{state} is done')
 
         t2 = time.time()
-        if file not in files3:
-            rain_caller(state, dist)
+        if rainP:
+            p3.start()
+        else:
+            print(f'Rainfall prediction for {dist},{state} is done')
 
-        print(f'Rainfall prediction for {dist},{state} is done in {time.time() - t2}')
+        if p1.is_alive():
+            p1.join()
+            print(f'Temperature prediction for {dist},{state} is done in {time.time() - t0}')
+        if p2.is_alive():
+            p2.join()
+            print(f'Humidity prediction for {dist},{state} is done in {time.time() - t1}')
+        if p3.is_alive():
+            p3.join()
+            print(f'Rainfall prediction for {dist},{state} is done in {time.time() - t2}')
+
     except:
         print(f'Exception occurred for {dist},{state}')
