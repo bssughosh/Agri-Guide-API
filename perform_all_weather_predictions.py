@@ -1,4 +1,5 @@
 import os
+import time
 
 import pandas as pd
 
@@ -23,19 +24,23 @@ files3 = os.listdir('outputs/rainfall')
 for state, dist in zip(all_states, all_dists):
     try:
         file = dist + ',' + state + '.csv'
+        print(f'Started for {dist},{state}')
+        t0 = time.time()
         if file not in files1:
             temperature_caller(state, dist)
 
-        print(f'Temperature prediction for {dist},{state} is done')
+        print(f'Temperature prediction for {dist},{state} is done in {time.time() - t0}')
 
+        t1 = time.time()
         if file not in files2:
             humidity_caller(state, dist)
 
-        print(f'Humidity prediction for {dist},{state} is done')
+        print(f'Humidity prediction for {dist},{state} is done in {time.time() - t1}')
 
+        t2 = time.time()
         if file not in files3:
             rain_caller(state, dist)
 
-        print(f'Rainfall prediction for {dist},{state} is done')
+        print(f'Rainfall prediction for {dist},{state} is done in {time.time() - t2}')
     except:
         print(f'Exception occurred for {dist},{state}')
