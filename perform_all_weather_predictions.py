@@ -35,9 +35,9 @@ for state, dist in zip(all_states, all_dists):
 
         if file not in files3:
             rainP = True
-        p1 = multiprocessing.Process(temperature_caller, args=(state, dist,), )
-        p2 = multiprocessing.Process(humidity_caller, args=(state, dist,), )
-        p3 = multiprocessing.Process(rain_caller, args=(state, dist,), )
+        p1 = multiprocessing.Process(target=temperature_caller, args=(state, dist,), )
+        p2 = multiprocessing.Process(target=humidity_caller, args=(state, dist,), )
+        p3 = multiprocessing.Process(target=rain_caller, args=(state, dist,), )
 
         t0 = time.time()
         if tempP:
