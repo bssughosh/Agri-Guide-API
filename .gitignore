@@ -1,5 +1,5 @@
 *.zip
 .ipynb_checkpoints
-temp/
 .pytest_cache/
 filter_outputs/
+__pycache__/
