@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo apt update
 sudo apt install bzip2 libxml2-dev libsm6 libxrender1 libfontconfig1 wget
+cd
 wget https://repo.anaconda.com/miniconda/Miniconda3-4.7.10-Linux-x86_64.sh
 bash Miniconda3-4.7.10-Linux-x86_64.sh
 source ~/.bashrc
