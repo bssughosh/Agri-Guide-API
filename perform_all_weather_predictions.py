@@ -22,6 +22,8 @@ files3 = os.listdir('outputs/rainfall')
 
 for state, dist in zip(all_states, all_dists):
     exception_file = pd.read_csv('outputs/exceptions.csv')
+    if state == 'gujarat':
+        continue
     try:
         file = dist + ',' + state + '.csv'
         print(f'Started for {dist},{state}')
