@@ -27,12 +27,18 @@ for state, dist in zip(all_states, all_dists):
         print(f'Started for {dist},{state}')
         t0 = time.time()
         if file not in files1:
-            temperature_caller(state, dist)
+            exception_file_1 = exception_file[exception_file['State'] == state]
+            exception_file_1 = exception_file_1[exception_file_1['District'] == dist]
+            if exception_file_1.shape[0] == 0:
+                temperature_caller(state, dist)
         print(f'Temperature prediction for {dist},{state} is done in {time.time() - t0}')
 
         t1 = time.time()
         if file not in files2:
-            humidity_caller(state, dist)
+            exception_file_1 = exception_file[exception_file['State'] == state]
+            exception_file_1 = exception_file_1[exception_file_1['District'] == dist]
+            if exception_file_1.shape[0] == 0:
+                humidity_caller(state, dist)
         print(f'Humidity prediction for {dist},{state} is done in {time.time() - t1}')
 
         t2 = time.time()
