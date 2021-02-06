@@ -1,5 +1,6 @@
 import os
 import time
+from collections import Counter
 from csv import writer
 
 import pandas as pd
@@ -20,12 +21,25 @@ files1 = os.listdir('outputs/temp')
 files2 = os.listdir('outputs/humidity')
 files3 = os.listdir('outputs/rainfall')
 
+total_count = 0
+states_total = Counter(all_states)
+states_count = 0
+previous_state = all_states[0]
+
 for state, dist in zip(all_states, all_dists):
     exception_file = pd.read_csv('outputs/exceptions.csv')
+    total_count = total_count + 1
+    if previous_state == state:
+        states_count = states_count + 1
+    else:
+        previous_state = state
+        states_count = 1
     if state == 'gujarat':
         continue
     try:
         file = dist + ',' + state + '.csv'
+        print(f'Overall Count => {total_count}/{len(all_dists)}')
+        print(f'State Count => {states_count}/{states_total[state]}')
         print(f'Started for {dist},{state}')
         t0 = time.time()
         if file not in files1:
