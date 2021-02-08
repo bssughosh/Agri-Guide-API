@@ -1,6 +1,8 @@
 sudo apt update
 sudo apt install git bzip2 libxml2-dev libsm6 libxrender1 libfontconfig1 wget
 git clone https://github.com/bssughosh/Agri-Guide-API.git
+git config --global user.email "bssughosh27@gmail.com"
+git config --global user.name "Sughosh Sudhanvan"
 wget https://repo.anaconda.com/miniconda/Miniconda3-4.7.10-Linux-x86_64.sh
 bash Miniconda3-4.7.10-Linux-x86_64.sh => in the last step, type yes for conda init... leave rest as defaults
 source ~/.bashrc => you should be activated as base conda
