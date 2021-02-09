@@ -48,6 +48,22 @@ def merge_rain_and_temp(_x1, _t1):
     return _r
 
 
+def find_second_last_year(_r):
+    years = list(_r['Year'])
+    if years[-1] == '2019':
+        return years[-3]
+    else:
+        return years[-2]
+
+
+def find_last_year(_r):
+    years = list(_r['Year'])
+    if years[-1] == '2019':
+        return years[-2]
+    else:
+        return years[-1]
+
+
 def rain_caller(state, dist):
     dist1 = dist.replace('+', ' ')
     state1 = state.replace('+', ' ')
@@ -86,17 +102,20 @@ def rain_caller(state, dist):
     monthly_averages[['humidity']] = monthly_averages[['humidity']].astype('int8')
     h2 = monthly_averages
 
+    last_year = int(find_last_year(rain1))
+    second_last_year = int(find_second_last_year(rain1))
+
     humidity_2018 = []
     k = 1
     for i, j in h2.iterrows():
-        if int(j[0]) == 2018:
+        if int(j[0]) == last_year:
             if int(j[1]) == k:
                 humidity_2018.append(int(j[2]))
                 k += 1
 
     temp_2018 = []
 
-    temp_2018_df = temp1[temp1['Year'] == 2018]
+    temp_2018_df = temp1[temp1['Year'] == last_year]
     for i in range(3, 15):
         temp_2018.append(round(temp_2018_df.iloc[0, i], 2))
 
@@ -113,9 +132,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -163,7 +182,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -188,9 +207,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -201,9 +220,9 @@ def rain_caller(state, dist):
             tt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     xt.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     tt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -255,7 +274,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -263,7 +282,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -293,9 +312,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -353,7 +372,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -388,9 +407,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -401,9 +420,9 @@ def rain_caller(state, dist):
             tt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     xt.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     tt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -471,7 +490,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -479,7 +498,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -524,7 +543,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -551,7 +570,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -560,7 +579,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -594,7 +613,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -631,7 +650,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -640,7 +659,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -688,7 +707,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -734,7 +753,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -743,7 +762,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -797,7 +816,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -854,7 +873,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -863,7 +882,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -932,9 +951,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -945,9 +964,9 @@ def rain_caller(state, dist):
             tt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     xt.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     tt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -998,7 +1017,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1006,7 +1025,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1032,9 +1051,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1096,7 +1115,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1127,9 +1146,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1140,9 +1159,9 @@ def rain_caller(state, dist):
             tt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     xt.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     tt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1218,7 +1237,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1226,7 +1245,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1267,7 +1286,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1276,7 +1295,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1304,7 +1323,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1335,7 +1354,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1344,7 +1363,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1386,7 +1405,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1395,7 +1414,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1442,7 +1461,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1493,7 +1512,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1502,7 +1521,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1662,9 +1681,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1712,7 +1731,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1737,9 +1756,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1750,9 +1769,9 @@ def rain_caller(state, dist):
             tt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     xt.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     tt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1804,7 +1823,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1812,7 +1831,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -1843,9 +1862,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1903,7 +1922,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1940,9 +1959,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -1953,9 +1972,9 @@ def rain_caller(state, dist):
             tt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     xt.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     tt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2023,7 +2042,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2031,7 +2050,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2078,7 +2097,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2105,7 +2124,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2114,7 +2133,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2148,7 +2167,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2185,7 +2204,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2194,7 +2213,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2242,7 +2261,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2289,7 +2308,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2298,7 +2317,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2352,7 +2371,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2409,7 +2428,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2418,7 +2437,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2487,9 +2506,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2500,9 +2519,9 @@ def rain_caller(state, dist):
             tt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) < 2017:
+                if int(j[0]) < second_last_year:
                     xt.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     tt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2553,7 +2572,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2561,7 +2580,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2587,9 +2606,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2651,7 +2670,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2682,9 +2701,9 @@ def rain_caller(state, dist):
             t = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     x.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     t.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2695,9 +2714,9 @@ def rain_caller(state, dist):
             tt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) < 2017:
+                if 2009 <= int(j[0]) < second_last_year:
                     xt.append(j)
-                if int(j[0]) == 2017:
+                if int(j[0]) == second_last_year:
                     tt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2773,7 +2792,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2781,7 +2800,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2822,7 +2841,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2831,7 +2850,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2859,7 +2878,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2890,7 +2909,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2899,7 +2918,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2941,7 +2960,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -2950,7 +2969,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if int(j[0]) <= 2017:
+                if int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
@@ -2997,7 +3016,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -3048,7 +3067,7 @@ def rain_caller(state, dist):
             x = []
 
             for i, j in df.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     x.append(j)
 
             x1 = pd.DataFrame(x, columns=df.columns)
@@ -3057,7 +3076,7 @@ def rain_caller(state, dist):
             xt = []
 
             for i, j in dft.iterrows():
-                if 2009 <= int(j[0]) <= 2017:
+                if 2009 <= int(j[0]) <= second_last_year:
                     xt.append(j)
 
             xt1 = pd.DataFrame(xt, columns=dft.columns)
