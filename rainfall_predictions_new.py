@@ -1588,9 +1588,14 @@ def rain_caller(state, dist):
     for month_loc, month in enumerate(months):
         k = 0
         for i in Features:
-            no_temp_values1.iloc[month_loc, k] = SVM1_2018(i.value, month, month_loc)
-            no_temp_values1.iloc[month_loc, k + 1] = MLR1_2018(i.value, month, month_loc)
-            no_temp_values1.iloc[month_loc, k + 2] = ANN1_2018(i.value, month, month_loc)
+            if i.value == ['Rain'] or i.value == ['Rain', 'Temp']:
+                no_temp_values1.iloc[month_loc, k] = SVM1_2018(i.value, month, month_loc)
+                no_temp_values1.iloc[month_loc, k + 1] = MLR1_2018(i.value, month, month_loc)
+                no_temp_values1.iloc[month_loc, k + 2] = ANN1_2018(i.value, month, month_loc)
+            else:
+                no_temp_values1.iloc[month_loc, k] = 10000
+                no_temp_values1.iloc[month_loc, k + 1] = 10000
+                no_temp_values1.iloc[month_loc, k + 2] = 10000
 
             k += 3
 
@@ -1603,11 +1608,17 @@ def rain_caller(state, dist):
     for month_loc, month in enumerate(months):
         k = 0
         for i in Features:
-            if i.value != ['Rain']:
+            if i.value == ['Rain', 'Temp']:
                 temp_values1.iloc[month_loc, k] = SVM2_2018(i.value, month, month_loc)
                 temp_values1.iloc[month_loc, k + 1] = MLR2_2018(i.value, month, month_loc)
                 temp_values1.iloc[month_loc, k + 2] = ANN2_2018(i.value, month, month_loc)
                 k += 3
+            elif i.value == ['Rain', 'Humidity'] or i.value == ['Rain', 'Temp', 'Humidity']:
+                temp_values1.iloc[month_loc, k] = 10000
+                temp_values1.iloc[month_loc, k + 1] = 10000
+                temp_values1.iloc[month_loc, k + 2] = 10000
+                k += 3
+            #TODO: Check
 
     temp_values1['Month'] = months
     temp_values1.set_index(['Month'], inplace=True)
