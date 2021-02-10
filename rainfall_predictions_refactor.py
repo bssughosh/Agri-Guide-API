@@ -544,59 +544,59 @@ def rain_caller(state, dist):
     cols1 = ['SVM-1', 'MLR-1', 'ANN-1', 'SVM-2', 'MLR-2', 'ANN-2', 'SVM-3', 'MLR-3', 'ANN-3', 'SVM-4', 'MLR-4', 'ANN-4']
     cols2 = ['SVM-2', 'MLR-2', 'ANN-2', 'SVM-3', 'MLR-3', 'ANN-3', 'SVM-4', 'MLR-4', 'ANN-4']
 
-    # no_temp_values = [[0] * 12] * 12
-    # temp_values = [[0] * 9] * 12
-    # no_temp_values1 = pd.DataFrame(no_temp_values, columns=cols1)
-    # temp_values1 = pd.DataFrame(temp_values, columns=cols2)
-    #
-    # for month_loc, month in enumerate(months):
-    #     k = 0
-    #     for i in Features:
-    #         no_temp_values1.iloc[month_loc, k] = SVM1(i.value, complete_data[month_loc], True)
-    #         no_temp_values1.iloc[month_loc, k + 1] = MLR1(i.value, complete_data[month_loc], True)
-    #         no_temp_values1.iloc[month_loc, k + 2] = ANN1(i.value, complete_data[month_loc], True)
-    #
-    #         k += 3
-    #
-    # no_temp_values1['Month'] = months
-    # no_temp_values1.set_index(['Month'], inplace=True)
-    # for i in cols1:
-    #     no_temp_values1[i] = no_temp_values1[i].apply(lambda c: negative_checker(c))
-    #     no_temp_values1[i] = no_temp_values1[i].apply(lambda c: round(c, 2))
-    #
-    # for month_loc, month in enumerate(months):
-    #     k = 0
-    #     for i in Features:
-    #         if i.value != ['Rain']:
-    #             temp_values1.iloc[month_loc, k] = SVM2(i.value, complete_data[month_loc], True)
-    #             temp_values1.iloc[month_loc, k + 1] = MLR2(i.value, complete_data[month_loc], True)
-    #             temp_values1.iloc[month_loc, k + 2] = ANN2(i.value, complete_data[month_loc], True)
-    #
-    #             k += 3
-    #
-    # temp_values1['Month'] = months
-    # temp_values1.set_index(['Month'], inplace=True)
-    # for i in cols2:
-    #     temp_values1[i] = temp_values1[i].apply(lambda c: negative_checker(c))
-    #     temp_values1[i] = temp_values1[i].apply(lambda c: round(c, 2))
-    #
-    # rain_2018 = []
-    #
-    # rain_2018_df = rain1[rain1['Year'] == 2018]
-    # for i in range(3, 15):
-    #     rain_2018.append(round(rain_2018_df.iloc[0, i], 3))
-    # del rain_2018_df
-    #
-    # temp_values1['Original'] = rain_2018
-    # no_temp_values1['Original'] = rain_2018
-    #
-    # temp_values1.to_csv(f'outputs/rainfall/auxiliary/{dist},{state}_temp.csv')
-    # no_temp_values1.to_csv(f'outputs/rainfall/auxiliary/{dist},{state}_no_temp.csv')
+    no_temp_values = [[0] * 12] * 12
+    temp_values = [[0] * 9] * 12
+    no_temp_values1 = pd.DataFrame(no_temp_values, columns=cols1)
+    temp_values1 = pd.DataFrame(temp_values, columns=cols2)
 
-    temp_values1 = pd.read_csv(f'outputs/rainfall/auxiliary/{dist},{state}_temp.csv')
-    temp_values1.set_index('Month', inplace=True)
-    no_temp_values1 = pd.read_csv(f'outputs/rainfall/auxiliary/{dist},{state}_no_temp.csv')
-    no_temp_values1.set_index('Month', inplace=True)
+    for month_loc, month in enumerate(months):
+        k = 0
+        for i in Features:
+            no_temp_values1.iloc[month_loc, k] = SVM1(i.value, complete_data[month_loc], True)
+            no_temp_values1.iloc[month_loc, k + 1] = MLR1(i.value, complete_data[month_loc], True)
+            no_temp_values1.iloc[month_loc, k + 2] = ANN1(i.value, complete_data[month_loc], True)
+
+            k += 3
+
+    no_temp_values1['Month'] = months
+    no_temp_values1.set_index(['Month'], inplace=True)
+    for i in cols1:
+        no_temp_values1[i] = no_temp_values1[i].apply(lambda c: negative_checker(c))
+        no_temp_values1[i] = no_temp_values1[i].apply(lambda c: round(c, 2))
+
+    for month_loc, month in enumerate(months):
+        k = 0
+        for i in Features:
+            if i.value != ['Rain']:
+                temp_values1.iloc[month_loc, k] = SVM2(i.value, complete_data[month_loc], True)
+                temp_values1.iloc[month_loc, k + 1] = MLR2(i.value, complete_data[month_loc], True)
+                temp_values1.iloc[month_loc, k + 2] = ANN2(i.value, complete_data[month_loc], True)
+
+                k += 3
+
+    temp_values1['Month'] = months
+    temp_values1.set_index(['Month'], inplace=True)
+    for i in cols2:
+        temp_values1[i] = temp_values1[i].apply(lambda c: negative_checker(c))
+        temp_values1[i] = temp_values1[i].apply(lambda c: round(c, 2))
+
+    rain_2018 = []
+
+    rain_2018_df = rain1[rain1['Year'] == 2018]
+    for i in range(3, 15):
+        rain_2018.append(round(rain_2018_df.iloc[0, i], 3))
+    del rain_2018_df
+
+    temp_values1['Original'] = rain_2018
+    no_temp_values1['Original'] = rain_2018
+
+    temp_values1.to_csv(f'outputs/rainfall/auxiliary/{dist},{state}_temp.csv')
+    no_temp_values1.to_csv(f'outputs/rainfall/auxiliary/{dist},{state}_no_temp.csv')
+
+    # temp_values1 = pd.read_csv(f'outputs/rainfall/auxiliary/{dist},{state}_temp.csv')
+    # temp_values1.set_index('Month', inplace=True)
+    # no_temp_values1 = pd.read_csv(f'outputs/rainfall/auxiliary/{dist},{state}_no_temp.csv')
+    # no_temp_values1.set_index('Month', inplace=True)
 
     m1 = [np.Inf] * 12
     m2 = [np.Inf] * 12
