@@ -496,22 +496,6 @@ def rain_caller(state, dist):
     monthly_averages[['humidity']] = monthly_averages[['humidity']].astype('int8')
     h2 = monthly_averages
 
-    humidity_2018 = []
-    k = 1
-    for i, j in h2.iterrows():
-        if int(j[0]) == 2018:
-            if int(j[1]) == k:
-                humidity_2018.append(int(j[2]))
-                k += 1
-
-    temp_2018 = []
-
-    temp_2018_df = temp1[temp1['Year'] == 2018]
-    for i in range(3, 15):
-        temp_2018.append(round(temp_2018_df.iloc[0, i], 2))
-
-    del temp_2018_df
-
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     complete_data_list = []
@@ -580,15 +564,13 @@ def rain_caller(state, dist):
         temp_values1[i] = temp_values1[i].apply(lambda c: negative_checker(c))
         temp_values1[i] = temp_values1[i].apply(lambda c: round(c, 2))
 
-    rain_2018 = []
+    rain_last_year_values = []
 
-    rain_2018_df = rain1[rain1['Year'] == 2018]
-    for i in range(3, 15):
-        rain_2018.append(round(rain_2018_df.iloc[0, i], 3))
-    del rain_2018_df
+    for i in range(12):
+        rain_last_year_values.append(complete_data[i].iloc[-1, 1])
 
-    temp_values1['Original'] = rain_2018
-    no_temp_values1['Original'] = rain_2018
+    temp_values1['Original'] = rain_last_year_values
+    no_temp_values1['Original'] = rain_last_year_values
 
     temp_values1.to_csv(f'outputs/rainfall/auxiliary/{dist},{state}_temp.csv')
     no_temp_values1.to_csv(f'outputs/rainfall/auxiliary/{dist},{state}_no_temp.csv')
@@ -734,6 +716,3 @@ def rain_caller(state, dist):
     values['Month'] = range(1, 13)
 
     values.to_csv(f'outputs/rainfall/{dist},{state}.csv', index=False, header=True)
-
-
-rain_caller('maharashtra', 'buldana')

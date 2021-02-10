@@ -6,7 +6,7 @@ from csv import writer
 import pandas as pd
 
 from humidity_predictions import humidity_caller
-from rainfall_predictions_new import rain_caller
+from rainfall_predictions_refactor import rain_caller
 from temp_predictions import temperature_caller
 
 base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
