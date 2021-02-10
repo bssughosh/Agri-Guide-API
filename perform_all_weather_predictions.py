@@ -34,8 +34,8 @@ for state, dist in zip(all_states, all_dists):
     else:
         previous_state = state
         states_count = 1
-    # if state == 'gujarat':
-    #     continue
+    if state == 'gujarat':
+        continue
     try:
         file = dist + ',' + state + '.csv'
         print(f'Overall Count => {total_count}/{len(all_dists)}')
