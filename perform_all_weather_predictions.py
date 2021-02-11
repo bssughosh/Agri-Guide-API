@@ -41,19 +41,24 @@ for state, dist in zip(all_states, all_dists):
         print(f'Overall Count => {total_count}/{len(all_dists)}')
         print(f'State Count => {states_count}/{states_total[state]}')
         print(f'Started for {dist},{state}')
+        exception_file1 = exception_file[exception_file['State'] == state]
+        exception_file1 = exception_file1[exception_file1['District'] == dist]
         t0 = time.time()
         if file not in files1:
-            temperature_caller(state, dist)
+            if exception_file1.shape[0] == 0:
+                temperature_caller(state, dist)
         print(f'Temperature prediction for {dist},{state} is done in {time.time() - t0}')
 
         t1 = time.time()
         if file not in files2:
-            humidity_caller(state, dist)
+            if exception_file1.shape[0] == 0:
+                humidity_caller(state, dist)
         print(f'Humidity prediction for {dist},{state} is done in {time.time() - t1}')
 
         t2 = time.time()
         if file not in files3:
-            rain_caller(state, dist)
+            if exception_file1.shape[0] == 0:
+                rain_caller(state, dist)
         print(f'Rainfall prediction for {dist},{state} is done in {time.time() - t2}')
 
     except:
