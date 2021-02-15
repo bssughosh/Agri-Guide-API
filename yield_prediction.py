@@ -277,7 +277,6 @@ def ANN2(data, selected_season, feature_set, state, dist):
 def yield_caller(state, dist, season, crop_id):
     dist1 = dist.replace('+', ' ')
     state1 = state.replace('+', ' ')
-    print(state, dist, season, crop_id)
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/'
     file = 'yield/found1_all_18.csv'
 
@@ -286,8 +285,6 @@ def yield_caller(state, dist, season, crop_id):
     all_crops_dict = {}
     for i, crop in enumerate(all_crops):
         all_crops_dict[str(i)] = crop
-
-    print(f'yield_caller was called with crop name={all_crops_dict[crop_id]}')
 
     file1 = 'yield/Master_data_1.csv'
 
@@ -408,4 +405,3 @@ def yield_caller(state, dist, season, crop_id):
     values = pd.DataFrame(values, columns=['Predicted'])
 
     values.to_csv(f'outputs/yield/{dist},{state},{season},{crop_id}.csv', index=False, header=True)
-
