@@ -331,3 +331,257 @@ maharashtra,pune,Kharif,Bajra
 maharashtra,sangli,Kharif,Rice
 maharashtra,sangli,Rabi,Wheat
 maharashtra,yeotmal,Kharif,Arhar/Tur
+meghalaya,east+garo+hills,Kharif,Mesta
+meghalaya,east+khasi+hills,Rabi,Rapeseed &Mustard
+meghalaya,west+garo+hills,Kharif,Mesta
+meghalaya,west+garo+hills,Whole Year,Sugarcane
+meghalaya,west+garo+hills,Rabi,Rapeseed &Mustard
+meghalaya,west+garo+hills,Rabi,Gram
+meghalaya,west+khasi+hills,Whole Year,Sugarcane
+meghalaya,west+khasi+hills,Rabi,Rapeseed &Mustard
+nagaland,kohima,Kharif,Maize
+nagaland,mokokchung,Kharif,Rice
+nagaland,mokokchung,Kharif,Maize
+nagaland,tuensang,Kharif,Rice
+nagaland,tuensang,Kharif,Maize
+nagaland,wokha,Kharif,Rice
+nagaland,wokha,Kharif,Maize
+nagaland,zunheboto,Kharif,Rice
+nagaland,zunheboto,Kharif,Maize
+punjab,amritsar,Rabi,Wheat
+punjab,amritsar,Kharif,Rice
+punjab,bhatinda,Kharif,Rice
+punjab,bhatinda,Rabi,Barley
+punjab,bhatinda,Rabi,Wheat
+punjab,faridkot,Kharif,Rice
+punjab,firozpur,Kharif,Rice
+punjab,hoshiarpur,Rabi,Masoor
+punjab,hoshiarpur,Kharif,Maize
+punjab,hoshiarpur,Kharif,Sesamum
+punjab,jalandhar,Kharif,Arhar/Tur
+punjab,jalandhar,Rabi,Wheat
+punjab,kapurthala,Kharif,Maize
+punjab,kapurthala,Kharif,Rice
+punjab,ludhiana,Rabi,Wheat
+punjab,mansa,Rabi,Barley
+punjab,mansa,Rabi,Wheat
+punjab,mansa,Kharif,Rice
+punjab,moga,Kharif,Arhar/Tur
+punjab,moga,Kharif,Rice
+punjab,muktsar,Kharif,Rice
+punjab,muktsar,Rabi,Wheat
+punjab,muktsar,Kharif,Sesamum
+punjab,nawanshahr,Kharif,Rice
+punjab,patiala,Kharif,Maize
+punjab,rupnagar,Rabi,Wheat
+punjab,rupnagar,Kharif,Maize
+punjab,rupnagar,Kharif,Rice
+punjab,sangrur,Rabi,Barley
+uttar+pradesh,agra,Rabi,Wheat
+uttar+pradesh,agra,Kharif,Jowar
+uttar+pradesh,agra,Rabi,Rapeseed &Mustard
+uttar+pradesh,agra,Rabi,Gram
+uttar+pradesh,aligarh,Kharif,Rice
+uttar+pradesh,aligarh,Rabi,Barley
+uttar+pradesh,aligarh,Kharif,Maize
+uttar+pradesh,aligarh,Rabi,Wheat
+uttar+pradesh,allahabad,Rabi,Gram
+uttar+pradesh,ambedkar+nagar,Rabi,Gram
+uttar+pradesh,ambedkar+nagar,Rabi,Rapeseed &Mustard
+uttar+pradesh,ambedkar+nagar,Kharif,Rice
+uttar+pradesh,auraiya,Rabi,Rapeseed &Mustard
+uttar+pradesh,auraiya,Kharif,Rice
+uttar+pradesh,azamgarh,Rabi,Barley
+uttar+pradesh,azamgarh,Kharif,Maize
+uttar+pradesh,azamgarh,Kharif,Rice
+uttar+pradesh,baghpat,Rabi,Wheat
+uttar+pradesh,baghpat,Kharif,Rice
+uttar+pradesh,baghpat,Rabi,Rapeseed &Mustard
+uttar+pradesh,baghpat,Kharif,Bajra
+uttar+pradesh,baghpat,Rabi,Barley
+uttar+pradesh,bahraich,Kharif,Jowar
+uttar+pradesh,banda,Rabi,Wheat
+uttar+pradesh,basti,Rabi,Gram
+uttar+pradesh,basti,Rabi,Barley
+uttar+pradesh,budaun,Kharif,Bajra
+uttar+pradesh,budaun,Rabi,Gram
+uttar+pradesh,budaun,Kharif,Jowar
+uttar+pradesh,budaun,Kharif,Maize
+uttar+pradesh,budaun,Rabi,Barley
+uttar+pradesh,budaun,Rabi,Wheat
+uttar+pradesh,budaun,Rabi,Rapeseed &Mustard
+uttar+pradesh,budaun,Kharif,Rice
+uttar+pradesh,bulandshahar,Rabi,Wheat
+uttar+pradesh,bulandshahar,Kharif,Jowar
+uttar+pradesh,chandauli,Rabi,Wheat
+uttar+pradesh,chandauli,Rabi,Rapeseed &Mustard
+uttar+pradesh,chandauli,Kharif,Jowar
+uttar+pradesh,chandauli,Kharif,Maize
+uttar+pradesh,chandauli,Kharif,Bajra
+uttar+pradesh,chandauli,Kharif,Rice
+uttar+pradesh,chandauli,Rabi,Gram
+uttar+pradesh,chandauli,Rabi,Barley
+uttar+pradesh,chitrakoot,Rabi,Linseed
+uttar+pradesh,chitrakoot,Rabi,Wheat
+uttar+pradesh,chitrakoot,Rabi,Rapeseed &Mustard
+uttar+pradesh,chitrakoot,Kharif,Jowar
+uttar+pradesh,chitrakoot,Kharif,Maize
+uttar+pradesh,chitrakoot,Kharif,Bajra
+uttar+pradesh,chitrakoot,Rabi,Gram
+uttar+pradesh,chitrakoot,Kharif,Rice
+uttar+pradesh,chitrakoot,Rabi,Barley
+uttar+pradesh,deoria,Rabi,Rapeseed &Mustard
+uttar+pradesh,deoria,Rabi,Barley
+uttar+pradesh,etawah,Kharif,Bajra
+uttar+pradesh,faizabad,Rabi,Wheat
+uttar+pradesh,faizabad,Rabi,Gram
+uttar+pradesh,fatehpur,Rabi,Rapeseed &Mustard
+uttar+pradesh,fatehpur,Rabi,Barley
+uttar+pradesh,fatehpur,Kharif,Bajra
+uttar+pradesh,firozabad,Rabi,Rapeseed &Mustard
+uttar+pradesh,firozabad,Kharif,Bajra
+uttar+pradesh,gautam+buddha+nagar,Rabi,Rapeseed &Mustard
+uttar+pradesh,gautam+buddha+nagar,Kharif,Rice
+uttar+pradesh,gautam+buddha+nagar,Rabi,Barley
+uttar+pradesh,gautam+buddha+nagar,Rabi,Wheat
+uttar+pradesh,gautam+buddha+nagar,Kharif,Bajra
+uttar+pradesh,gautam+buddha+nagar,Kharif,Maize
+uttar+pradesh,ghaziabad,Rabi,Wheat
+uttar+pradesh,ghazipur,Kharif,Maize
+uttar+pradesh,gonda,Kharif,Maize
+uttar+pradesh,gorakhpur,Rabi,Wheat
+uttar+pradesh,gorakhpur,Rabi,Gram
+uttar+pradesh,hardoi,Rabi,Rapeseed &Mustard
+uttar+pradesh,hardoi,Kharif,Bajra
+uttar+pradesh,hathras,Kharif,Bajra
+uttar+pradesh,hathras,Rabi,Rapeseed &Mustard
+uttar+pradesh,hathras,Kharif,Maize
+uttar+pradesh,hathras,Rabi,Wheat
+uttar+pradesh,hathras,Rabi,Gram
+uttar+pradesh,hathras,Kharif,Rice
+uttar+pradesh,hathras,Rabi,Barley
+uttar+pradesh,jalaun,Kharif,Bajra
+uttar+pradesh,jaunpur,Kharif,Rice
+uttar+pradesh,jhansi,Rabi,Gram
+uttar+pradesh,kannauj,Kharif,Rice
+uttar+pradesh,kannauj,Rabi,Gram
+uttar+pradesh,kannauj,Rabi,Wheat
+uttar+pradesh,kannauj,Rabi,Rapeseed &Mustard
+uttar+pradesh,kannauj,Rabi,Barley
+uttar+pradesh,kannauj,Kharif,Jowar
+uttar+pradesh,kannauj,Kharif,Maize
+uttar+pradesh,kannauj,Kharif,Bajra
+uttar+pradesh,kanpur+nagar,Kharif,Rice
+uttar+pradesh,kanpur+nagar,Rabi,Wheat
+uttar+pradesh,kanpur+nagar,Rabi,Rapeseed &Mustard
+uttar+pradesh,kanpur+nagar,Kharif,Bajra
+uttar+pradesh,kanpur+nagar,Rabi,Gram
+uttar+pradesh,kanpur+nagar,Kharif,Jowar
+uttar+pradesh,kanpur+nagar,Kharif,Maize
+uttar+pradesh,kanpur+nagar,Rabi,Barley
+uttar+pradesh,kaushambi,Rabi,Wheat
+uttar+pradesh,kaushambi,Kharif,Bajra
+uttar+pradesh,kaushambi,Rabi,Gram
+uttar+pradesh,kaushambi,Kharif,Jowar
+uttar+pradesh,kaushambi,Rabi,Barley
+uttar+pradesh,kaushambi,Kharif,Rice
+uttar+pradesh,kaushambi,Rabi,Rapeseed &Mustard
+uttar+pradesh,kheri,Kharif,Maize
+uttar+pradesh,kheri,Rabi,Gram
+uttar+pradesh,kushinagar,Kharif,Rice
+uttar+pradesh,kushinagar,Rabi,Wheat
+uttar+pradesh,kushinagar,Rabi,Rapeseed &Mustard
+uttar+pradesh,kushinagar,Kharif,Maize
+uttar+pradesh,kushinagar,Rabi,Barley
+uttar+pradesh,kushinagar,Kharif,Bajra
+uttar+pradesh,lalitpur,Rabi,Rapeseed &Mustard
+uttar+pradesh,lalitpur,Rabi,Gram
+uttar+pradesh,lucknow,Kharif,Jowar
+uttar+pradesh,maharajganj,Kharif,Rice
+uttar+pradesh,maharajganj,Kharif,Maize
+uttar+pradesh,maharajganj,Rabi,Rapeseed &Mustard
+uttar+pradesh,mahoba,Rabi,Wheat
+uttar+pradesh,mahoba,Rabi,Rapeseed &Mustard
+uttar+pradesh,mahoba,Kharif,Jowar
+uttar+pradesh,mahoba,Rabi,Linseed
+uttar+pradesh,mahoba,Rabi,Gram
+uttar+pradesh,mahoba,Kharif,Rice
+uttar+pradesh,mahoba,Rabi,Barley
+uttar+pradesh,mainpuri,Rabi,Rapeseed &Mustard
+uttar+pradesh,mainpuri,Kharif,Rice
+uttar+pradesh,mathura,Kharif,Bajra
+uttar+pradesh,mathura,Kharif,Jowar
+uttar+pradesh,mau,Rabi,Wheat
+uttar+pradesh,moradabad,Rabi,Barley
+uttar+pradesh,pilibhit,Rabi,Rapeseed &Mustard
+uttar+pradesh,pilibhit,Kharif,Rice
+uttar+pradesh,pratapgarh,Rabi,Wheat
+uttar+pradesh,pratapgarh,Kharif,Jowar
+uttar+pradesh,pratapgarh,Kharif,Maize
+uttar+pradesh,rae+bareli,Rabi,Barley
+uttar+pradesh,rae+bareli,Rabi,Gram
+uttar+pradesh,rae+bareli,Rabi,Rapeseed &Mustard
+uttar+pradesh,rae+bareli,Kharif,Bajra
+uttar+pradesh,rae+bareli,Kharif,Jowar
+uttar+pradesh,rae+bareli,Kharif,Maize
+uttar+pradesh,rae+bareli,Rabi,Linseed
+uttar+pradesh,rae+bareli,Rabi,Wheat
+uttar+pradesh,rae+bareli,Kharif,Rice
+uttar+pradesh,rampur,Kharif,Bajra
+uttar+pradesh,saharanpur,Rabi,Wheat
+uttar+pradesh,saharanpur,Kharif,Maize
+uttar+pradesh,saharanpur,Rabi,Gram
+uttar+pradesh,sant+kabir+nagar,Rabi,Wheat
+uttar+pradesh,sant+kabir+nagar,Rabi,Rapeseed &Mustard
+uttar+pradesh,sant+kabir+nagar,Kharif,Maize
+uttar+pradesh,sant+kabir+nagar,Kharif,Rice
+uttar+pradesh,sant+kabir+nagar,Rabi,Gram
+uttar+pradesh,sant+kabir+nagar,Rabi,Barley
+uttar+pradesh,sant+ravidas+nagar,Kharif,Jowar
+uttar+pradesh,sant+ravidas+nagar,Rabi,Barley
+uttar+pradesh,shahjahanpur,Rabi,Rapeseed &Mustard
+uttar+pradesh,shahjahanpur,Kharif,Jowar
+uttar+pradesh,shahjahanpur,Rabi,Wheat
+uttar+pradesh,shrawasti,Rabi,Barley
+uttar+pradesh,shrawasti,Kharif,Rice
+uttar+pradesh,shrawasti,Rabi,Gram
+uttar+pradesh,shrawasti,Kharif,Jowar
+uttar+pradesh,shrawasti,Rabi,Wheat
+uttar+pradesh,shrawasti,Kharif,Maize
+uttar+pradesh,shrawasti,Rabi,Rapeseed &Mustard
+uttar+pradesh,sitapur,Kharif,Bajra
+uttar+pradesh,sitapur,Kharif,Maize
+uttar+pradesh,sitapur,Rabi,Wheat
+uttar+pradesh,sonbhadra,Rabi,Rapeseed &Mustard
+uttar+pradesh,sultanpur,Kharif,Rice
+uttar+pradesh,sultanpur,Kharif,Jowar
+uttar+pradesh,unnao,Rabi,Linseed
+uttar+pradesh,unnao,Kharif,Jowar
+uttar+pradesh,varanasi,Kharif,Jowar
+uttar+pradesh,varanasi,Rabi,Barley
+west+bengal,bankura,Winter,Rice
+west+bengal,birbhum,Whole Year,Sugarcane
+west+bengal,birbhum,Autumn,Rice
+west+bengal,cooch+behar,Rabi,Wheat
+west+bengal,cooch+behar,Kharif,Mesta
+west+bengal,cooch+behar,Rabi,Masoor
+west+bengal,cooch+behar,Autumn,Rice
+west+bengal,darjeeling,Winter,Rice
+west+bengal,darjeeling,Rabi,Wheat
+west+bengal,hooghly,Winter,Rice
+west+bengal,hooghly,Rabi,Wheat
+west+bengal,hooghly,Rabi,Masoor
+west+bengal,howrah,Summer,Moong(Green Gram)
+west+bengal,jalpaiguri,Autumn,Rice
+west+bengal,malda,Rabi,Khesari
+west+bengal,murshidabad,Whole Year,Sugarcane
+west+bengal,murshidabad,Kharif,Jute
+west+bengal,murshidabad,Rabi,Wheat
+west+bengal,murshidabad,Rabi,Khesari
+west+bengal,murshidabad,Rabi,Masoor
+west+bengal,nadia,Kharif,Urad
+west+bengal,nadia,Summer,Rice
+west+bengal,nadia,Rabi,Masoor
+west+bengal,north+24+parganas,Summer,Rice
+west+bengal,north+24+parganas,Rabi,Khesari
+west+bengal,north+24+parganas,Rabi,Gram
