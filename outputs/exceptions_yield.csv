@@ -207,3 +207,127 @@ bihar,munger,Rabi,Wheat
 bihar,munger,Rabi,Rapeseed &Mustard
 bihar,munger,Rabi,Maize
 bihar,munger,Rabi,Gram
+bihar,nalanda,Summer,Maize
+bihar,nalanda,Rabi,Wheat
+bihar,nawada,Rabi,Linseed
+bihar,nawada,Kharif,Arhar/Tur
+bihar,nawada,Summer,Maize
+bihar,nawada,Rabi,Wheat
+bihar,nawada,Rabi,Rapeseed &Mustard
+bihar,paschim+champaran,Rabi,Linseed
+bihar,paschim+champaran,Rabi,Maize
+bihar,paschim+champaran,Kharif,Arhar/Tur
+bihar,paschim+champaran,Summer,Rice
+bihar,paschim+champaran,Summer,Maize
+bihar,paschim+champaran,Rabi,Wheat
+bihar,paschim+champaran,Rabi,Rapeseed &Mustard
+bihar,patna,Kharif,Arhar/Tur
+bihar,purba+champaran,Kharif,Arhar/Tur
+bihar,purba+champaran,Summer,Maize
+bihar,purba+champaran,Rabi,Wheat
+bihar,purba+champaran,Rabi,Rapeseed &Mustard
+bihar,purba+champaran,Rabi,Maize
+bihar,purnia,Kharif,Arhar/Tur
+bihar,purnia,Summer,Rice
+bihar,purnia,Summer,Maize
+bihar,purnia,Rabi,Wheat
+bihar,purnia,Rabi,Rapeseed &Mustard
+bihar,purnia,Rabi,Gram
+bihar,purnia,Kharif,Jute
+bihar,purnia,Rabi,Maize
+bihar,purnia,Kharif,Mesta
+bihar,saharsa,Summer,Rice
+bihar,saharsa,Rabi,Wheat
+bihar,samastipur,Rabi,Linseed
+bihar,saran,Kharif,Arhar/Tur
+bihar,saran,Summer,Maize
+bihar,sheikhpura,Rabi,Linseed
+bihar,sheikhpura,Rabi,Gram
+bihar,sheikhpura,Kharif,Arhar/Tur
+bihar,sheikhpura,Rabi,Wheat
+bihar,sheikhpura,Rabi,Rapeseed &Mustard
+bihar,sheohar,Kharif,Arhar/Tur
+bihar,sheohar,Rabi,Wheat
+bihar,sheohar,Rabi,Rapeseed &Mustard
+bihar,sheohar,Rabi,Maize
+bihar,sheohar,Rabi,Linseed
+bihar,sitamarhi,Kharif,Arhar/Tur
+bihar,sitamarhi,Summer,Maize
+bihar,siwan,Summer,Maize
+bihar,siwan,Rabi,Wheat
+bihar,supaul,Summer,Maize
+bihar,supaul,Kharif,Jute
+karnataka,bangalore+urban,Whole Year,Coriander
+karnataka,belgam,Kharif,Arhar/Tur
+karnataka,belgam,Summer,Jowar
+karnataka,belgam,Kharif,Bajra
+karnataka,belgam,Rabi,Horse-gram
+karnataka,belgam,Kharif,Maize
+karnataka,bellary,Summer,Maize
+karnataka,bellary,Whole Year,Coriander
+karnataka,bidar,Kharif,Bajra
+karnataka,bidar,Kharif,Groundnut
+karnataka,bijapur,Kharif,Arhar/Tur
+karnataka,bijapur,Whole Year,Coriander
+karnataka,bijapur,Summer,Maize
+karnataka,bijapur,Rabi,Jowar
+karnataka,bijapur,Kharif,Rice
+karnataka,chikmagalur,Kharif,Horse-gram
+karnataka,chikmagalur,Kharif,Groundnut
+karnataka,chikmagalur,Whole Year,Coriander
+karnataka,chikmagalur,Kharif,Rice
+karnataka,chitradurga,Rabi,Ragi
+karnataka,dharwad,Kharif,Maize
+karnataka,gulbarga,Kharif,Arhar/Tur
+karnataka,gulbarga,Kharif,Maize
+karnataka,gulbarga,Summer,Maize
+karnataka,gulbarga,Whole Year,Coriander
+karnataka,hassan,Rabi,Maize
+karnataka,hassan,Kharif,Groundnut
+karnataka,kolar,Kharif,Ragi
+karnataka,mandya,Rabi,Horse-gram
+karnataka,mandya,Kharif,Rice
+karnataka,mandya,Kharif,Ragi
+karnataka,mandya,Kharif,Groundnut
+karnataka,mysore,Whole Year,Coriander
+karnataka,mysore,Summer,Rice
+karnataka,mysore,Summer,Ragi
+karnataka,mysore,Rabi,Ragi
+karnataka,mysore,Rabi,Horse-gram
+karnataka,mysore,Kharif,Rice
+karnataka,mysore,Whole Year,Turmeric
+karnataka,mysore,Kharif,Jowar
+karnataka,raichur,Kharif,Arhar/Tur
+karnataka,raichur,Kharif,Bajra
+karnataka,shimoga,Kharif,Arhar/Tur
+karnataka,shimoga,Kharif,Jowar
+karnataka,shimoga,Kharif,Groundnut
+karnataka,tumkur,Kharif,Arhar/Tur
+karnataka,tumkur,Kharif,Groundnut
+karnataka,tumkur,Kharif,Bajra
+maharashtra,ahmednagar,Kharif,Ragi
+maharashtra,ahmednagar,Kharif,Bajra
+maharashtra,akola,Rabi,Wheat
+maharashtra,akola,Kharif,Bajra
+maharashtra,aurangabad,Kharif,Arhar/Tur
+maharashtra,beed,Kharif,Arhar/Tur
+maharashtra,beed,Kharif,Rice
+maharashtra,beed,Kharif,Bajra
+maharashtra,beed,Kharif,Moong(Green Gram)
+maharashtra,beed,Rabi,Wheat
+maharashtra,dhule,Kharif,Arhar/Tur
+maharashtra,dhule,Kharif,Moong(Green Gram)
+maharashtra,dhule,Kharif,Bajra
+maharashtra,dhule,Kharif,Rice
+maharashtra,dhule,Kharif,Ragi
+maharashtra,dhule,Rabi,Wheat
+maharashtra,gadchiroli,Kharif,Rice
+maharashtra,jalgaon,Kharif,Bajra
+maharashtra,jalna,Kharif,Bajra
+maharashtra,latur,Kharif,Arhar/Tur
+maharashtra,latur,Kharif,Bajra
+maharashtra,nanded,Rabi,Wheat
+maharashtra,pune,Kharif,Bajra
+maharashtra,sangli,Kharif,Rice
+maharashtra,sangli,Rabi,Wheat
+maharashtra,yeotmal,Kharif,Arhar/Tur
