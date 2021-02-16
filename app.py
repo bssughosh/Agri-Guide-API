@@ -1,8 +1,9 @@
 import os
+from datetime import datetime
 from zipfile import ZipFile, ZIP_DEFLATED
 
 import pandas as pd
-from flask import Flask, jsonify, send_from_directory, request
+from flask import Flask, jsonify, send_from_directory, request, send_file
 from flask_cors import CORS
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -109,6 +110,19 @@ def weather():
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
+def create_file_name():
+    present_time = datetime.now()
+    _day = present_time.day
+    _month = present_time.month
+    _year = present_time.year
+    _minute = present_time.minute
+    _hour = present_time.hour
+
+    _filename = str(_year) + str(_month) + str(_day) + str(_hour) + str(_minute) + '.zip'
+
+    return _filename
+
+
 @app.route('/weather/downloads')
 def download_weather_filters():
     """
@@ -162,7 +176,9 @@ def download_weather_filters():
         print(f'ZipFile created for states={states}, '
               f'dists={dists}, years={years} and params={params}')
 
-        return send_from_directory('', 'required_downloads.zip', as_attachment=True), 200
+        response = send_file('required_downloads.zip', as_attachment=True, attachment_filename=create_file_name())
+
+        return response, 200
 
     except:
         return jsonify({'message': 'The requested location cannot be processed'}), 404
@@ -429,9 +445,8 @@ def generate_statistics_data():
 
     return jsonify(res), 200
 
-
 # Uncomment when running locally
-app.run(port=4999)
+# app.run(port=4999)
 
 # Uncomment when pushing to GCP
 # if __name__ == "__main__":
