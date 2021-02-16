@@ -7,12 +7,8 @@ from flask_cors import CORS
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from humidity_predictions import humidity_caller
-from rainfall_predictions import rain_caller
 from statistics_data_fetcher import fetch_rainfall_whole_data, fetch_temp_whole_data, fetch_humidity_whole_data
-from temp_predictions import temperature_caller
 from weather_filters import multiple_states, single_loc, multiple_dists
-from yield_prediction import yield_caller
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
@@ -84,13 +80,16 @@ def weather():
     file = dist + ',' + state + '.csv'
     try:
         if file not in files1:
-            temperature_caller(state, dist)
+            # temperature_caller(state, dist)
+            return jsonify({'message': 'The requested location cannot be processed'}), 404
 
         if file not in files2:
-            humidity_caller(state, dist)
+            # humidity_caller(state, dist)
+            return jsonify({'message': 'The requested location cannot be processed'}), 404
 
         if file not in files3:
-            rain_caller(state, dist)
+            # rain_caller(state, dist)
+            return jsonify({'message': 'The requested location cannot be processed'}), 404
 
         print(f'All weather prediction complete for state={state} and dist={dist}')
 
@@ -381,7 +380,8 @@ def predict_yield():
     file = dist + ',' + state + ',' + season + ',' + crop + '.csv'
     try:
         if file not in files:
-            yield_caller(state, dist, season, crop)
+            # yield_caller(state, dist, season, crop)
+            return jsonify({'message': 'The requested location cannot be processed'}), 404
 
         print(f'All yield prediction complete for state={state}, dist={dist}'
               f', season={season} and crop={crop}')
@@ -429,8 +429,9 @@ def generate_statistics_data():
 
     return jsonify(res), 200
 
+
 # Uncomment when running locally
-# app.run(port=4999)
+app.run(port=4999)
 
 # Uncomment when pushing to GCP
 # if __name__ == "__main__":
