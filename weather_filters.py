@@ -48,7 +48,7 @@ def fetch_single_loc_temp_data(state, dist, years):
     return temp1
 
 
-def fetch_single_loc_humidity_data(state, dist):
+def fetch_single_loc_humidity_data(state, dist, years):
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     file = dist + '%2C' + state + '.csv'
     file = file.replace('+', '%2B')
@@ -76,12 +76,27 @@ def fetch_single_loc_humidity_data(state, dist):
     ys = list(df2['year'].unique())
     ys = ys[:-1]
     for y in ys:
-        r = [state.replace('+', ' '), dist.replace('+', ' '), y]
-        df3 = df2[df2['year'] == y]
-        df3.reset_index(drop=True, inplace=True)
-        for i, j in df3.iterrows():
-            r.append(j[2])
-        res.append(r)
+        if len(years) == 2:
+            if int(y) in range(int(years[0]), int(years[1]) + 1):
+                r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                df3 = df2[df2['year'] == y]
+                df3.reset_index(drop=True, inplace=True)
+                for i, j in df3.iterrows():
+                    r.append(j[2])
+                res.append(r)
+        else:
+            r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+            df3 = df2[df2['year'] == y]
+            df3.reset_index(drop=True, inplace=True)
+            for i, j in df3.iterrows():
+                r.append(j[2])
+            res.append(r)
+        # r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+        # df3 = df2[df2['year'] == y]
+        # df3.reset_index(drop=True, inplace=True)
+        # for i, j in df3.iterrows():
+        #     r.append(j[2])
+        # res.append(r)
     res = np.array(res)
     res = pd.DataFrame(res, columns=cols)
     return res
@@ -101,7 +116,7 @@ def single_loc(state, dist, years, params):
         temp_res = fetch_single_loc_temp_data(state, dist, years)
         temp_res.to_csv('filter_outputs/weather/temp.csv')
     if 'humidity' in params:
-        humidity_res = fetch_single_loc_humidity_data(state, dist)
+        humidity_res = fetch_single_loc_humidity_data(state, dist, years)
         humidity_res.to_csv('filter_outputs/weather/humidity.csv')
     if 'rainfall' in params:
         rain_res = fetch_single_loc_rainfall_data(state, dist, years)
@@ -163,7 +178,7 @@ def fetch_multiple_dists_temp_data(state, dists, years):
         final_dists = [dist.replace('+', ' ') for dist in dists]
 
     temp = pd.read_csv(base_url + file1)
-    temp = temp[temp['State'] == state]
+    temp = temp[temp['State'] == state1]
     first = True
 
     res = pd.DataFrame(columns=temp.columns)
@@ -188,7 +203,7 @@ def fetch_multiple_dists_temp_data(state, dists, years):
     return res
 
 
-def fetch_multiple_dists_humidity_data(state, dists):
+def fetch_multiple_dists_humidity_data(state, dists, years):
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     places = pd.read_csv(base_url + 'places.csv')
     states_present = places['State'].to_list()
@@ -221,12 +236,27 @@ def fetch_multiple_dists_humidity_data(state, dists):
                 ys = list(df2['year'].unique())
                 ys = ys[:-1]
                 for y in ys:
-                    r = [state.replace('+', ' '), dist.replace('+', ' '), y]
-                    df3 = df2[df2['year'] == y]
-                    df3.reset_index(drop=True, inplace=True)
-                    for i, j in df3.iterrows():
-                        r.append(j[2])
-                    res.append(r)
+                    if len(years) == 2:
+                        if int(y) in range(int(years[0]), int(years[1]) + 1):
+                            r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                            df3 = df2[df2['year'] == y]
+                            df3.reset_index(drop=True, inplace=True)
+                            for i, j in df3.iterrows():
+                                r.append(j[2])
+                            res.append(r)
+                    else:
+                        r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                        df3 = df2[df2['year'] == y]
+                        df3.reset_index(drop=True, inplace=True)
+                        for i, j in df3.iterrows():
+                            r.append(j[2])
+                        res.append(r)
+                # r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                # df3 = df2[df2['year'] == y]
+                # df3.reset_index(drop=True, inplace=True)
+                # for i, j in df3.iterrows():
+                #     r.append(j[2])
+                # res.append(r)
             if dist in dists:
                 file = dist + '%2C' + state + '.csv'
                 file = file.replace('+', '%2B')
@@ -247,16 +277,34 @@ def fetch_multiple_dists_humidity_data(state, dists):
                 monthly_averages[cols1] = monthly_averages[cols1].astype('int8')
 
                 df2 = monthly_averages
+                if years != ['0']:
+                    df2 = df2[df2['year'] >= int(years[0])]
+                    df2 = df2[df2['year'] <= int(years[1])]
 
                 ys = list(df2['year'].unique())
                 ys = ys[:-1]
                 for y in ys:
-                    r = [state.replace('+', ' '), dist.replace('+', ' '), y]
-                    df3 = df2[df2['year'] == y]
-                    df3.reset_index(drop=True, inplace=True)
-                    for i, j in df3.iterrows():
-                        r.append(j[2])
-                    res.append(r)
+                    if len(years) == 2:
+                        if int(y) in range(int(years[0]), int(years[1]) + 1):
+                            r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                            df3 = df2[df2['year'] == y]
+                            df3.reset_index(drop=True, inplace=True)
+                            for i, j in df3.iterrows():
+                                r.append(j[2])
+                            res.append(r)
+                    else:
+                        r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                        df3 = df2[df2['year'] == y]
+                        df3.reset_index(drop=True, inplace=True)
+                        for i, j in df3.iterrows():
+                            r.append(j[2])
+                        res.append(r)
+                    # r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                    # df3 = df2[df2['year'] == y]
+                    # df3.reset_index(drop=True, inplace=True)
+                    # for i, j in df3.iterrows():
+                    #     r.append(j[2])
+                    # res.append(r)
     res = np.array(res)
     cols = ['State', 'District', 'Year', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
             'Nov', 'Dec']
@@ -279,7 +327,7 @@ def multiple_dists(state, dists, years, params):
         temp_res = fetch_multiple_dists_temp_data(state, dists, years)
         temp_res.to_csv('filter_outputs/weather/temp.csv')
     if 'humidity' in params:
-        humidity_res = fetch_multiple_dists_humidity_data(state, dists)
+        humidity_res = fetch_multiple_dists_humidity_data(state, dists, years)
         humidity_res.to_csv('filter_outputs/weather/humidity.csv')
     if 'rainfall' in params:
         rain_res = fetch_multiple_dists_rainfall_data(state, dists, years)
@@ -350,7 +398,7 @@ def fetch_multiple_states_temp_data(states, years):
     return res
 
 
-def fetch_multiple_states_humidity_data(states):
+def fetch_multiple_states_humidity_data(states, years):
     base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
     places = pd.read_csv(base_url + 'places.csv')
     states_present = places['State'].to_list()
@@ -382,12 +430,21 @@ def fetch_multiple_states_humidity_data(states):
             ys = list(df2['year'].unique())
             ys = ys[:-1]
             for y in ys:
-                r = [state.replace('+', ' '), dist.replace('+', ' '), y]
-                df3 = df2[df2['year'] == y]
-                df3.reset_index(drop=True, inplace=True)
-                for i, j in df3.iterrows():
-                    r.append(j[2])
-                res.append(r)
+                if len(years) == 2:
+                    if int(y) in range(int(years[0]), int(years[1]) + 1):
+                        r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                        df3 = df2[df2['year'] == y]
+                        df3.reset_index(drop=True, inplace=True)
+                        for i, j in df3.iterrows():
+                            r.append(j[2])
+                        res.append(r)
+                else:
+                    r = [state.replace('+', ' '), dist.replace('+', ' '), y]
+                    df3 = df2[df2['year'] == y]
+                    df3.reset_index(drop=True, inplace=True)
+                    for i, j in df3.iterrows():
+                        r.append(j[2])
+                    res.append(r)
     res = np.array(res)
     cols = ['State', 'District', 'Year', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
             'Nov', 'Dec']
@@ -408,7 +465,7 @@ def multiple_states(states, years, params):
         temp_res = fetch_multiple_states_temp_data(states, years)
         temp_res.to_csv('filter_outputs/weather/temp.csv')
     if 'humidity' in params:
-        humidity_res = fetch_multiple_states_humidity_data(states)
+        humidity_res = fetch_multiple_states_humidity_data(states, years)
         humidity_res.to_csv('filter_outputs/weather/humidity.csv')
     if 'rainfall' in params:
         rain_res = fetch_multiple_states_rainfall_data(states, years)

@@ -446,7 +446,7 @@ def generate_statistics_data():
     return jsonify(res), 200
 
 # Uncomment when running locally
-# app.run(port=4999)
+app.run(port=4999)
 
 # Uncomment when pushing to GCP
 # if __name__ == "__main__":
