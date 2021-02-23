@@ -91,12 +91,6 @@ def fetch_single_loc_humidity_data(state, dist, years):
             for i, j in df3.iterrows():
                 r.append(j[2])
             res.append(r)
-        # r = [state.replace('+', ' '), dist.replace('+', ' '), y]
-        # df3 = df2[df2['year'] == y]
-        # df3.reset_index(drop=True, inplace=True)
-        # for i, j in df3.iterrows():
-        #     r.append(j[2])
-        # res.append(r)
     res = np.array(res)
     res = pd.DataFrame(res, columns=cols)
     return res
@@ -251,12 +245,7 @@ def fetch_multiple_dists_humidity_data(state, dists, years):
                         for i, j in df3.iterrows():
                             r.append(j[2])
                         res.append(r)
-                # r = [state.replace('+', ' '), dist.replace('+', ' '), y]
-                # df3 = df2[df2['year'] == y]
-                # df3.reset_index(drop=True, inplace=True)
-                # for i, j in df3.iterrows():
-                #     r.append(j[2])
-                # res.append(r)
+
             if dist in dists:
                 file = dist + '%2C' + state + '.csv'
                 file = file.replace('+', '%2B')
@@ -299,12 +288,7 @@ def fetch_multiple_dists_humidity_data(state, dists, years):
                         for i, j in df3.iterrows():
                             r.append(j[2])
                         res.append(r)
-                    # r = [state.replace('+', ' '), dist.replace('+', ' '), y]
-                    # df3 = df2[df2['year'] == y]
-                    # df3.reset_index(drop=True, inplace=True)
-                    # for i, j in df3.iterrows():
-                    #     r.append(j[2])
-                    # res.append(r)
+
     res = np.array(res)
     cols = ['State', 'District', 'Year', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
             'Nov', 'Dec']
