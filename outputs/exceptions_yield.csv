@@ -297,3 +297,240 @@ maharashtra,latur,Kharif,Arhar/Tur,ValueError
 maharashtra,latur,Kharif,Bajra,ValueError
 maharashtra,nanded,Rabi,Wheat,ValueError
 maharashtra,pune,Kharif,Bajra,ValueError
+maharashtra,sangli,Rabi,Wheat,ValueError
+maharashtra,yeotmal,Kharif,Arhar/Tur,ValueError
+meghalaya,east+khasi+hills,Rabi,Rapeseed &Mustard,ValueError
+meghalaya,west+garo+hills,Kharif,Mesta,ValueError
+meghalaya,west+garo+hills,Whole Year,Sugarcane,ValueError
+meghalaya,west+garo+hills,Rabi,Rapeseed &Mustard,ValueError
+meghalaya,west+garo+hills,Rabi,Gram,ValueError
+meghalaya,west+khasi+hills,Whole Year,Sugarcane,ValueError
+meghalaya,west+khasi+hills,Rabi,Rapeseed &Mustard,ValueError
+nagaland,kohima,Kharif,Maize,ValueError
+nagaland,mokokchung,Kharif,Rice,ValueError
+nagaland,mokokchung,Kharif,Maize,ValueError
+nagaland,tuensang,Kharif,Rice,FileNotFoundError
+nagaland,tuensang,Kharif,Maize,FileNotFoundError
+nagaland,wokha,Kharif,Rice,ValueError
+nagaland,wokha,Kharif,Maize,ValueError
+nagaland,zunheboto,Kharif,Rice,ValueError
+nagaland,zunheboto,Kharif,Maize,ValueError
+punjab,amritsar,Rabi,Wheat,ValueError
+punjab,amritsar,Kharif,Rice,ValueError
+punjab,bhatinda,Kharif,Rice,ValueError
+punjab,bhatinda,Rabi,Barley,ValueError
+punjab,bhatinda,Rabi,Wheat,ValueError
+punjab,faridkot,Kharif,Rice,ValueError
+punjab,firozpur,Kharif,Rice,ValueError
+punjab,hoshiarpur,Rabi,Masoor,ValueError
+punjab,hoshiarpur,Kharif,Maize,ValueError
+punjab,hoshiarpur,Kharif,Sesamum,ValueError
+punjab,jalandhar,Kharif,Arhar/Tur,ValueError
+punjab,jalandhar,Rabi,Wheat,ValueError
+punjab,kapurthala,Kharif,Maize,ValueError
+punjab,kapurthala,Kharif,Rice,ValueError
+punjab,mansa,Rabi,Barley,ValueError
+punjab,mansa,Rabi,Wheat,ValueError
+punjab,mansa,Kharif,Rice,ValueError
+punjab,moga,Kharif,Arhar/Tur,ValueError
+punjab,moga,Kharif,Rice,ValueError
+punjab,muktsar,Rabi,Wheat,ValueError
+punjab,muktsar,Kharif,Sesamum,ValueError
+punjab,nawanshahr,Kharif,Rice,ValueError
+punjab,patiala,Kharif,Maize,ValueError
+punjab,rupnagar,Rabi,Wheat,ValueError
+punjab,rupnagar,Kharif,Maize,ValueError
+punjab,rupnagar,Kharif,Rice,ValueError
+punjab,sangrur,Rabi,Barley,ValueError
+uttar+pradesh,agra,Rabi,Wheat,ValueError
+uttar+pradesh,agra,Kharif,Jowar,ValueError
+uttar+pradesh,aligarh,Kharif,Rice,ValueError
+uttar+pradesh,aligarh,Rabi,Barley,ValueError
+uttar+pradesh,aligarh,Kharif,Maize,ValueError
+uttar+pradesh,allahabad,Rabi,Gram,ValueError
+uttar+pradesh,ambedkar+nagar,Rabi,Gram,ValueError
+uttar+pradesh,ambedkar+nagar,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,ambedkar+nagar,Kharif,Rice,ValueError
+uttar+pradesh,auraiya,Kharif,Rice,ValueError
+uttar+pradesh,azamgarh,Rabi,Barley,ValueError
+uttar+pradesh,azamgarh,Kharif,Rice,ValueError
+uttar+pradesh,baghpat,Rabi,Wheat,FileNotFoundError
+uttar+pradesh,baghpat,Kharif,Rice,FileNotFoundError
+uttar+pradesh,baghpat,Rabi,Rapeseed &Mustard,FileNotFoundError
+uttar+pradesh,baghpat,Kharif,Bajra,FileNotFoundError
+uttar+pradesh,baghpat,Rabi,Barley,FileNotFoundError
+uttar+pradesh,bahraich,Kharif,Jowar,ValueError
+uttar+pradesh,banda,Rabi,Wheat,ValueError
+uttar+pradesh,basti,Rabi,Gram,ValueError
+uttar+pradesh,basti,Rabi,Barley,ValueError
+uttar+pradesh,budaun,Kharif,Bajra,ValueError
+uttar+pradesh,budaun,Rabi,Gram,ValueError
+uttar+pradesh,budaun,Kharif,Jowar,ValueError
+uttar+pradesh,budaun,Kharif,Maize,ValueError
+uttar+pradesh,budaun,Rabi,Barley,ValueError
+uttar+pradesh,budaun,Rabi,Wheat,ValueError
+uttar+pradesh,budaun,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,budaun,Kharif,Rice,ValueError
+uttar+pradesh,bulandshahar,Rabi,Wheat,ValueError
+uttar+pradesh,bulandshahar,Kharif,Jowar,ValueError
+uttar+pradesh,chandauli,Rabi,Wheat,ValueError
+uttar+pradesh,chandauli,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,chandauli,Kharif,Jowar,ValueError
+uttar+pradesh,chandauli,Kharif,Maize,ValueError
+uttar+pradesh,chandauli,Kharif,Bajra,ValueError
+uttar+pradesh,chandauli,Kharif,Rice,ValueError
+uttar+pradesh,chandauli,Rabi,Gram,ValueError
+uttar+pradesh,chandauli,Rabi,Barley,ValueError
+uttar+pradesh,chitrakoot,Rabi,Linseed,ValueError
+uttar+pradesh,chitrakoot,Rabi,Wheat,ValueError
+uttar+pradesh,chitrakoot,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,chitrakoot,Kharif,Jowar,ValueError
+uttar+pradesh,chitrakoot,Kharif,Maize,ValueError
+uttar+pradesh,chitrakoot,Kharif,Bajra,ValueError
+uttar+pradesh,chitrakoot,Rabi,Gram,ValueError
+uttar+pradesh,chitrakoot,Kharif,Rice,ValueError
+uttar+pradesh,chitrakoot,Rabi,Barley,ValueError
+uttar+pradesh,deoria,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,deoria,Rabi,Barley,ValueError
+uttar+pradesh,etawah,Kharif,Bajra,ValueError
+uttar+pradesh,fatehpur,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,fatehpur,Rabi,Barley,ValueError
+uttar+pradesh,fatehpur,Kharif,Bajra,ValueError
+uttar+pradesh,firozabad,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,firozabad,Kharif,Bajra,ValueError
+uttar+pradesh,gautam+buddha+nagar,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,gautam+buddha+nagar,Kharif,Rice,ValueError
+uttar+pradesh,gautam+buddha+nagar,Rabi,Barley,ValueError
+uttar+pradesh,gautam+buddha+nagar,Rabi,Wheat,ValueError
+uttar+pradesh,gautam+buddha+nagar,Kharif,Bajra,ValueError
+uttar+pradesh,gautam+buddha+nagar,Kharif,Maize,ValueError
+uttar+pradesh,ghaziabad,Rabi,Wheat,ValueError
+uttar+pradesh,ghazipur,Kharif,Maize,ValueError
+uttar+pradesh,gonda,Kharif,Maize,ValueError
+uttar+pradesh,gorakhpur,Rabi,Wheat,ValueError
+uttar+pradesh,hardoi,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,hardoi,Kharif,Bajra,ValueError
+uttar+pradesh,hathras,Kharif,Bajra,ValueError
+uttar+pradesh,hathras,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,hathras,Kharif,Maize,ValueError
+uttar+pradesh,hathras,Rabi,Wheat,ValueError
+uttar+pradesh,hathras,Rabi,Gram,ValueError
+uttar+pradesh,hathras,Kharif,Rice,ValueError
+uttar+pradesh,hathras,Rabi,Barley,ValueError
+uttar+pradesh,jalaun,Kharif,Bajra,ValueError
+uttar+pradesh,jaunpur,Kharif,Rice,ValueError
+uttar+pradesh,kannauj,Kharif,Rice,ValueError
+uttar+pradesh,kannauj,Rabi,Gram,ValueError
+uttar+pradesh,kannauj,Rabi,Wheat,ValueError
+uttar+pradesh,kannauj,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,kannauj,Rabi,Barley,ValueError
+uttar+pradesh,kannauj,Kharif,Jowar,ValueError
+uttar+pradesh,kannauj,Kharif,Maize,ValueError
+uttar+pradesh,kannauj,Kharif,Bajra,ValueError
+uttar+pradesh,kanpur+nagar,Kharif,Rice,ValueError
+uttar+pradesh,kanpur+nagar,Rabi,Wheat,ValueError
+uttar+pradesh,kanpur+nagar,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,kanpur+nagar,Kharif,Bajra,ValueError
+uttar+pradesh,kanpur+nagar,Rabi,Gram,ValueError
+uttar+pradesh,kanpur+nagar,Kharif,Jowar,ValueError
+uttar+pradesh,kanpur+nagar,Kharif,Maize,ValueError
+uttar+pradesh,kanpur+nagar,Rabi,Barley,ValueError
+uttar+pradesh,kaushambi,Rabi,Wheat,ValueError
+uttar+pradesh,kaushambi,Kharif,Bajra,ValueError
+uttar+pradesh,kaushambi,Rabi,Gram,ValueError
+uttar+pradesh,kaushambi,Kharif,Jowar,ValueError
+uttar+pradesh,kaushambi,Rabi,Barley,ValueError
+uttar+pradesh,kaushambi,Kharif,Rice,ValueError
+uttar+pradesh,kaushambi,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,kheri,Rabi,Gram,ValueError
+uttar+pradesh,kushinagar,Kharif,Rice,ValueError
+uttar+pradesh,kushinagar,Rabi,Wheat,ValueError
+uttar+pradesh,kushinagar,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,kushinagar,Kharif,Maize,ValueError
+uttar+pradesh,kushinagar,Rabi,Barley,ValueError
+uttar+pradesh,kushinagar,Kharif,Bajra,ValueError
+uttar+pradesh,lalitpur,Rabi,Gram,ValueError
+uttar+pradesh,lucknow,Kharif,Jowar,ValueError
+uttar+pradesh,maharajganj,Kharif,Rice,ValueError
+uttar+pradesh,maharajganj,Kharif,Maize,ValueError
+uttar+pradesh,maharajganj,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,mahoba,Rabi,Wheat,ValueError
+uttar+pradesh,mahoba,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,mahoba,Kharif,Jowar,ValueError
+uttar+pradesh,mahoba,Rabi,Linseed,ValueError
+uttar+pradesh,mahoba,Rabi,Gram,ValueError
+uttar+pradesh,mahoba,Kharif,Rice,ValueError
+uttar+pradesh,mahoba,Rabi,Barley,ValueError
+uttar+pradesh,mainpuri,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,mainpuri,Kharif,Rice,ValueError
+uttar+pradesh,mathura,Kharif,Bajra,ValueError
+uttar+pradesh,mathura,Kharif,Jowar,ValueError
+uttar+pradesh,mau,Rabi,Wheat,ValueError
+uttar+pradesh,moradabad,Rabi,Barley,ValueError
+uttar+pradesh,pilibhit,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,pilibhit,Kharif,Rice,ValueError
+uttar+pradesh,pratapgarh,Rabi,Wheat,ValueError
+uttar+pradesh,pratapgarh,Kharif,Jowar,ValueError
+uttar+pradesh,rae+bareli,Rabi,Barley,ValueError
+uttar+pradesh,rae+bareli,Rabi,Gram,ValueError
+uttar+pradesh,rae+bareli,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,rae+bareli,Kharif,Bajra,ValueError
+uttar+pradesh,rae+bareli,Kharif,Jowar,ValueError
+uttar+pradesh,rae+bareli,Kharif,Maize,ValueError
+uttar+pradesh,rae+bareli,Rabi,Linseed,ValueError
+uttar+pradesh,rae+bareli,Rabi,Wheat,ValueError
+uttar+pradesh,rae+bareli,Kharif,Rice,ValueError
+uttar+pradesh,rampur,Kharif,Bajra,ValueError
+uttar+pradesh,saharanpur,Kharif,Maize,ValueError
+uttar+pradesh,saharanpur,Rabi,Gram,ValueError
+uttar+pradesh,sant+kabir+nagar,Rabi,Wheat,ValueError
+uttar+pradesh,sant+kabir+nagar,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,sant+kabir+nagar,Kharif,Maize,ValueError
+uttar+pradesh,sant+kabir+nagar,Kharif,Rice,ValueError
+uttar+pradesh,sant+kabir+nagar,Rabi,Gram,ValueError
+uttar+pradesh,sant+kabir+nagar,Rabi,Barley,ValueError
+uttar+pradesh,sant+ravidas+nagar,Kharif,Jowar,ValueError
+uttar+pradesh,sant+ravidas+nagar,Rabi,Barley,ValueError
+uttar+pradesh,shahjahanpur,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,shahjahanpur,Kharif,Jowar,ValueError
+uttar+pradesh,shahjahanpur,Rabi,Wheat,ValueError
+uttar+pradesh,shrawasti,Rabi,Barley,ValueError
+uttar+pradesh,shrawasti,Kharif,Rice,ValueError
+uttar+pradesh,shrawasti,Rabi,Gram,ValueError
+uttar+pradesh,shrawasti,Kharif,Jowar,ValueError
+uttar+pradesh,shrawasti,Rabi,Wheat,ValueError
+uttar+pradesh,shrawasti,Kharif,Maize,ValueError
+uttar+pradesh,shrawasti,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,sitapur,Kharif,Bajra,ValueError
+uttar+pradesh,sitapur,Rabi,Wheat,ValueError
+uttar+pradesh,sonbhadra,Rabi,Rapeseed &Mustard,ValueError
+uttar+pradesh,sultanpur,Kharif,Rice,ValueError
+uttar+pradesh,sultanpur,Kharif,Jowar,ValueError
+uttar+pradesh,unnao,Rabi,Linseed,ValueError
+uttar+pradesh,unnao,Kharif,Jowar,ValueError
+uttar+pradesh,varanasi,Kharif,Jowar,ValueError
+uttar+pradesh,varanasi,Rabi,Barley,ValueError
+west+bengal,bankura,Winter,Rice,ValueError
+west+bengal,birbhum,Whole Year,Sugarcane,ValueError
+west+bengal,birbhum,Autumn,Rice,ValueError
+west+bengal,cooch+behar,Rabi,Wheat,ValueError
+west+bengal,cooch+behar,Kharif,Mesta,ValueError
+west+bengal,cooch+behar,Rabi,Masoor,ValueError
+west+bengal,cooch+behar,Autumn,Rice,ValueError
+west+bengal,darjeeling,Winter,Rice,ValueError
+west+bengal,darjeeling,Rabi,Wheat,ValueError
+west+bengal,hooghly,Winter,Rice,ValueError
+west+bengal,hooghly,Rabi,Wheat,ValueError
+west+bengal,hooghly,Rabi,Masoor,ValueError
+west+bengal,jalpaiguri,Autumn,Rice,ValueError
+west+bengal,malda,Rabi,Khesari,ValueError
+west+bengal,murshidabad,Whole Year,Sugarcane,ValueError
+west+bengal,murshidabad,Kharif,Jute,ValueError
+west+bengal,murshidabad,Rabi,Wheat,ValueError
+west+bengal,murshidabad,Rabi,Khesari,ValueError
+west+bengal,nadia,Kharif,Urad,ValueError
+west+bengal,nadia,Summer,Rice,ValueError
+west+bengal,nadia,Rabi,Masoor,ValueError
+west+bengal,north+24+parganas,Summer,Rice,ValueError
+west+bengal,north+24+parganas,Rabi,Khesari,ValueError
+west+bengal,north+24+parganas,Rabi,Gram,ValueError
