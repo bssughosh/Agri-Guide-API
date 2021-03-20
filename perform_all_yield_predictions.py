@@ -52,8 +52,8 @@ for state, dist, season, crop in zip(all_states, all_dists, all_seasons, all_cro
                 yield_caller(state, dist, season, str(crop_id))
         print(f'Yield prediction for {dist},{state} => {season},{crop} is done in {time.time() - t0}')
 
-    except:
-        print(f'Exception occurred for {dist},{state} => {season},{crop}')
+    except Exception as e:
+        print(f'Exception occurred => {e.__class__.__name__}')
         with open('outputs/exceptions_yield.csv', 'a+', newline='') as fd:
             csv_writer = writer(fd)
-            csv_writer.writerow([state, dist, season, crop])
+            csv_writer.writerow([state, dist, season, crop, e.__class__.__name__])
