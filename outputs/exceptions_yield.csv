@@ -1,1 +1,54 @@
 State,District,Season,Crop,Error
+andhra+pradesh,anantapur,Rabi,Gram,ValueError
+andhra+pradesh,anantapur,Rabi,Jowar,ValueError
+andhra+pradesh,anantapur,Kharif,Castor seed,ValueError
+andhra+pradesh,chittoor,Rabi,Ragi,ValueError
+andhra+pradesh,chittoor,Kharif,Horse-gram,ValueError
+andhra+pradesh,east+godavari,Kharif,Maize,ValueError
+andhra+pradesh,east+godavari,Kharif,Sesamum,ValueError
+andhra+pradesh,east+godavari,Rabi,Urad,ValueError
+andhra+pradesh,east+godavari,Rabi,Sesamum,ValueError
+andhra+pradesh,east+godavari,Kharif,Rice,ValueError
+andhra+pradesh,guntur,Kharif,Moong(Green Gram),ValueError
+andhra+pradesh,guntur,Rabi,Maize,ValueError
+andhra+pradesh,guntur,Kharif,Urad,ValueError
+andhra+pradesh,krishna,Kharif,Moong(Green Gram),ValueError
+andhra+pradesh,kurnool,Rabi,Groundnut,ValueError
+andhra+pradesh,kurnool,Rabi,Jowar,ValueError
+andhra+pradesh,kurnool,Kharif,Maize,ValueError
+andhra+pradesh,prakasam,Kharif,Rice,ValueError
+andhra+pradesh,prakasam,Kharif,Urad,ValueError
+andhra+pradesh,prakasam,Kharif,Maize,ValueError
+andhra+pradesh,prakasam,Kharif,Cotton(lint),ValueError
+andhra+pradesh,prakasam,Rabi,Sesamum,ValueError
+andhra+pradesh,srikakulam,Rabi,Groundnut,ValueError
+andhra+pradesh,srikakulam,Rabi,Ragi,ValueError
+andhra+pradesh,vishakhapatnam,Kharif,Rice,ValueError
+andhra+pradesh,vishakhapatnam,Kharif,Bajra,ValueError
+andhra+pradesh,vizianagaram,Rabi,Maize,ValueError
+andhra+pradesh,vizianagaram,Rabi,Horse-gram,ValueError
+andhra+pradesh,vizianagaram,Kharif,Sesamum,ValueError
+andhra+pradesh,vizianagaram,Kharif,Jowar,ValueError
+andhra+pradesh,vizianagaram,Kharif,Cotton(lint),ValueError
+andhra+pradesh,west+godavari,Kharif,Groundnut,ValueError
+arunachal+pradesh,dibang+valley,Kharif,Maize,FileNotFoundError
+arunachal+pradesh,dibang+valley,Kharif,Rice,FileNotFoundError
+arunachal+pradesh,dibang+valley,Whole Year,Oilseeds total,FileNotFoundError
+arunachal+pradesh,east+kameng,Whole Year,Oilseeds total,ValueError
+arunachal+pradesh,lohit,Kharif,Rice,ValueError
+arunachal+pradesh,lohit,Kharif,Small millets,ValueError
+arunachal+pradesh,lower+subansiri,Kharif,Maize,FileNotFoundError
+arunachal+pradesh,lower+subansiri,Kharif,Small millets,FileNotFoundError
+arunachal+pradesh,lower+subansiri,Whole Year,Oilseeds total,FileNotFoundError
+arunachal+pradesh,lower+subansiri,Kharif,Rice,FileNotFoundError
+arunachal+pradesh,tawang,Kharif,Rice,ValueError
+arunachal+pradesh,tawang,Kharif,Small millets,ValueError
+arunachal+pradesh,tirap,Kharif,Small millets,ValueError
+arunachal+pradesh,upper+subansiri,Kharif,Small millets,ValueError
+arunachal+pradesh,west+siang,Kharif,Maize,ValueError
+assam,barpeta,Whole Year,Potato,ValueError
+assam,darrang,Winter,Rice,FileNotFoundError
+assam,darrang,Whole Year,Turmeric,FileNotFoundError
+assam,darrang,Rabi,Wheat,FileNotFoundError
+assam,darrang,Rabi,Rapeseed &Mustard,FileNotFoundError
+assam,darrang,Autumn,Rice,FileNotFoundError
