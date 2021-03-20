@@ -52,3 +52,248 @@ assam,darrang,Whole Year,Turmeric,FileNotFoundError
 assam,darrang,Rabi,Wheat,FileNotFoundError
 assam,darrang,Rabi,Rapeseed &Mustard,FileNotFoundError
 assam,darrang,Autumn,Rice,FileNotFoundError
+assam,darrang,Rabi,Linseed,FileNotFoundError
+assam,darrang,Rabi,Gram,FileNotFoundError
+assam,darrang,Whole Year,Onion,FileNotFoundError
+assam,darrang,Whole Year,Potato,FileNotFoundError
+assam,darrang,Kharif,Jute,FileNotFoundError
+assam,darrang,Kharif,Mesta,FileNotFoundError
+assam,darrang,Kharif,Arhar/Tur,FileNotFoundError
+assam,darrang,Summer,Rice,FileNotFoundError
+assam,dhemaji,Winter,Rice,ValueError
+assam,dhemaji,Whole Year,Turmeric,ValueError
+assam,dhemaji,Rabi,Wheat,ValueError
+assam,dhemaji,Rabi,Rapeseed &Mustard,ValueError
+assam,dhemaji,Autumn,Rice,ValueError
+assam,dhemaji,Rabi,Linseed,ValueError
+assam,dhemaji,Rabi,Gram,ValueError
+assam,dhemaji,Whole Year,Onion,ValueError
+assam,dhemaji,Summer,Rice,ValueError
+assam,dhemaji,Kharif,Small millets,ValueError
+assam,dhemaji,Whole Year,Potato,ValueError
+assam,dhemaji,Kharif,Jute,ValueError
+assam,dhemaji,Kharif,Mesta,ValueError
+assam,dhemaji,Kharif,Arhar/Tur,ValueError
+assam,dhemaji,Kharif,Cotton(lint),ValueError
+assam,dhubri,Whole Year,Onion,ValueError
+assam,dhubri,Summer,Rice,ValueError
+assam,dhubri,Kharif,Jute,ValueError
+assam,dhubri,Kharif,Arhar/Tur,ValueError
+assam,dibrugarh,Autumn,Rice,ValueError
+assam,dibrugarh,Summer,Rice,ValueError
+assam,dibrugarh,Whole Year,Potato,ValueError
+assam,dibrugarh,Kharif,Jute,ValueError
+assam,golaghat,Winter,Rice,ValueError
+assam,golaghat,Rabi,Gram,ValueError
+assam,golaghat,Summer,Rice,ValueError
+assam,golapara,Winter,Rice,ValueError
+assam,golapara,Whole Year,Onion,ValueError
+assam,golapara,Summer,Rice,ValueError
+assam,golapara,Kharif,Arhar/Tur,ValueError
+assam,hailakandi,Kharif,Cotton(lint),ValueError
+assam,hailakandi,Whole Year,Potato,ValueError
+assam,jorhat,Winter,Rice,ValueError
+assam,kamrup,Rabi,Wheat,ValueError
+assam,kamrup,Rabi,Rapeseed &Mustard,ValueError
+assam,kamrup,Summer,Rice,ValueError
+assam,kamrup,Kharif,Arhar/Tur,ValueError
+assam,karbi+anglong,Winter,Rice,ValueError
+assam,karbi+anglong,Whole Year,Turmeric,ValueError
+assam,karbi+anglong,Rabi,Gram,ValueError
+assam,karbi+anglong,Whole Year,Onion,ValueError
+assam,karbi+anglong,Kharif,Small millets,ValueError
+assam,karbi+anglong,Kharif,Jute,ValueError
+assam,karbi+anglong,Kharif,Arhar/Tur,ValueError
+assam,karimganj,Winter,Rice,ValueError
+assam,karimganj,Kharif,Cotton(lint),ValueError
+assam,karimganj,Whole Year,Turmeric,ValueError
+assam,kokrajhar,Winter,Rice,ValueError
+assam,kokrajhar,Rabi,Rapeseed &Mustard,ValueError
+assam,kokrajhar,Summer,Rice,ValueError
+assam,lakhimpur,Rabi,Gram,ValueError
+assam,lakhimpur,Whole Year,Onion,ValueError
+assam,lakhimpur,Kharif,Castor seed,ValueError
+assam,lakhimpur,Kharif,Arhar/Tur,ValueError
+assam,nagaon,Rabi,Rapeseed &Mustard,ValueError
+assam,nagaon,Autumn,Rice,ValueError
+assam,nagaon,Rabi,Gram,ValueError
+assam,nagaon,Whole Year,Onion,ValueError
+assam,nagaon,Kharif,Small millets,ValueError
+assam,nagaon,Kharif,Arhar/Tur,ValueError
+assam,nalbari,Winter,Rice,ValueError
+assam,nalbari,Rabi,Rapeseed &Mustard,ValueError
+assam,nalbari,Autumn,Rice,ValueError
+assam,nalbari,Summer,Rice,ValueError
+assam,nalbari,Whole Year,Potato,ValueError
+assam,sibsagar,Winter,Rice,ValueError
+assam,sibsagar,Rabi,Gram,ValueError
+assam,sibsagar,Summer,Rice,ValueError
+assam,sonitpur,Winter,Rice,ValueError
+assam,sonitpur,Whole Year,Turmeric,ValueError
+assam,sonitpur,Rabi,Wheat,ValueError
+assam,sonitpur,Rabi,Rapeseed &Mustard,ValueError
+assam,sonitpur,Rabi,Linseed,ValueError
+assam,sonitpur,Summer,Rice,ValueError
+assam,sonitpur,Kharif,Small millets,ValueError
+assam,sonitpur,Whole Year,Potato,ValueError
+assam,sonitpur,Kharif,Jute,ValueError
+assam,sonitpur,Kharif,Mesta,ValueError
+assam,sonitpur,Kharif,Arhar/Tur,ValueError
+assam,sonitpur,Kharif,Cotton(lint),ValueError
+assam,tinsukia,Winter,Rice,ValueError
+assam,tinsukia,Rabi,Rapeseed &Mustard,ValueError
+assam,tinsukia,Whole Year,Onion,ValueError
+bihar,banka,Rabi,Linseed,ValueError
+bihar,banka,Kharif,Arhar/Tur,ValueError
+bihar,banka,Summer,Maize,ValueError
+bihar,banka,Rabi,Wheat,ValueError
+bihar,banka,Rabi,Rapeseed &Mustard,ValueError
+bihar,banka,Rabi,Maize,ValueError
+bihar,banka,Rabi,Gram,ValueError
+bihar,begusarai,Summer,Maize,ValueError
+bihar,bhagalpur,Summer,Maize,ValueError
+bihar,bhojpur,Kharif,Jowar,ValueError
+bihar,bhojpur,Rabi,Linseed,ValueError
+bihar,darbhanga,Rabi,Rapeseed &Mustard,ValueError
+bihar,gaya,Kharif,Arhar/Tur,ValueError
+bihar,gopalganj,Kharif,Arhar/Tur,ValueError
+bihar,jehanabad,Rabi,Linseed,ValueError
+bihar,jehanabad,Kharif,Arhar/Tur,ValueError
+bihar,jehanabad,Summer,Maize,ValueError
+bihar,jehanabad,Rabi,Wheat,ValueError
+bihar,jehanabad,Rabi,Rapeseed &Mustard,ValueError
+bihar,jehanabad,Rabi,Maize,ValueError
+bihar,jehanabad,Rabi,Gram,ValueError
+bihar,kaimur,Kharif,Arhar/Tur,ValueError
+bihar,kaimur,Rabi,Gram,ValueError
+bihar,kaimur,Rabi,Linseed,ValueError
+bihar,kaimur,Rabi,Wheat,ValueError
+bihar,kaimur,Rabi,Rapeseed &Mustard,ValueError
+bihar,katihar,Kharif,Arhar/Tur,ValueError
+bihar,katihar,Rabi,Wheat,ValueError
+bihar,khagaria,Summer,Maize,ValueError
+bihar,kishanganj,Summer,Maize,ValueError
+bihar,kishanganj,Rabi,Wheat,ValueError
+bihar,kishanganj,Rabi,Maize,ValueError
+bihar,lakhisarai,Rabi,Gram,ValueError
+bihar,lakhisarai,Kharif,Arhar/Tur,ValueError
+bihar,lakhisarai,Rabi,Wheat,ValueError
+bihar,lakhisarai,Rabi,Rapeseed &Mustard,ValueError
+bihar,madhepura,Summer,Rice,ValueError
+bihar,madhepura,Rabi,Wheat,ValueError
+bihar,madhubani,Rabi,Maize,ValueError
+bihar,madhubani,Summer,Rice,ValueError
+bihar,madhubani,Summer,Maize,ValueError
+bihar,munger,Rabi,Linseed,ValueError
+bihar,munger,Kharif,Arhar/Tur,ValueError
+bihar,munger,Summer,Maize,ValueError
+bihar,munger,Rabi,Wheat,ValueError
+bihar,munger,Rabi,Rapeseed &Mustard,ValueError
+bihar,munger,Rabi,Maize,ValueError
+bihar,munger,Rabi,Gram,ValueError
+bihar,nalanda,Summer,Maize,ValueError
+bihar,nalanda,Rabi,Wheat,ValueError
+bihar,nawada,Rabi,Linseed,ValueError
+bihar,nawada,Kharif,Arhar/Tur,ValueError
+bihar,nawada,Summer,Maize,ValueError
+bihar,nawada,Rabi,Wheat,ValueError
+bihar,nawada,Rabi,Rapeseed &Mustard,ValueError
+bihar,paschim+champaran,Rabi,Linseed,ValueError
+bihar,paschim+champaran,Rabi,Maize,ValueError
+bihar,paschim+champaran,Kharif,Arhar/Tur,ValueError
+bihar,paschim+champaran,Summer,Rice,ValueError
+bihar,paschim+champaran,Summer,Maize,ValueError
+bihar,paschim+champaran,Rabi,Wheat,ValueError
+bihar,paschim+champaran,Rabi,Rapeseed &Mustard,ValueError
+bihar,purba+champaran,Kharif,Arhar/Tur,ValueError
+bihar,purba+champaran,Summer,Maize,ValueError
+bihar,purba+champaran,Rabi,Wheat,ValueError
+bihar,purba+champaran,Rabi,Rapeseed &Mustard,ValueError
+bihar,purba+champaran,Rabi,Maize,ValueError
+bihar,purnia,Kharif,Arhar/Tur,ValueError
+bihar,purnia,Summer,Rice,ValueError
+bihar,purnia,Summer,Maize,ValueError
+bihar,purnia,Rabi,Wheat,ValueError
+bihar,purnia,Rabi,Rapeseed &Mustard,ValueError
+bihar,purnia,Rabi,Gram,ValueError
+bihar,purnia,Kharif,Jute,ValueError
+bihar,purnia,Rabi,Maize,ValueError
+bihar,purnia,Kharif,Mesta,ValueError
+bihar,saharsa,Summer,Rice,ValueError
+bihar,saharsa,Rabi,Wheat,ValueError
+bihar,samastipur,Rabi,Linseed,ValueError
+bihar,saran,Kharif,Arhar/Tur,ValueError
+bihar,saran,Summer,Maize,ValueError
+bihar,sheikhpura,Rabi,Linseed,ValueError
+bihar,sheikhpura,Rabi,Gram,ValueError
+bihar,sheikhpura,Kharif,Arhar/Tur,ValueError
+bihar,sheikhpura,Rabi,Wheat,ValueError
+bihar,sheikhpura,Rabi,Rapeseed &Mustard,ValueError
+bihar,sheohar,Kharif,Arhar/Tur,ValueError
+bihar,sheohar,Rabi,Wheat,ValueError
+bihar,sheohar,Rabi,Rapeseed &Mustard,ValueError
+bihar,sheohar,Rabi,Maize,ValueError
+bihar,sheohar,Rabi,Linseed,ValueError
+bihar,sitamarhi,Kharif,Arhar/Tur,ValueError
+bihar,sitamarhi,Summer,Maize,ValueError
+bihar,siwan,Summer,Maize,ValueError
+bihar,siwan,Rabi,Wheat,ValueError
+bihar,supaul,Summer,Maize,ValueError
+bihar,supaul,Kharif,Jute,ValueError
+karnataka,belgam,Kharif,Arhar/Tur,ValueError
+karnataka,belgam,Summer,Jowar,ValueError
+karnataka,belgam,Rabi,Horse-gram,ValueError
+karnataka,belgam,Kharif,Maize,ValueError
+karnataka,bellary,Summer,Maize,ValueError
+karnataka,bidar,Kharif,Bajra,ValueError
+karnataka,bidar,Kharif,Groundnut,ValueError
+karnataka,bijapur,Kharif,Arhar/Tur,ValueError
+karnataka,bijapur,Summer,Maize,ValueError
+karnataka,bijapur,Rabi,Jowar,ValueError
+karnataka,chikmagalur,Kharif,Horse-gram,ValueError
+karnataka,chikmagalur,Kharif,Groundnut,ValueError
+karnataka,chikmagalur,Whole Year,Coriander,ValueError
+karnataka,chitradurga,Rabi,Ragi,ValueError
+karnataka,dharwad,Kharif,Maize,ValueError
+karnataka,gulbarga,Kharif,Arhar/Tur,ValueError
+karnataka,gulbarga,Kharif,Maize,ValueError
+karnataka,gulbarga,Whole Year,Coriander,ValueError
+karnataka,hassan,Rabi,Maize,ValueError
+karnataka,hassan,Kharif,Groundnut,ValueError
+karnataka,kolar,Kharif,Ragi,ValueError
+karnataka,mandya,Rabi,Horse-gram,ValueError
+karnataka,mandya,Kharif,Rice,ValueError
+karnataka,mandya,Kharif,Ragi,ValueError
+karnataka,mandya,Kharif,Groundnut,ValueError
+karnataka,mysore,Whole Year,Coriander,ValueError
+karnataka,mysore,Summer,Rice,ValueError
+karnataka,mysore,Summer,Ragi,ValueError
+karnataka,mysore,Rabi,Horse-gram,ValueError
+karnataka,mysore,Kharif,Rice,ValueError
+karnataka,mysore,Whole Year,Turmeric,ValueError
+karnataka,raichur,Kharif,Bajra,ValueError
+karnataka,shimoga,Kharif,Arhar/Tur,ValueError
+karnataka,shimoga,Kharif,Jowar,ValueError
+karnataka,shimoga,Kharif,Groundnut,ValueError
+karnataka,tumkur,Kharif,Arhar/Tur,ValueError
+karnataka,tumkur,Kharif,Groundnut,ValueError
+maharashtra,ahmednagar,Kharif,Ragi,ValueError
+maharashtra,ahmednagar,Kharif,Bajra,ValueError
+maharashtra,akola,Kharif,Bajra,ValueError
+maharashtra,aurangabad,Kharif,Arhar/Tur,ValueError
+maharashtra,beed,Kharif,Arhar/Tur,FileNotFoundError
+maharashtra,beed,Kharif,Rice,FileNotFoundError
+maharashtra,beed,Kharif,Bajra,FileNotFoundError
+maharashtra,beed,Kharif,Moong(Green Gram),FileNotFoundError
+maharashtra,beed,Rabi,Wheat,FileNotFoundError
+maharashtra,dhule,Kharif,Arhar/Tur,FileNotFoundError
+maharashtra,dhule,Kharif,Moong(Green Gram),FileNotFoundError
+maharashtra,dhule,Kharif,Bajra,FileNotFoundError
+maharashtra,dhule,Kharif,Rice,FileNotFoundError
+maharashtra,dhule,Kharif,Ragi,FileNotFoundError
+maharashtra,dhule,Rabi,Wheat,FileNotFoundError
+maharashtra,gadchiroli,Kharif,Rice,ValueError
+maharashtra,latur,Kharif,Arhar/Tur,ValueError
+maharashtra,latur,Kharif,Bajra,ValueError
+maharashtra,nanded,Rabi,Wheat,ValueError
+maharashtra,pune,Kharif,Bajra,ValueError
