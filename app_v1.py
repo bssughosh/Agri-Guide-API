@@ -319,8 +319,8 @@ def preprocessing(s):
 def get_state():
     isTest = request.args.get('isTest')
     print(f'/get_states endpoint called')
-    base_url = 'outputs/datasets'
-    file = 'new_places.csv'
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
     df = pd.read_csv(base_url + file)
 
     df['State'] = df['State'].apply(lambda c: preprocessing(c))
@@ -343,8 +343,8 @@ def get_state():
 @app.route('/get_state_value')
 def get_state_for_state_id():
     state_id = request.args.getlist(_queryParamStateId)
-    base_url = 'outputs/datasets'
-    file = 'new_places.csv'
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
     df = pd.read_csv(base_url + file)
     if len(state_id) == 1:
         state_id = state_id[0].split(',')
@@ -376,8 +376,8 @@ def get_dist():
 
     print(f'/get_dists endpoint called with state_id={state_id}')
 
-    base_url = 'outputs/datasets'
-    file = 'new_places.csv'
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
     df = pd.read_csv(base_url + file)
     df['State'] = df['State'].apply(lambda c: preprocessing(c))
     df['District'] = df['District'].apply(lambda c: preprocessing(c))
@@ -401,8 +401,8 @@ def get_dist():
 @app.route('/get_dist_value')
 def get_dist_for_dist_id():
     dist_id = request.args.getlist(_queryParamDistId)
-    base_url = 'outputs/datasets'
-    file = 'new_places.csv'
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    file = 'places.csv'
     df = pd.read_csv(base_url + file)
     if len(dist_id) == 1:
         dist_id = dist_id[0].split(',')
