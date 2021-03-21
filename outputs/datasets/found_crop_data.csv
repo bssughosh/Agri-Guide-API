@@ -1,0 +1,1213 @@
+State,District,Season,Crop,Crop_Id
+andhra pradesh,anantapur,Kharif,Groundnut,1
+andhra pradesh,anantapur,Kharif,Jowar,3
+andhra pradesh,anantapur,Kharif,Maize,4
+andhra pradesh,anantapur,Kharif,Rice,5
+andhra pradesh,anantapur,Kharif,Ragi,6
+andhra pradesh,anantapur,Kharif,Moong(Green Gram),7
+andhra pradesh,anantapur,Kharif,Cotton(lint),8
+andhra pradesh,anantapur,Kharif,Bajra,9
+andhra pradesh,anantapur,Rabi,Horse-gram,0
+andhra pradesh,anantapur,Rabi,Groundnut,1
+andhra pradesh,anantapur,Rabi,Maize,4
+andhra pradesh,anantapur,Rabi,Rice,5
+andhra pradesh,chittoor,Kharif,Groundnut,1
+andhra pradesh,chittoor,Kharif,Jowar,3
+andhra pradesh,chittoor,Kharif,Maize,4
+andhra pradesh,chittoor,Kharif,Rice,5
+andhra pradesh,chittoor,Kharif,Ragi,6
+andhra pradesh,chittoor,Kharif,Moong(Green Gram),7
+andhra pradesh,chittoor,Kharif,Bajra,9
+andhra pradesh,chittoor,Rabi,Horse-gram,0
+andhra pradesh,chittoor,Rabi,Groundnut,1
+andhra pradesh,chittoor,Rabi,Rice,5
+andhra pradesh,east godavari,Kharif,Jowar,3
+andhra pradesh,east godavari,Kharif,Cotton(lint),8
+andhra pradesh,east godavari,Kharif,Bajra,9
+andhra pradesh,east godavari,Rabi,Horse-gram,0
+andhra pradesh,east godavari,Rabi,Maize,4
+andhra pradesh,east godavari,Rabi,Rice,5
+andhra pradesh,east godavari,Rabi,Moong(Green Gram),7
+andhra pradesh,guntur,Kharif,Castor seed,10
+andhra pradesh,guntur,Kharif,Sesamum,11
+andhra pradesh,guntur,Kharif,Maize,4
+andhra pradesh,guntur,Kharif,Rice,5
+andhra pradesh,guntur,Kharif,Cotton(lint),8
+andhra pradesh,guntur,Rabi,Groundnut,1
+andhra pradesh,guntur,Rabi,Urad,12
+andhra pradesh,guntur,Rabi,Gram,2
+andhra pradesh,guntur,Rabi,Jowar,3
+andhra pradesh,guntur,Rabi,Rice,5
+andhra pradesh,guntur,Rabi,Moong(Green Gram),7
+andhra pradesh,krishna,Kharif,Groundnut,1
+andhra pradesh,krishna,Kharif,Urad,12
+andhra pradesh,krishna,Kharif,Maize,4
+andhra pradesh,krishna,Kharif,Rice,5
+andhra pradesh,krishna,Kharif,Cotton(lint),8
+andhra pradesh,krishna,Rabi,Groundnut,1
+andhra pradesh,krishna,Rabi,Urad,12
+andhra pradesh,krishna,Rabi,Maize,4
+andhra pradesh,krishna,Rabi,Rice,5
+andhra pradesh,krishna,Rabi,Moong(Green Gram),7
+andhra pradesh,kurnool,Kharif,Groundnut,1
+andhra pradesh,kurnool,Kharif,Urad,12
+andhra pradesh,kurnool,Kharif,Jowar,3
+andhra pradesh,kurnool,Kharif,Rice,5
+andhra pradesh,kurnool,Kharif,Moong(Green Gram),7
+andhra pradesh,kurnool,Kharif,Cotton(lint),8
+andhra pradesh,kurnool,Kharif,Bajra,9
+andhra pradesh,kurnool,Rabi,Horse-gram,0
+andhra pradesh,kurnool,Rabi,Urad,12
+andhra pradesh,kurnool,Rabi,Gram,2
+andhra pradesh,kurnool,Rabi,Maize,4
+andhra pradesh,kurnool,Rabi,Rice,5
+andhra pradesh,prakasam,Kharif,Groundnut,1
+andhra pradesh,prakasam,Kharif,Castor seed,10
+andhra pradesh,prakasam,Kharif,Sesamum,11
+andhra pradesh,prakasam,Kharif,Jowar,3
+andhra pradesh,prakasam,Kharif,Moong(Green Gram),7
+andhra pradesh,prakasam,Kharif,Bajra,9
+andhra pradesh,prakasam,Rabi,Groundnut,1
+andhra pradesh,prakasam,Rabi,Urad,12
+andhra pradesh,prakasam,Rabi,Gram,2
+andhra pradesh,prakasam,Rabi,Jowar,3
+andhra pradesh,prakasam,Rabi,Maize,4
+andhra pradesh,prakasam,Rabi,Rice,5
+andhra pradesh,prakasam,Rabi,Ragi,6
+andhra pradesh,prakasam,Rabi,Moong(Green Gram),7
+andhra pradesh,srikakulam,Kharif,Groundnut,1
+andhra pradesh,srikakulam,Kharif,Sesamum,11
+andhra pradesh,srikakulam,Kharif,Maize,4
+andhra pradesh,srikakulam,Kharif,Rice,5
+andhra pradesh,srikakulam,Kharif,Ragi,6
+andhra pradesh,srikakulam,Kharif,Moong(Green Gram),7
+andhra pradesh,srikakulam,Kharif,Cotton(lint),8
+andhra pradesh,srikakulam,Kharif,Bajra,9
+andhra pradesh,srikakulam,Rabi,Horse-gram,0
+andhra pradesh,srikakulam,Rabi,Sesamum,11
+andhra pradesh,srikakulam,Rabi,Urad,12
+andhra pradesh,srikakulam,Rabi,Rice,5
+andhra pradesh,srikakulam,Rabi,Moong(Green Gram),7
+andhra pradesh,vishakhapatnam,Kharif,Groundnut,1
+andhra pradesh,vishakhapatnam,Kharif,Sesamum,11
+andhra pradesh,vishakhapatnam,Kharif,Urad,12
+andhra pradesh,vishakhapatnam,Kharif,Jowar,3
+andhra pradesh,vishakhapatnam,Kharif,Maize,4
+andhra pradesh,vishakhapatnam,Kharif,Ragi,6
+andhra pradesh,vishakhapatnam,Kharif,Moong(Green Gram),7
+andhra pradesh,vishakhapatnam,Rabi,Horse-gram,0
+andhra pradesh,vishakhapatnam,Rabi,Groundnut,1
+andhra pradesh,vishakhapatnam,Rabi,Sesamum,11
+andhra pradesh,vishakhapatnam,Rabi,Urad,12
+andhra pradesh,vishakhapatnam,Rabi,Maize,4
+andhra pradesh,vishakhapatnam,Rabi,Rice,5
+andhra pradesh,vishakhapatnam,Rabi,Ragi,6
+andhra pradesh,vishakhapatnam,Rabi,Moong(Green Gram),7
+andhra pradesh,vizianagaram,Kharif,Groundnut,1
+andhra pradesh,vizianagaram,Kharif,Urad,12
+andhra pradesh,vizianagaram,Kharif,Maize,4
+andhra pradesh,vizianagaram,Kharif,Rice,5
+andhra pradesh,vizianagaram,Kharif,Ragi,6
+andhra pradesh,vizianagaram,Kharif,Moong(Green Gram),7
+andhra pradesh,vizianagaram,Kharif,Bajra,9
+andhra pradesh,vizianagaram,Rabi,Groundnut,1
+andhra pradesh,vizianagaram,Rabi,Sesamum,11
+andhra pradesh,vizianagaram,Rabi,Urad,12
+andhra pradesh,vizianagaram,Rabi,Rice,5
+andhra pradesh,vizianagaram,Rabi,Ragi,6
+andhra pradesh,vizianagaram,Rabi,Moong(Green Gram),7
+andhra pradesh,west godavari,Kharif,Maize,4
+andhra pradesh,west godavari,Kharif,Rice,5
+andhra pradesh,west godavari,Kharif,Cotton(lint),8
+andhra pradesh,west godavari,Rabi,Groundnut,1
+andhra pradesh,west godavari,Rabi,Urad,12
+andhra pradesh,west godavari,Rabi,Maize,4
+andhra pradesh,west godavari,Rabi,Rice,5
+andhra pradesh,west godavari,Rabi,Moong(Green Gram),7
+arunachal pradesh,changlang,Kharif,Small millets,14
+arunachal pradesh,changlang,Kharif,Maize,4
+arunachal pradesh,changlang,Kharif,Rice,5
+arunachal pradesh,changlang,Rabi,Wheat,13
+arunachal pradesh,changlang,Whole Year,Oilseeds total,15
+arunachal pradesh,east kameng,Kharif,Small millets,14
+arunachal pradesh,east kameng,Kharif,Maize,4
+arunachal pradesh,east kameng,Kharif,Rice,5
+arunachal pradesh,east kameng,Rabi,Wheat,13
+arunachal pradesh,east siang,Kharif,Small millets,14
+arunachal pradesh,east siang,Kharif,Maize,4
+arunachal pradesh,east siang,Kharif,Rice,5
+arunachal pradesh,east siang,Whole Year,Oilseeds total,15
+arunachal pradesh,lohit,Kharif,Maize,4
+arunachal pradesh,lohit,Rabi,Wheat,13
+arunachal pradesh,lohit,Whole Year,Oilseeds total,15
+arunachal pradesh,tawang,Kharif,Maize,4
+arunachal pradesh,tawang,Rabi,Wheat,13
+arunachal pradesh,tawang,Whole Year,Oilseeds total,15
+arunachal pradesh,tirap,Kharif,Maize,4
+arunachal pradesh,tirap,Kharif,Rice,5
+arunachal pradesh,tirap,Whole Year,Oilseeds total,15
+arunachal pradesh,upper subansiri,Kharif,Maize,4
+arunachal pradesh,upper subansiri,Kharif,Rice,5
+arunachal pradesh,upper subansiri,Whole Year,Oilseeds total,15
+arunachal pradesh,west kameng,Kharif,Small millets,14
+arunachal pradesh,west kameng,Kharif,Maize,4
+arunachal pradesh,west kameng,Kharif,Rice,5
+arunachal pradesh,west kameng,Rabi,Wheat,13
+arunachal pradesh,west kameng,Whole Year,Oilseeds total,15
+arunachal pradesh,west siang,Kharif,Small millets,14
+arunachal pradesh,west siang,Kharif,Rice,5
+arunachal pradesh,west siang,Whole Year,Oilseeds total,15
+assam,barpeta,Autumn,Rice,5
+assam,barpeta,Kharif,Castor seed,10
+assam,barpeta,Kharif,Small millets,14
+assam,barpeta,Kharif,Jute,21
+assam,barpeta,Kharif,Mesta,22
+assam,barpeta,Kharif,Arhar/Tur,23
+assam,barpeta,Kharif,Cotton(lint),8
+assam,barpeta,Rabi,Wheat,13
+assam,barpeta,Rabi,Rapeseed &Mustard,17
+assam,barpeta,Rabi,Linseed,18
+assam,barpeta,Rabi,Gram,2
+assam,barpeta,Summer,Rice,5
+assam,barpeta,Whole Year,Turmeric,16
+assam,barpeta,Whole Year,Onion,19
+assam,barpeta,Winter,Rice,5
+assam,cachar,Autumn,Rice,5
+assam,cachar,Kharif,Small millets,14
+assam,cachar,Kharif,Jute,21
+assam,cachar,Kharif,Mesta,22
+assam,cachar,Kharif,Arhar/Tur,23
+assam,cachar,Kharif,Cotton(lint),8
+assam,cachar,Rabi,Wheat,13
+assam,cachar,Rabi,Rapeseed &Mustard,17
+assam,cachar,Rabi,Linseed,18
+assam,cachar,Rabi,Gram,2
+assam,cachar,Summer,Rice,5
+assam,cachar,Whole Year,Turmeric,16
+assam,cachar,Whole Year,Onion,19
+assam,cachar,Whole Year,Potato,20
+assam,cachar,Winter,Rice,5
+assam,dhubri,Autumn,Rice,5
+assam,dhubri,Kharif,Small millets,14
+assam,dhubri,Kharif,Mesta,22
+assam,dhubri,Rabi,Wheat,13
+assam,dhubri,Rabi,Rapeseed &Mustard,17
+assam,dhubri,Rabi,Linseed,18
+assam,dhubri,Rabi,Gram,2
+assam,dhubri,Whole Year,Turmeric,16
+assam,dhubri,Whole Year,Potato,20
+assam,dhubri,Winter,Rice,5
+assam,dibrugarh,Kharif,Arhar/Tur,23
+assam,dibrugarh,Rabi,Wheat,13
+assam,dibrugarh,Rabi,Rapeseed &Mustard,17
+assam,dibrugarh,Whole Year,Turmeric,16
+assam,dibrugarh,Whole Year,Onion,19
+assam,dibrugarh,Winter,Rice,5
+assam,golaghat,Autumn,Rice,5
+assam,golaghat,Kharif,Small millets,14
+assam,golaghat,Kharif,Jute,21
+assam,golaghat,Kharif,Arhar/Tur,23
+assam,golaghat,Kharif,Cotton(lint),8
+assam,golaghat,Rabi,Wheat,13
+assam,golaghat,Rabi,Rapeseed &Mustard,17
+assam,golaghat,Whole Year,Turmeric,16
+assam,golaghat,Whole Year,Onion,19
+assam,golaghat,Whole Year,Potato,20
+assam,golapara,Autumn,Rice,5
+assam,golapara,Kharif,Small millets,14
+assam,golapara,Kharif,Jute,21
+assam,golapara,Kharif,Cotton(lint),8
+assam,golapara,Rabi,Wheat,13
+assam,golapara,Rabi,Rapeseed &Mustard,17
+assam,golapara,Rabi,Linseed,18
+assam,golapara,Rabi,Gram,2
+assam,golapara,Whole Year,Turmeric,16
+assam,golapara,Whole Year,Potato,20
+assam,hailakandi,Autumn,Rice,5
+assam,hailakandi,Kharif,Jute,21
+assam,hailakandi,Kharif,Arhar/Tur,23
+assam,hailakandi,Rabi,Rapeseed &Mustard,17
+assam,hailakandi,Rabi,Gram,2
+assam,hailakandi,Whole Year,Turmeric,16
+assam,hailakandi,Whole Year,Onion,19
+assam,hailakandi,Winter,Rice,5
+assam,jorhat,Autumn,Rice,5
+assam,jorhat,Kharif,Jute,21
+assam,jorhat,Kharif,Arhar/Tur,23
+assam,jorhat,Kharif,Cotton(lint),8
+assam,jorhat,Rabi,Wheat,13
+assam,jorhat,Rabi,Rapeseed &Mustard,17
+assam,jorhat,Summer,Rice,5
+assam,jorhat,Whole Year,Turmeric,16
+assam,jorhat,Whole Year,Onion,19
+assam,jorhat,Whole Year,Potato,20
+assam,kamrup,Autumn,Rice,5
+assam,kamrup,Kharif,Jute,21
+assam,kamrup,Kharif,Mesta,22
+assam,kamrup,Kharif,Cotton(lint),8
+assam,kamrup,Rabi,Linseed,18
+assam,kamrup,Rabi,Gram,2
+assam,kamrup,Whole Year,Turmeric,16
+assam,kamrup,Whole Year,Onion,19
+assam,kamrup,Whole Year,Potato,20
+assam,kamrup,Winter,Rice,5
+assam,karbi anglong,Autumn,Rice,5
+assam,karbi anglong,Kharif,Castor seed,10
+assam,karbi anglong,Kharif,Mesta,22
+assam,karbi anglong,Kharif,Cotton(lint),8
+assam,karbi anglong,Rabi,Wheat,13
+assam,karbi anglong,Rabi,Rapeseed &Mustard,17
+assam,karbi anglong,Rabi,Linseed,18
+assam,karbi anglong,Summer,Rice,5
+assam,karbi anglong,Whole Year,Potato,20
+assam,karimganj,Autumn,Rice,5
+assam,karimganj,Kharif,Jute,21
+assam,karimganj,Kharif,Arhar/Tur,23
+assam,karimganj,Rabi,Rapeseed &Mustard,17
+assam,karimganj,Rabi,Linseed,18
+assam,karimganj,Summer,Rice,5
+assam,karimganj,Whole Year,Onion,19
+assam,karimganj,Whole Year,Potato,20
+assam,kokrajhar,Autumn,Rice,5
+assam,kokrajhar,Kharif,Small millets,14
+assam,kokrajhar,Kharif,Jute,21
+assam,kokrajhar,Kharif,Mesta,22
+assam,kokrajhar,Kharif,Arhar/Tur,23
+assam,kokrajhar,Kharif,Cotton(lint),8
+assam,kokrajhar,Rabi,Wheat,13
+assam,kokrajhar,Rabi,Linseed,18
+assam,kokrajhar,Rabi,Gram,2
+assam,kokrajhar,Whole Year,Turmeric,16
+assam,kokrajhar,Whole Year,Onion,19
+assam,kokrajhar,Whole Year,Potato,20
+assam,lakhimpur,Autumn,Rice,5
+assam,lakhimpur,Kharif,Small millets,14
+assam,lakhimpur,Kharif,Jute,21
+assam,lakhimpur,Kharif,Mesta,22
+assam,lakhimpur,Kharif,Cotton(lint),8
+assam,lakhimpur,Rabi,Wheat,13
+assam,lakhimpur,Rabi,Rapeseed &Mustard,17
+assam,lakhimpur,Rabi,Linseed,18
+assam,lakhimpur,Summer,Rice,5
+assam,lakhimpur,Whole Year,Turmeric,16
+assam,lakhimpur,Whole Year,Potato,20
+assam,lakhimpur,Winter,Rice,5
+assam,nagaon,Kharif,Jute,21
+assam,nagaon,Kharif,Mesta,22
+assam,nagaon,Kharif,Cotton(lint),8
+assam,nagaon,Rabi,Wheat,13
+assam,nagaon,Rabi,Linseed,18
+assam,nagaon,Summer,Rice,5
+assam,nagaon,Whole Year,Turmeric,16
+assam,nagaon,Whole Year,Potato,20
+assam,nagaon,Winter,Rice,5
+assam,nalbari,Kharif,Small millets,14
+assam,nalbari,Kharif,Jute,21
+assam,nalbari,Kharif,Mesta,22
+assam,nalbari,Kharif,Arhar/Tur,23
+assam,nalbari,Kharif,Cotton(lint),8
+assam,nalbari,Rabi,Wheat,13
+assam,nalbari,Rabi,Linseed,18
+assam,nalbari,Rabi,Gram,2
+assam,nalbari,Whole Year,Turmeric,16
+assam,nalbari,Whole Year,Onion,19
+assam,sibsagar,Autumn,Rice,5
+assam,sibsagar,Kharif,Castor seed,10
+assam,sibsagar,Kharif,Jute,21
+assam,sibsagar,Kharif,Arhar/Tur,23
+assam,sibsagar,Kharif,Cotton(lint),8
+assam,sibsagar,Rabi,Wheat,13
+assam,sibsagar,Rabi,Rapeseed &Mustard,17
+assam,sibsagar,Whole Year,Turmeric,16
+assam,sibsagar,Whole Year,Onion,19
+assam,sibsagar,Whole Year,Potato,20
+assam,sonitpur,Autumn,Rice,5
+assam,sonitpur,Rabi,Gram,2
+assam,sonitpur,Whole Year,Onion,19
+assam,tinsukia,Autumn,Rice,5
+assam,tinsukia,Kharif,Castor seed,10
+assam,tinsukia,Kharif,Small millets,14
+assam,tinsukia,Kharif,Jute,21
+assam,tinsukia,Kharif,Mesta,22
+assam,tinsukia,Kharif,Arhar/Tur,23
+assam,tinsukia,Rabi,Wheat,13
+assam,tinsukia,Whole Year,Turmeric,16
+assam,tinsukia,Whole Year,Potato,20
+bihar,araria,Kharif,Jute,21
+bihar,araria,Kharif,Mesta,22
+bihar,araria,Kharif,Arhar/Tur,23
+bihar,araria,Rabi,Wheat,13
+bihar,araria,Rabi,Gram,2
+bihar,araria,Rabi,Maize,4
+bihar,araria,Summer,Maize,4
+bihar,araria,Summer,Rice,5
+bihar,aurangabad,Kharif,Arhar/Tur,23
+bihar,aurangabad,Rabi,Wheat,13
+bihar,aurangabad,Rabi,Rapeseed &Mustard,17
+bihar,aurangabad,Rabi,Linseed,18
+bihar,aurangabad,Rabi,Gram,2
+bihar,begusarai,Kharif,Arhar/Tur,23
+bihar,begusarai,Rabi,Wheat,13
+bihar,begusarai,Rabi,Rapeseed &Mustard,17
+bihar,begusarai,Rabi,Gram,2
+bihar,begusarai,Rabi,Maize,4
+bihar,bhagalpur,Kharif,Arhar/Tur,23
+bihar,bhagalpur,Rabi,Wheat,13
+bihar,bhagalpur,Rabi,Rapeseed &Mustard,17
+bihar,bhagalpur,Rabi,Linseed,18
+bihar,bhagalpur,Rabi,Gram,2
+bihar,bhagalpur,Rabi,Maize,4
+bihar,bhagalpur,Summer,Rice,5
+bihar,bhojpur,Kharif,Arhar/Tur,23
+bihar,bhojpur,Kharif,Bajra,9
+bihar,bhojpur,Rabi,Wheat,13
+bihar,bhojpur,Rabi,Gram,2
+bihar,bhojpur,Rabi,Maize,4
+bihar,bhojpur,Summer,Maize,4
+bihar,buxar,Kharif,Arhar/Tur,23
+bihar,buxar,Kharif,Jowar,3
+bihar,buxar,Kharif,Bajra,9
+bihar,buxar,Rabi,Wheat,13
+bihar,buxar,Rabi,Rapeseed &Mustard,17
+bihar,buxar,Rabi,Linseed,18
+bihar,buxar,Rabi,Gram,2
+bihar,darbhanga,Kharif,Arhar/Tur,23
+bihar,darbhanga,Rabi,Wheat,13
+bihar,darbhanga,Rabi,Gram,2
+bihar,darbhanga,Rabi,Maize,4
+bihar,darbhanga,Summer,Maize,4
+bihar,darbhanga,Summer,Rice,5
+bihar,gaya,Rabi,Wheat,13
+bihar,gaya,Rabi,Rapeseed &Mustard,17
+bihar,gaya,Rabi,Linseed,18
+bihar,gaya,Rabi,Gram,2
+bihar,gaya,Summer,Maize,4
+bihar,gopalganj,Rabi,Wheat,13
+bihar,gopalganj,Rabi,Rapeseed &Mustard,17
+bihar,gopalganj,Rabi,Maize,4
+bihar,gopalganj,Summer,Maize,4
+bihar,jamui,Kharif,Arhar/Tur,23
+bihar,jamui,Rabi,Wheat,13
+bihar,jamui,Rabi,Rapeseed &Mustard,17
+bihar,jamui,Rabi,Linseed,18
+bihar,jamui,Rabi,Gram,2
+bihar,jamui,Rabi,Maize,4
+bihar,jamui,Summer,Maize,4
+bihar,katihar,Kharif,Jute,21
+bihar,katihar,Rabi,Rapeseed &Mustard,17
+bihar,katihar,Rabi,Linseed,18
+bihar,katihar,Rabi,Gram,2
+bihar,katihar,Rabi,Maize,4
+bihar,katihar,Summer,Maize,4
+bihar,katihar,Summer,Rice,5
+bihar,khagaria,Kharif,Arhar/Tur,23
+bihar,khagaria,Rabi,Wheat,13
+bihar,khagaria,Rabi,Rapeseed &Mustard,17
+bihar,khagaria,Rabi,Linseed,18
+bihar,khagaria,Rabi,Gram,2
+bihar,khagaria,Rabi,Maize,4
+bihar,khagaria,Summer,Rice,5
+bihar,kishanganj,Kharif,Jute,21
+bihar,kishanganj,Kharif,Mesta,22
+bihar,kishanganj,Kharif,Arhar/Tur,23
+bihar,kishanganj,Rabi,Rapeseed &Mustard,17
+bihar,kishanganj,Rabi,Linseed,18
+bihar,kishanganj,Rabi,Gram,2
+bihar,kishanganj,Summer,Rice,5
+bihar,madhepura,Kharif,Jute,21
+bihar,madhepura,Kharif,Mesta,22
+bihar,madhepura,Kharif,Arhar/Tur,23
+bihar,madhepura,Rabi,Rapeseed &Mustard,17
+bihar,madhepura,Rabi,Linseed,18
+bihar,madhepura,Rabi,Maize,4
+bihar,madhepura,Summer,Maize,4
+bihar,madhubani,Kharif,Arhar/Tur,23
+bihar,madhubani,Rabi,Wheat,13
+bihar,madhubani,Rabi,Rapeseed &Mustard,17
+bihar,madhubani,Rabi,Linseed,18
+bihar,madhubani,Rabi,Gram,2
+bihar,muzaffarpur,Kharif,Mesta,22
+bihar,muzaffarpur,Kharif,Arhar/Tur,23
+bihar,muzaffarpur,Rabi,Wheat,13
+bihar,muzaffarpur,Rabi,Rapeseed &Mustard,17
+bihar,muzaffarpur,Rabi,Maize,4
+bihar,muzaffarpur,Summer,Maize,4
+bihar,nalanda,Kharif,Arhar/Tur,23
+bihar,nalanda,Rabi,Rapeseed &Mustard,17
+bihar,nalanda,Rabi,Gram,2
+bihar,nalanda,Rabi,Maize,4
+bihar,patna,Kharif,Arhar/Tur,23
+bihar,patna,Rabi,Wheat,13
+bihar,patna,Rabi,Rapeseed &Mustard,17
+bihar,patna,Rabi,Linseed,18
+bihar,patna,Rabi,Gram,2
+bihar,patna,Rabi,Maize,4
+bihar,patna,Summer,Maize,4
+bihar,rohtas,Kharif,Arhar/Tur,23
+bihar,rohtas,Rabi,Wheat,13
+bihar,rohtas,Rabi,Rapeseed &Mustard,17
+bihar,rohtas,Rabi,Linseed,18
+bihar,rohtas,Rabi,Gram,2
+bihar,saharsa,Kharif,Jute,21
+bihar,saharsa,Rabi,Rapeseed &Mustard,17
+bihar,saharsa,Rabi,Linseed,18
+bihar,saharsa,Rabi,Maize,4
+bihar,saharsa,Summer,Maize,4
+bihar,samastipur,Kharif,Arhar/Tur,23
+bihar,samastipur,Rabi,Wheat,13
+bihar,samastipur,Rabi,Rapeseed &Mustard,17
+bihar,samastipur,Rabi,Gram,2
+bihar,samastipur,Rabi,Maize,4
+bihar,samastipur,Summer,Maize,4
+bihar,saran,Rabi,Wheat,13
+bihar,saran,Rabi,Rapeseed &Mustard,17
+bihar,saran,Rabi,Gram,2
+bihar,saran,Rabi,Maize,4
+bihar,sitamarhi,Rabi,Wheat,13
+bihar,sitamarhi,Rabi,Rapeseed &Mustard,17
+bihar,sitamarhi,Rabi,Linseed,18
+bihar,sitamarhi,Rabi,Maize,4
+bihar,siwan,Kharif,Arhar/Tur,23
+bihar,siwan,Kharif,Bajra,9
+bihar,siwan,Rabi,Rapeseed &Mustard,17
+bihar,siwan,Rabi,Linseed,18
+bihar,siwan,Rabi,Gram,2
+bihar,siwan,Rabi,Maize,4
+bihar,supaul,Kharif,Mesta,22
+bihar,supaul,Rabi,Wheat,13
+bihar,supaul,Rabi,Rapeseed &Mustard,17
+bihar,supaul,Rabi,Linseed,18
+bihar,supaul,Rabi,Maize,4
+bihar,supaul,Summer,Rice,5
+bihar,vaishali,Kharif,Arhar/Tur,23
+bihar,vaishali,Rabi,Wheat,13
+bihar,vaishali,Rabi,Rapeseed &Mustard,17
+bihar,vaishali,Rabi,Maize,4
+bihar,vaishali,Summer,Maize,4
+bihar,vaishali,Summer,Rice,5
+karnataka,bangalore rural,Kharif,Rice,5
+karnataka,bangalore rural,Summer,Rice,5
+karnataka,bangalore urban,Kharif,Horse-gram,0
+karnataka,bangalore urban,Kharif,Groundnut,1
+karnataka,bangalore urban,Kharif,Arhar/Tur,23
+karnataka,bangalore urban,Kharif,Maize,4
+karnataka,bangalore urban,Kharif,Rice,5
+karnataka,bangalore urban,Kharif,Ragi,6
+karnataka,bangalore urban,Rabi,Horse-gram,0
+karnataka,bangalore urban,Rabi,Maize,4
+karnataka,bangalore urban,Rabi,Ragi,6
+karnataka,bangalore urban,Summer,Maize,4
+karnataka,bangalore urban,Summer,Rice,5
+karnataka,bangalore urban,Summer,Ragi,6
+karnataka,bangalore urban,Whole Year,Coriander,24
+karnataka,belgam,Kharif,Horse-gram,0
+karnataka,belgam,Kharif,Groundnut,1
+karnataka,belgam,Kharif,Jowar,3
+karnataka,belgam,Kharif,Rice,5
+karnataka,belgam,Kharif,Ragi,6
+karnataka,belgam,Kharif,Bajra,9
+karnataka,belgam,Rabi,Wheat,13
+karnataka,belgam,Rabi,Jowar,3
+karnataka,belgam,Rabi,Maize,4
+karnataka,belgam,Summer,Maize,4
+karnataka,belgam,Whole Year,Turmeric,16
+karnataka,bellary,Kharif,Horse-gram,0
+karnataka,bellary,Kharif,Groundnut,1
+karnataka,bellary,Kharif,Arhar/Tur,23
+karnataka,bellary,Kharif,Jowar,3
+karnataka,bellary,Kharif,Maize,4
+karnataka,bellary,Kharif,Rice,5
+karnataka,bellary,Kharif,Ragi,6
+karnataka,bellary,Kharif,Bajra,9
+karnataka,bellary,Rabi,Horse-gram,0
+karnataka,bellary,Rabi,Wheat,13
+karnataka,bellary,Rabi,Jowar,3
+karnataka,bellary,Rabi,Maize,4
+karnataka,bellary,Summer,Jowar,3
+karnataka,bellary,Summer,Rice,5
+karnataka,bellary,Whole Year,Coriander,24
+karnataka,bidar,Kharif,Arhar/Tur,23
+karnataka,bidar,Kharif,Jowar,3
+karnataka,bidar,Kharif,Maize,4
+karnataka,bidar,Kharif,Rice,5
+karnataka,bidar,Rabi,Wheat,13
+karnataka,bidar,Rabi,Jowar,3
+karnataka,bidar,Rabi,Maize,4
+karnataka,bidar,Whole Year,Turmeric,16
+karnataka,bidar,Whole Year,Coriander,24
+karnataka,bijapur,Kharif,Horse-gram,0
+karnataka,bijapur,Kharif,Groundnut,1
+karnataka,bijapur,Kharif,Maize,4
+karnataka,bijapur,Kharif,Rice,5
+karnataka,bijapur,Kharif,Bajra,9
+karnataka,bijapur,Rabi,Wheat,13
+karnataka,bijapur,Rabi,Maize,4
+karnataka,bijapur,Whole Year,Turmeric,16
+karnataka,bijapur,Whole Year,Coriander,24
+karnataka,chikmagalur,Kharif,Arhar/Tur,23
+karnataka,chikmagalur,Kharif,Jowar,3
+karnataka,chikmagalur,Kharif,Maize,4
+karnataka,chikmagalur,Kharif,Rice,5
+karnataka,chikmagalur,Kharif,Ragi,6
+karnataka,chikmagalur,Rabi,Horse-gram,0
+karnataka,chikmagalur,Rabi,Jowar,3
+karnataka,chikmagalur,Summer,Rice,5
+karnataka,chitradurga,Kharif,Horse-gram,0
+karnataka,chitradurga,Kharif,Groundnut,1
+karnataka,chitradurga,Kharif,Arhar/Tur,23
+karnataka,chitradurga,Kharif,Jowar,3
+karnataka,chitradurga,Kharif,Maize,4
+karnataka,chitradurga,Kharif,Rice,5
+karnataka,chitradurga,Kharif,Ragi,6
+karnataka,chitradurga,Kharif,Bajra,9
+karnataka,chitradurga,Rabi,Horse-gram,0
+karnataka,chitradurga,Rabi,Wheat,13
+karnataka,chitradurga,Rabi,Jowar,3
+karnataka,chitradurga,Rabi,Maize,4
+karnataka,chitradurga,Rabi,Rice,5
+karnataka,chitradurga,Summer,Jowar,3
+karnataka,chitradurga,Summer,Maize,4
+karnataka,chitradurga,Summer,Rice,5
+karnataka,chitradurga,Summer,Ragi,6
+karnataka,chitradurga,Whole Year,Coriander,24
+karnataka,dharwad,Kharif,Horse-gram,0
+karnataka,dharwad,Kharif,Groundnut,1
+karnataka,dharwad,Kharif,Arhar/Tur,23
+karnataka,dharwad,Kharif,Jowar,3
+karnataka,dharwad,Kharif,Rice,5
+karnataka,dharwad,Kharif,Ragi,6
+karnataka,dharwad,Rabi,Horse-gram,0
+karnataka,dharwad,Rabi,Wheat,13
+karnataka,dharwad,Rabi,Jowar,3
+karnataka,dharwad,Rabi,Maize,4
+karnataka,dharwad,Summer,Maize,4
+karnataka,dharwad,Summer,Rice,5
+karnataka,dharwad,Whole Year,Coriander,24
+karnataka,gulbarga,Kharif,Horse-gram,0
+karnataka,gulbarga,Kharif,Groundnut,1
+karnataka,gulbarga,Kharif,Jowar,3
+karnataka,gulbarga,Kharif,Rice,5
+karnataka,gulbarga,Kharif,Bajra,9
+karnataka,gulbarga,Rabi,Wheat,13
+karnataka,gulbarga,Rabi,Jowar,3
+karnataka,gulbarga,Rabi,Maize,4
+karnataka,gulbarga,Rabi,Rice,5
+karnataka,gulbarga,Summer,Maize,4
+karnataka,gulbarga,Summer,Rice,5
+karnataka,hassan,Kharif,Horse-gram,0
+karnataka,hassan,Kharif,Arhar/Tur,23
+karnataka,hassan,Kharif,Jowar,3
+karnataka,hassan,Kharif,Maize,4
+karnataka,hassan,Kharif,Rice,5
+karnataka,hassan,Kharif,Ragi,6
+karnataka,hassan,Rabi,Horse-gram,0
+karnataka,hassan,Rabi,Rice,5
+karnataka,hassan,Rabi,Ragi,6
+karnataka,hassan,Summer,Rice,5
+karnataka,hassan,Summer,Ragi,6
+karnataka,hassan,Whole Year,Turmeric,16
+karnataka,hassan,Whole Year,Coriander,24
+karnataka,kodagu,Kharif,Maize,4
+karnataka,kodagu,Kharif,Rice,5
+karnataka,kodagu,Summer,Rice,5
+karnataka,kolar,Kharif,Horse-gram,0
+karnataka,kolar,Kharif,Groundnut,1
+karnataka,kolar,Kharif,Arhar/Tur,23
+karnataka,kolar,Kharif,Maize,4
+karnataka,kolar,Kharif,Rice,5
+karnataka,kolar,Rabi,Horse-gram,0
+karnataka,kolar,Rabi,Ragi,6
+karnataka,kolar,Summer,Maize,4
+karnataka,kolar,Summer,Ragi,6
+karnataka,kolar,Whole Year,Coriander,24
+karnataka,mandya,Kharif,Horse-gram,0
+karnataka,mandya,Kharif,Arhar/Tur,23
+karnataka,mandya,Rabi,Ragi,6
+karnataka,mandya,Summer,Rice,5
+karnataka,mandya,Summer,Ragi,6
+karnataka,mandya,Whole Year,Turmeric,16
+karnataka,mysore,Kharif,Groundnut,1
+karnataka,mysore,Kharif,Arhar/Tur,23
+karnataka,mysore,Kharif,Jowar,3
+karnataka,mysore,Kharif,Maize,4
+karnataka,mysore,Kharif,Ragi,6
+karnataka,mysore,Rabi,Maize,4
+karnataka,mysore,Rabi,Ragi,6
+karnataka,mysore,Summer,Maize,4
+karnataka,raichur,Kharif,Horse-gram,0
+karnataka,raichur,Kharif,Groundnut,1
+karnataka,raichur,Kharif,Arhar/Tur,23
+karnataka,raichur,Kharif,Maize,4
+karnataka,raichur,Kharif,Rice,5
+karnataka,raichur,Rabi,Horse-gram,0
+karnataka,raichur,Rabi,Wheat,13
+karnataka,raichur,Rabi,Jowar,3
+karnataka,raichur,Summer,Rice,5
+karnataka,shimoga,Kharif,Horse-gram,0
+karnataka,shimoga,Kharif,Maize,4
+karnataka,shimoga,Kharif,Rice,5
+karnataka,shimoga,Kharif,Ragi,6
+karnataka,shimoga,Rabi,Horse-gram,0
+karnataka,shimoga,Rabi,Jowar,3
+karnataka,shimoga,Summer,Jowar,3
+karnataka,shimoga,Summer,Rice,5
+karnataka,shimoga,Whole Year,Turmeric,16
+karnataka,tumkur,Kharif,Horse-gram,0
+karnataka,tumkur,Kharif,Maize,4
+karnataka,tumkur,Kharif,Rice,5
+karnataka,tumkur,Kharif,Ragi,6
+karnataka,tumkur,Kharif,Bajra,9
+karnataka,tumkur,Rabi,Horse-gram,0
+karnataka,tumkur,Rabi,Maize,4
+karnataka,tumkur,Rabi,Rice,5
+karnataka,tumkur,Rabi,Ragi,6
+karnataka,tumkur,Summer,Maize,4
+karnataka,tumkur,Summer,Rice,5
+karnataka,tumkur,Summer,Ragi,6
+kerala,idukki,Whole Year,Tapioca,25
+kerala,idukki,Whole Year,Coconut,26
+kerala,idukki,Whole Year,Cashewnut,27
+kerala,idukki,Whole Year,Arecanut,28
+kerala,idukki,Whole Year,Black pepper,29
+maharashtra,ahmednagar,Kharif,Arhar/Tur,23
+maharashtra,ahmednagar,Kharif,Rice,5
+maharashtra,ahmednagar,Kharif,Moong(Green Gram),7
+maharashtra,ahmednagar,Rabi,Wheat,13
+maharashtra,akola,Kharif,Arhar/Tur,23
+maharashtra,akola,Kharif,Moong(Green Gram),7
+maharashtra,akola,Rabi,Wheat,13
+maharashtra,amravati,Kharif,Arhar/Tur,23
+maharashtra,amravati,Kharif,Rice,5
+maharashtra,amravati,Kharif,Moong(Green Gram),7
+maharashtra,aurangabad,Kharif,Moong(Green Gram),7
+maharashtra,aurangabad,Kharif,Bajra,9
+maharashtra,aurangabad,Rabi,Wheat,13
+maharashtra,bhandara,Kharif,Arhar/Tur,23
+maharashtra,bhandara,Kharif,Rice,5
+maharashtra,bhandara,Kharif,Moong(Green Gram),7
+maharashtra,buldana,Kharif,Arhar/Tur,23
+maharashtra,buldana,Kharif,Moong(Green Gram),7
+maharashtra,buldana,Kharif,Bajra,9
+maharashtra,buldana,Rabi,Wheat,13
+maharashtra,chandrapur,Kharif,Arhar/Tur,23
+maharashtra,chandrapur,Kharif,Rice,5
+maharashtra,chandrapur,Kharif,Moong(Green Gram),7
+maharashtra,gadchiroli,Kharif,Arhar/Tur,23
+maharashtra,jalgaon,Kharif,Arhar/Tur,23
+maharashtra,jalgaon,Kharif,Moong(Green Gram),7
+maharashtra,jalgaon,Kharif,Bajra,9
+maharashtra,jalgaon,Rabi,Wheat,13
+maharashtra,jalna,Kharif,Arhar/Tur,23
+maharashtra,jalna,Kharif,Moong(Green Gram),7
+maharashtra,jalna,Kharif,Bajra,9
+maharashtra,jalna,Rabi,Wheat,13
+maharashtra,kolhapur,Kharif,Arhar/Tur,23
+maharashtra,kolhapur,Kharif,Rice,5
+maharashtra,kolhapur,Kharif,Ragi,6
+maharashtra,kolhapur,Kharif,Moong(Green Gram),7
+maharashtra,kolhapur,Rabi,Wheat,13
+maharashtra,latur,Kharif,Rice,5
+maharashtra,latur,Kharif,Moong(Green Gram),7
+maharashtra,latur,Rabi,Wheat,13
+maharashtra,nagpur,Kharif,Arhar/Tur,23
+maharashtra,nagpur,Kharif,Rice,5
+maharashtra,nagpur,Kharif,Moong(Green Gram),7
+maharashtra,nanded,Kharif,Arhar/Tur,23
+maharashtra,nanded,Kharif,Rice,5
+maharashtra,nanded,Kharif,Moong(Green Gram),7
+maharashtra,nashik,Kharif,Arhar/Tur,23
+maharashtra,nashik,Kharif,Rice,5
+maharashtra,nashik,Kharif,Ragi,6
+maharashtra,nashik,Kharif,Moong(Green Gram),7
+maharashtra,nashik,Kharif,Bajra,9
+maharashtra,nashik,Rabi,Wheat,13
+maharashtra,osmanabad,Kharif,Arhar/Tur,23
+maharashtra,osmanabad,Kharif,Rice,5
+maharashtra,osmanabad,Kharif,Moong(Green Gram),7
+maharashtra,osmanabad,Kharif,Bajra,9
+maharashtra,osmanabad,Rabi,Wheat,13
+maharashtra,parbhani,Kharif,Arhar/Tur,23
+maharashtra,parbhani,Kharif,Rice,5
+maharashtra,parbhani,Kharif,Moong(Green Gram),7
+maharashtra,parbhani,Kharif,Bajra,9
+maharashtra,parbhani,Rabi,Wheat,13
+maharashtra,pune,Kharif,Arhar/Tur,23
+maharashtra,pune,Kharif,Rice,5
+maharashtra,pune,Kharif,Ragi,6
+maharashtra,pune,Kharif,Moong(Green Gram),7
+maharashtra,pune,Rabi,Wheat,13
+maharashtra,sangli,Kharif,Arhar/Tur,23
+maharashtra,sangli,Kharif,Rice,5
+maharashtra,sangli,Kharif,Moong(Green Gram),7
+maharashtra,sangli,Kharif,Bajra,9
+maharashtra,satara,Kharif,Arhar/Tur,23
+maharashtra,satara,Kharif,Rice,5
+maharashtra,satara,Kharif,Ragi,6
+maharashtra,satara,Kharif,Moong(Green Gram),7
+maharashtra,satara,Kharif,Bajra,9
+maharashtra,satara,Rabi,Wheat,13
+maharashtra,wardha,Kharif,Arhar/Tur,23
+maharashtra,wardha,Kharif,Moong(Green Gram),7
+maharashtra,yeotmal,Kharif,Moong(Green Gram),7
+maharashtra,yeotmal,Kharif,Bajra,9
+meghalaya,east garo hills,Kharif,Mesta,22
+meghalaya,east garo hills,Rabi,Rapeseed &Mustard,17
+meghalaya,east garo hills,Rabi,Gram,2
+meghalaya,east garo hills,Whole Year,Sugarcane,30
+nagaland,kohima,Kharif,Rice,5
+nagaland,mon,Kharif,Maize,4
+nagaland,mon,Kharif,Rice,5
+nagaland,phek,Kharif,Maize,4
+nagaland,phek,Kharif,Rice,5
+punjab,amritsar,Kharif,Sesamum,11
+punjab,amritsar,Kharif,Arhar/Tur,23
+punjab,bhatinda,Rabi,Gram,2
+punjab,faridkot,Rabi,Wheat,13
+punjab,fatehgarh sahib,Kharif,Rice,5
+punjab,fatehgarh sahib,Rabi,Wheat,13
+punjab,firozpur,Kharif,Sesamum,11
+punjab,firozpur,Rabi,Wheat,13
+punjab,gurdaspur,Kharif,Maize,4
+punjab,gurdaspur,Kharif,Rice,5
+punjab,gurdaspur,Rabi,Wheat,13
+punjab,gurdaspur,Rabi,Masoor,32
+punjab,hoshiarpur,Kharif,Groundnut,1
+punjab,hoshiarpur,Kharif,Rice,5
+punjab,hoshiarpur,Rabi,Wheat,13
+punjab,jalandhar,Kharif,Sesamum,11
+punjab,jalandhar,Kharif,Maize,4
+punjab,jalandhar,Kharif,Rice,5
+punjab,kapurthala,Rabi,Wheat,13
+punjab,ludhiana,Kharif,Arhar/Tur,23
+punjab,ludhiana,Kharif,Maize,4
+punjab,ludhiana,Kharif,Rice,5
+punjab,ludhiana,Rabi,Wheat,13
+punjab,ludhiana,Rabi,Barley,31
+punjab,moga,Rabi,Wheat,13
+punjab,muktsar,Kharif,Rice,5
+punjab,muktsar,Rabi,Gram,2
+punjab,muktsar,Rabi,Barley,31
+punjab,nawanshahr,Kharif,Maize,4
+punjab,nawanshahr,Rabi,Wheat,13
+punjab,patiala,Kharif,Rice,5
+punjab,patiala,Rabi,Wheat,13
+punjab,sangrur,Kharif,Arhar/Tur,23
+punjab,sangrur,Kharif,Rice,5
+punjab,sangrur,Rabi,Wheat,13
+uttar pradesh,agra,Kharif,Maize,4
+uttar pradesh,agra,Kharif,Rice,5
+uttar pradesh,agra,Kharif,Bajra,9
+uttar pradesh,agra,Rabi,Rapeseed &Mustard,17
+uttar pradesh,agra,Rabi,Gram,2
+uttar pradesh,agra,Rabi,Barley,31
+uttar pradesh,aligarh,Kharif,Bajra,9
+uttar pradesh,aligarh,Rabi,Wheat,13
+uttar pradesh,aligarh,Rabi,Rapeseed &Mustard,17
+uttar pradesh,allahabad,Kharif,Jowar,3
+uttar pradesh,allahabad,Kharif,Maize,4
+uttar pradesh,allahabad,Kharif,Rice,5
+uttar pradesh,allahabad,Kharif,Bajra,9
+uttar pradesh,allahabad,Rabi,Wheat,13
+uttar pradesh,allahabad,Rabi,Barley,31
+uttar pradesh,ambedkar nagar,Kharif,Jowar,3
+uttar pradesh,ambedkar nagar,Kharif,Maize,4
+uttar pradesh,ambedkar nagar,Kharif,Bajra,9
+uttar pradesh,ambedkar nagar,Rabi,Wheat,13
+uttar pradesh,ambedkar nagar,Rabi,Barley,31
+uttar pradesh,auraiya,Kharif,Jowar,3
+uttar pradesh,auraiya,Kharif,Maize,4
+uttar pradesh,auraiya,Kharif,Bajra,9
+uttar pradesh,auraiya,Rabi,Wheat,13
+uttar pradesh,auraiya,Rabi,Rapeseed &Mustard,17
+uttar pradesh,auraiya,Rabi,Gram,2
+uttar pradesh,auraiya,Rabi,Barley,31
+uttar pradesh,azamgarh,Kharif,Maize,4
+uttar pradesh,azamgarh,Kharif,Bajra,9
+uttar pradesh,azamgarh,Rabi,Wheat,13
+uttar pradesh,azamgarh,Rabi,Rapeseed &Mustard,17
+uttar pradesh,azamgarh,Rabi,Gram,2
+uttar pradesh,bahraich,Kharif,Maize,4
+uttar pradesh,bahraich,Kharif,Rice,5
+uttar pradesh,bahraich,Rabi,Rapeseed &Mustard,17
+uttar pradesh,bahraich,Rabi,Gram,2
+uttar pradesh,bahraich,Rabi,Barley,31
+uttar pradesh,ballia,Kharif,Jowar,3
+uttar pradesh,ballia,Kharif,Maize,4
+uttar pradesh,ballia,Kharif,Rice,5
+uttar pradesh,ballia,Kharif,Bajra,9
+uttar pradesh,ballia,Rabi,Wheat,13
+uttar pradesh,ballia,Rabi,Rapeseed &Mustard,17
+uttar pradesh,ballia,Rabi,Gram,2
+uttar pradesh,ballia,Rabi,Barley,31
+uttar pradesh,balrampur,Kharif,Maize,4
+uttar pradesh,balrampur,Kharif,Rice,5
+uttar pradesh,balrampur,Rabi,Wheat,13
+uttar pradesh,balrampur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,balrampur,Rabi,Gram,2
+uttar pradesh,balrampur,Rabi,Barley,31
+uttar pradesh,banda,Kharif,Jowar,3
+uttar pradesh,banda,Kharif,Soyabean,33
+uttar pradesh,banda,Kharif,Maize,4
+uttar pradesh,banda,Kharif,Rice,5
+uttar pradesh,banda,Kharif,Bajra,9
+uttar pradesh,banda,Rabi,Rapeseed &Mustard,17
+uttar pradesh,banda,Rabi,Linseed,18
+uttar pradesh,banda,Rabi,Gram,2
+uttar pradesh,banda,Rabi,Barley,31
+uttar pradesh,barabanki,Kharif,Jowar,3
+uttar pradesh,barabanki,Kharif,Maize,4
+uttar pradesh,barabanki,Kharif,Rice,5
+uttar pradesh,barabanki,Kharif,Bajra,9
+uttar pradesh,barabanki,Rabi,Wheat,13
+uttar pradesh,barabanki,Rabi,Rapeseed &Mustard,17
+uttar pradesh,barabanki,Rabi,Linseed,18
+uttar pradesh,barabanki,Rabi,Gram,2
+uttar pradesh,barabanki,Rabi,Barley,31
+uttar pradesh,basti,Kharif,Maize,4
+uttar pradesh,basti,Kharif,Rice,5
+uttar pradesh,basti,Rabi,Wheat,13
+uttar pradesh,basti,Rabi,Rapeseed &Mustard,17
+uttar pradesh,bijnor,Kharif,Rice,5
+uttar pradesh,bijnor,Rabi,Wheat,13
+uttar pradesh,bijnor,Rabi,Rapeseed &Mustard,17
+uttar pradesh,bijnor,Rabi,Gram,2
+uttar pradesh,bijnor,Rabi,Barley,31
+uttar pradesh,bulandshahar,Kharif,Maize,4
+uttar pradesh,bulandshahar,Kharif,Rice,5
+uttar pradesh,bulandshahar,Kharif,Bajra,9
+uttar pradesh,bulandshahar,Rabi,Rapeseed &Mustard,17
+uttar pradesh,bulandshahar,Rabi,Barley,31
+uttar pradesh,deoria,Kharif,Jowar,3
+uttar pradesh,deoria,Kharif,Maize,4
+uttar pradesh,deoria,Kharif,Rice,5
+uttar pradesh,deoria,Kharif,Bajra,9
+uttar pradesh,deoria,Rabi,Wheat,13
+uttar pradesh,deoria,Rabi,Gram,2
+uttar pradesh,etah,Kharif,Maize,4
+uttar pradesh,etah,Kharif,Rice,5
+uttar pradesh,etah,Kharif,Bajra,9
+uttar pradesh,etah,Rabi,Wheat,13
+uttar pradesh,etah,Rabi,Rapeseed &Mustard,17
+uttar pradesh,etah,Rabi,Gram,2
+uttar pradesh,etah,Rabi,Barley,31
+uttar pradesh,etawah,Kharif,Maize,4
+uttar pradesh,etawah,Kharif,Rice,5
+uttar pradesh,etawah,Rabi,Wheat,13
+uttar pradesh,etawah,Rabi,Rapeseed &Mustard,17
+uttar pradesh,etawah,Rabi,Gram,2
+uttar pradesh,etawah,Rabi,Barley,31
+uttar pradesh,faizabad,Kharif,Jowar,3
+uttar pradesh,faizabad,Kharif,Maize,4
+uttar pradesh,faizabad,Kharif,Rice,5
+uttar pradesh,faizabad,Rabi,Wheat,13
+uttar pradesh,faizabad,Rabi,Rapeseed &Mustard,17
+uttar pradesh,faizabad,Rabi,Linseed,18
+uttar pradesh,faizabad,Rabi,Gram,2
+uttar pradesh,faizabad,Rabi,Barley,31
+uttar pradesh,farrukhabad,Kharif,Jowar,3
+uttar pradesh,farrukhabad,Kharif,Maize,4
+uttar pradesh,farrukhabad,Kharif,Rice,5
+uttar pradesh,farrukhabad,Kharif,Bajra,9
+uttar pradesh,farrukhabad,Rabi,Wheat,13
+uttar pradesh,farrukhabad,Rabi,Rapeseed &Mustard,17
+uttar pradesh,farrukhabad,Rabi,Gram,2
+uttar pradesh,farrukhabad,Rabi,Barley,31
+uttar pradesh,fatehpur,Kharif,Jowar,3
+uttar pradesh,fatehpur,Kharif,Maize,4
+uttar pradesh,fatehpur,Kharif,Rice,5
+uttar pradesh,fatehpur,Rabi,Wheat,13
+uttar pradesh,fatehpur,Rabi,Linseed,18
+uttar pradesh,fatehpur,Rabi,Gram,2
+uttar pradesh,firozabad,Kharif,Jowar,3
+uttar pradesh,firozabad,Kharif,Maize,4
+uttar pradesh,firozabad,Kharif,Rice,5
+uttar pradesh,firozabad,Rabi,Wheat,13
+uttar pradesh,firozabad,Rabi,Gram,2
+uttar pradesh,firozabad,Rabi,Barley,31
+uttar pradesh,ghaziabad,Kharif,Maize,4
+uttar pradesh,ghaziabad,Kharif,Rice,5
+uttar pradesh,ghaziabad,Rabi,Rapeseed &Mustard,17
+uttar pradesh,ghaziabad,Rabi,Barley,31
+uttar pradesh,ghazipur,Kharif,Jowar,3
+uttar pradesh,ghazipur,Kharif,Rice,5
+uttar pradesh,ghazipur,Kharif,Bajra,9
+uttar pradesh,ghazipur,Rabi,Wheat,13
+uttar pradesh,ghazipur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,ghazipur,Rabi,Gram,2
+uttar pradesh,ghazipur,Rabi,Barley,31
+uttar pradesh,gonda,Kharif,Rice,5
+uttar pradesh,gonda,Rabi,Wheat,13
+uttar pradesh,gonda,Rabi,Rapeseed &Mustard,17
+uttar pradesh,gonda,Rabi,Linseed,18
+uttar pradesh,gonda,Rabi,Gram,2
+uttar pradesh,gorakhpur,Kharif,Maize,4
+uttar pradesh,gorakhpur,Kharif,Rice,5
+uttar pradesh,gorakhpur,Kharif,Bajra,9
+uttar pradesh,gorakhpur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,gorakhpur,Rabi,Gram,2
+uttar pradesh,gorakhpur,Rabi,Barley,31
+uttar pradesh,hamirpur,Kharif,Jowar,3
+uttar pradesh,hamirpur,Kharif,Soyabean,33
+uttar pradesh,hamirpur,Kharif,Rice,5
+uttar pradesh,hamirpur,Rabi,Wheat,13
+uttar pradesh,hamirpur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,hamirpur,Rabi,Linseed,18
+uttar pradesh,hamirpur,Rabi,Gram,2
+uttar pradesh,hamirpur,Rabi,Barley,31
+uttar pradesh,hardoi,Kharif,Jowar,3
+uttar pradesh,hardoi,Kharif,Maize,4
+uttar pradesh,hardoi,Kharif,Rice,5
+uttar pradesh,hardoi,Rabi,Wheat,13
+uttar pradesh,hardoi,Rabi,Gram,2
+uttar pradesh,hardoi,Rabi,Barley,31
+uttar pradesh,jalaun,Kharif,Jowar,3
+uttar pradesh,jalaun,Kharif,Rice,5
+uttar pradesh,jalaun,Rabi,Wheat,13
+uttar pradesh,jalaun,Rabi,Rapeseed &Mustard,17
+uttar pradesh,jalaun,Rabi,Linseed,18
+uttar pradesh,jalaun,Rabi,Gram,2
+uttar pradesh,jalaun,Rabi,Barley,31
+uttar pradesh,jaunpur,Kharif,Jowar,3
+uttar pradesh,jaunpur,Kharif,Maize,4
+uttar pradesh,jaunpur,Kharif,Bajra,9
+uttar pradesh,jaunpur,Rabi,Wheat,13
+uttar pradesh,jaunpur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,jaunpur,Rabi,Gram,2
+uttar pradesh,jaunpur,Rabi,Barley,31
+uttar pradesh,jhansi,Kharif,Jowar,3
+uttar pradesh,jhansi,Kharif,Soyabean,33
+uttar pradesh,jhansi,Kharif,Maize,4
+uttar pradesh,jhansi,Kharif,Rice,5
+uttar pradesh,jhansi,Kharif,Bajra,9
+uttar pradesh,jhansi,Rabi,Wheat,13
+uttar pradesh,jhansi,Rabi,Rapeseed &Mustard,17
+uttar pradesh,jhansi,Rabi,Linseed,18
+uttar pradesh,jhansi,Rabi,Gram,2
+uttar pradesh,jhansi,Rabi,Barley,31
+uttar pradesh,kheri,Kharif,Jowar,3
+uttar pradesh,kheri,Kharif,Maize,4
+uttar pradesh,kheri,Kharif,Rice,5
+uttar pradesh,kheri,Kharif,Bajra,9
+uttar pradesh,kheri,Rabi,Wheat,13
+uttar pradesh,kheri,Rabi,Rapeseed &Mustard,17
+uttar pradesh,kheri,Rabi,Barley,31
+uttar pradesh,lalitpur,Kharif,Jowar,3
+uttar pradesh,lalitpur,Kharif,Soyabean,33
+uttar pradesh,lalitpur,Kharif,Maize,4
+uttar pradesh,lalitpur,Kharif,Rice,5
+uttar pradesh,lalitpur,Rabi,Wheat,13
+uttar pradesh,lalitpur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,lalitpur,Rabi,Barley,31
+uttar pradesh,lucknow,Kharif,Maize,4
+uttar pradesh,lucknow,Kharif,Rice,5
+uttar pradesh,lucknow,Kharif,Bajra,9
+uttar pradesh,lucknow,Rabi,Wheat,13
+uttar pradesh,lucknow,Rabi,Rapeseed &Mustard,17
+uttar pradesh,lucknow,Rabi,Gram,2
+uttar pradesh,lucknow,Rabi,Barley,31
+uttar pradesh,maharajganj,Rabi,Wheat,13
+uttar pradesh,maharajganj,Rabi,Linseed,18
+uttar pradesh,maharajganj,Rabi,Gram,2
+uttar pradesh,maharajganj,Rabi,Barley,31
+uttar pradesh,mainpuri,Kharif,Maize,4
+uttar pradesh,mainpuri,Kharif,Bajra,9
+uttar pradesh,mainpuri,Rabi,Wheat,13
+uttar pradesh,mainpuri,Rabi,Gram,2
+uttar pradesh,mainpuri,Rabi,Barley,31
+uttar pradesh,mathura,Kharif,Maize,4
+uttar pradesh,mathura,Kharif,Rice,5
+uttar pradesh,mathura,Rabi,Wheat,13
+uttar pradesh,mathura,Rabi,Rapeseed &Mustard,17
+uttar pradesh,mathura,Rabi,Gram,2
+uttar pradesh,mathura,Rabi,Barley,31
+uttar pradesh,mau,Kharif,Maize,4
+uttar pradesh,mau,Kharif,Rice,5
+uttar pradesh,mau,Kharif,Bajra,9
+uttar pradesh,mau,Rabi,Rapeseed &Mustard,17
+uttar pradesh,mau,Rabi,Gram,2
+uttar pradesh,mau,Rabi,Barley,31
+uttar pradesh,meerut,Kharif,Maize,4
+uttar pradesh,meerut,Kharif,Rice,5
+uttar pradesh,meerut,Kharif,Bajra,9
+uttar pradesh,meerut,Rabi,Wheat,13
+uttar pradesh,meerut,Rabi,Rapeseed &Mustard,17
+uttar pradesh,meerut,Rabi,Gram,2
+uttar pradesh,meerut,Rabi,Barley,31
+uttar pradesh,mirzapur,Kharif,Jowar,3
+uttar pradesh,mirzapur,Kharif,Maize,4
+uttar pradesh,mirzapur,Kharif,Rice,5
+uttar pradesh,mirzapur,Kharif,Bajra,9
+uttar pradesh,mirzapur,Rabi,Wheat,13
+uttar pradesh,mirzapur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,mirzapur,Rabi,Linseed,18
+uttar pradesh,mirzapur,Rabi,Gram,2
+uttar pradesh,mirzapur,Rabi,Barley,31
+uttar pradesh,moradabad,Kharif,Jowar,3
+uttar pradesh,moradabad,Kharif,Maize,4
+uttar pradesh,moradabad,Kharif,Rice,5
+uttar pradesh,moradabad,Kharif,Bajra,9
+uttar pradesh,moradabad,Rabi,Wheat,13
+uttar pradesh,moradabad,Rabi,Rapeseed &Mustard,17
+uttar pradesh,moradabad,Rabi,Gram,2
+uttar pradesh,muzaffarnagar,Kharif,Maize,4
+uttar pradesh,muzaffarnagar,Kharif,Rice,5
+uttar pradesh,muzaffarnagar,Rabi,Wheat,13
+uttar pradesh,muzaffarnagar,Rabi,Rapeseed &Mustard,17
+uttar pradesh,muzaffarnagar,Rabi,Gram,2
+uttar pradesh,muzaffarnagar,Rabi,Barley,31
+uttar pradesh,pilibhit,Kharif,Maize,4
+uttar pradesh,pilibhit,Rabi,Wheat,13
+uttar pradesh,pilibhit,Rabi,Gram,2
+uttar pradesh,pilibhit,Rabi,Barley,31
+uttar pradesh,pratapgarh,Kharif,Maize,4
+uttar pradesh,pratapgarh,Kharif,Rice,5
+uttar pradesh,pratapgarh,Kharif,Bajra,9
+uttar pradesh,pratapgarh,Rabi,Rapeseed &Mustard,17
+uttar pradesh,pratapgarh,Rabi,Gram,2
+uttar pradesh,pratapgarh,Rabi,Barley,31
+uttar pradesh,rampur,Kharif,Jowar,3
+uttar pradesh,rampur,Kharif,Maize,4
+uttar pradesh,rampur,Kharif,Rice,5
+uttar pradesh,rampur,Rabi,Wheat,13
+uttar pradesh,rampur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,saharanpur,Kharif,Rice,5
+uttar pradesh,saharanpur,Rabi,Wheat,13
+uttar pradesh,saharanpur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,saharanpur,Rabi,Barley,31
+uttar pradesh,sant ravidas nagar,Kharif,Maize,4
+uttar pradesh,sant ravidas nagar,Kharif,Rice,5
+uttar pradesh,sant ravidas nagar,Kharif,Bajra,9
+uttar pradesh,sant ravidas nagar,Rabi,Wheat,13
+uttar pradesh,sant ravidas nagar,Rabi,Rapeseed &Mustard,17
+uttar pradesh,sant ravidas nagar,Rabi,Gram,2
+uttar pradesh,shahjahanpur,Kharif,Maize,4
+uttar pradesh,shahjahanpur,Kharif,Rice,5
+uttar pradesh,shahjahanpur,Kharif,Bajra,9
+uttar pradesh,shahjahanpur,Rabi,Gram,2
+uttar pradesh,shahjahanpur,Rabi,Barley,31
+uttar pradesh,sitapur,Kharif,Jowar,3
+uttar pradesh,sitapur,Kharif,Maize,4
+uttar pradesh,sitapur,Kharif,Rice,5
+uttar pradesh,sitapur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,sitapur,Rabi,Gram,2
+uttar pradesh,sitapur,Rabi,Barley,31
+uttar pradesh,sonbhadra,Kharif,Jowar,3
+uttar pradesh,sonbhadra,Kharif,Maize,4
+uttar pradesh,sonbhadra,Kharif,Rice,5
+uttar pradesh,sonbhadra,Kharif,Bajra,9
+uttar pradesh,sonbhadra,Rabi,Wheat,13
+uttar pradesh,sonbhadra,Rabi,Linseed,18
+uttar pradesh,sonbhadra,Rabi,Gram,2
+uttar pradesh,sonbhadra,Rabi,Barley,31
+uttar pradesh,sultanpur,Kharif,Maize,4
+uttar pradesh,sultanpur,Kharif,Bajra,9
+uttar pradesh,sultanpur,Rabi,Wheat,13
+uttar pradesh,sultanpur,Rabi,Rapeseed &Mustard,17
+uttar pradesh,sultanpur,Rabi,Linseed,18
+uttar pradesh,sultanpur,Rabi,Gram,2
+uttar pradesh,sultanpur,Rabi,Barley,31
+uttar pradesh,unnao,Kharif,Maize,4
+uttar pradesh,unnao,Kharif,Rice,5
+uttar pradesh,unnao,Kharif,Bajra,9
+uttar pradesh,unnao,Rabi,Wheat,13
+uttar pradesh,unnao,Rabi,Rapeseed &Mustard,17
+uttar pradesh,unnao,Rabi,Gram,2
+uttar pradesh,unnao,Rabi,Barley,31
+uttar pradesh,varanasi,Kharif,Maize,4
+uttar pradesh,varanasi,Kharif,Rice,5
+uttar pradesh,varanasi,Kharif,Bajra,9
+uttar pradesh,varanasi,Rabi,Wheat,13
+uttar pradesh,varanasi,Rabi,Rapeseed &Mustard,17
+uttar pradesh,varanasi,Rabi,Gram,2
+west bengal,bankura,Autumn,Rice,5
+west bengal,bankura,Kharif,Urad,12
+west bengal,bankura,Rabi,Wheat,13
+west bengal,bankura,Rabi,Gram,2
+west bengal,bankura,Rabi,Masoor,32
+west bengal,bankura,Summer,Rice,5
+west bengal,bankura,Whole Year,Sugarcane,30
+west bengal,birbhum,Kharif,Urad,12
+west bengal,birbhum,Kharif,Jute,21
+west bengal,birbhum,Kharif,Other Kharif pulses,35
+west bengal,birbhum,Rabi,Wheat,13
+west bengal,birbhum,Rabi,Masoor,32
+west bengal,birbhum,Rabi,Khesari,34
+west bengal,birbhum,Summer,Rice,5
+west bengal,birbhum,Summer,Moong(Green Gram),7
+west bengal,birbhum,Winter,Rice,5
+west bengal,cooch behar,Kharif,Urad,12
+west bengal,cooch behar,Kharif,Jute,21
+west bengal,cooch behar,Rabi,Urad,12
+west bengal,cooch behar,Rabi,Khesari,34
+west bengal,cooch behar,Summer,Rice,5
+west bengal,cooch behar,Winter,Rice,5
+west bengal,darjeeling,Autumn,Rice,5
+west bengal,darjeeling,Kharif,Urad,12
+west bengal,darjeeling,Kharif,Jute,21
+west bengal,darjeeling,Rabi,Urad,12
+west bengal,darjeeling,Summer,Rice,5
+west bengal,darjeeling,Summer,Moong(Green Gram),7
+west bengal,hooghly,Autumn,Rice,5
+west bengal,hooghly,Kharif,Jute,21
+west bengal,hooghly,Rabi,Moong(Green Gram),7
+west bengal,hooghly,Summer,Rice,5
+west bengal,howrah,Autumn,Rice,5
+west bengal,howrah,Kharif,Jute,21
+west bengal,howrah,Rabi,Khesari,34
+west bengal,howrah,Summer,Rice,5
+west bengal,howrah,Summer,Moong(Green Gram),7
+west bengal,howrah,Winter,Rice,5
+west bengal,jalpaiguri,Kharif,Urad,12
+west bengal,jalpaiguri,Kharif,Jute,21
+west bengal,jalpaiguri,Kharif,Mesta,22
+west bengal,jalpaiguri,Rabi,Urad,12
+west bengal,jalpaiguri,Rabi,Wheat,13
+west bengal,jalpaiguri,Rabi,Masoor,32
+west bengal,jalpaiguri,Rabi,Khesari,34
+west bengal,jalpaiguri,Summer,Rice,5
+west bengal,jalpaiguri,Winter,Rice,5
+west bengal,malda,Autumn,Rice,5
+west bengal,malda,Kharif,Urad,12
+west bengal,malda,Kharif,Jute,21
+west bengal,malda,Kharif,Mesta,22
+west bengal,malda,Rabi,Wheat,13
+west bengal,malda,Rabi,Gram,2
+west bengal,malda,Rabi,Masoor,32
+west bengal,malda,Rabi,Moong(Green Gram),7
+west bengal,malda,Summer,Rice,5
+west bengal,malda,Summer,Moong(Green Gram),7
+west bengal,malda,Whole Year,Sugarcane,30
+west bengal,malda,Winter,Rice,5
+west bengal,murshidabad,Autumn,Rice,5
+west bengal,murshidabad,Kharif,Urad,12
+west bengal,murshidabad,Rabi,Urad,12
+west bengal,murshidabad,Rabi,Gram,2
+west bengal,murshidabad,Rabi,Masoor,32
+west bengal,murshidabad,Summer,Rice,5
+west bengal,murshidabad,Winter,Rice,5
+west bengal,nadia,Autumn,Rice,5
+west bengal,nadia,Kharif,Jute,21
+west bengal,nadia,Kharif,Mesta,22
+west bengal,nadia,Rabi,Wheat,13
+west bengal,nadia,Rabi,Gram,2
+west bengal,nadia,Rabi,Khesari,34
+west bengal,nadia,Summer,Moong(Green Gram),7
+west bengal,nadia,Whole Year,Sugarcane,30
+west bengal,nadia,Winter,Rice,5
+west bengal,north 24 parganas,Autumn,Rice,5
+west bengal,north 24 parganas,Kharif,Urad,12
+west bengal,north 24 parganas,Kharif,Jute,21
+west bengal,north 24 parganas,Rabi,Wheat,13
+west bengal,north 24 parganas,Rabi,Masoor,32
+west bengal,north 24 parganas,Summer,Moong(Green Gram),7
+west bengal,north 24 parganas,Whole Year,Sugarcane,30
+west bengal,north 24 parganas,Winter,Rice,5
+west bengal,purulia,Autumn,Rice,5
+west bengal,purulia,Kharif,Urad,12
+west bengal,purulia,Kharif,Moong(Green Gram),7
+west bengal,purulia,Rabi,Wheat,13
+west bengal,purulia,Rabi,Gram,2
+west bengal,purulia,Rabi,Moong(Green Gram),7
+west bengal,purulia,Summer,Rice,5
+west bengal,purulia,Whole Year,Sugarcane,30
+west bengal,purulia,Winter,Rice,5
