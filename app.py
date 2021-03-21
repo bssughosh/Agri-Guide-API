@@ -319,7 +319,7 @@ def preprocessing(s):
 def get_state():
     isTest = request.args.get('isTest')
     print(f'/get_states endpoint called')
-    base_url = 'outputs/datasets'
+    base_url = 'outputs/datasets/'
     file = 'new_places.csv'
     df = pd.read_csv(base_url + file)
 
@@ -343,7 +343,7 @@ def get_state():
 @app.route('/get_state_value')
 def get_state_for_state_id():
     state_id = request.args.getlist(_queryParamStateId)
-    base_url = 'outputs/datasets'
+    base_url = 'outputs/datasets/'
     file = 'new_places.csv'
     df = pd.read_csv(base_url + file)
     if len(state_id) == 1:
@@ -376,7 +376,7 @@ def get_dist():
 
     print(f'/get_dists endpoint called with state_id={state_id}')
 
-    base_url = 'outputs/datasets'
+    base_url = 'outputs/datasets/'
     file = 'new_places.csv'
     df = pd.read_csv(base_url + file)
     df['State'] = df['State'].apply(lambda c: preprocessing(c))
@@ -401,7 +401,7 @@ def get_dist():
 @app.route('/get_dist_value')
 def get_dist_for_dist_id():
     dist_id = request.args.getlist(_queryParamDistId)
-    base_url = 'outputs/datasets'
+    base_url = 'outputs/datasets/'
     file = 'new_places.csv'
     df = pd.read_csv(base_url + file)
     if len(dist_id) == 1:
@@ -465,6 +465,58 @@ def get_crops():
         crops = list(df1['Crop'].unique())
         for crop in crops:
             crops_res.append({_keyNameCropId: all_crops_dict[crop], _keyNameName: crop, })
+
+    return jsonify({_keyNameCrops: crops_res}), 200
+
+
+@app.route('/get_seasons_v2')
+def get_seasons_v2():
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+    crop = request.args.get(_queryParamCrop)
+    print(f'/get_types_of_crops endpoint called with state={state} and '
+          f'dist={dist} and crop={crop}')
+    if state == 'Test' and dist == 'Test' and crop == 'Test':
+        return jsonify({_keyNameSeasons: ['Test', ]})
+    base_url = 'outputs/datasets/'
+    file = 'found_crop_data.csv'
+    df = pd.read_csv(base_url + file)
+
+    df1 = df[df['State'] == state]
+    df1 = df1[df1['District'] == dist]
+
+    seasons = []
+    if df1.shape[0] > 0:
+        for i, j in df1.iterrows():
+            if str(j[4]) == crop:
+                seasons.append(j[2])
+
+        seasons = list(set(seasons))
+
+    return jsonify({_keyNameSeasons: seasons}), 200
+
+
+@app.route('/get_crops_v2')
+def get_crops_v2():
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
+    print(f'/get_crops endpoint called with state={state}, '
+          f'and dist={dist}')
+    if state == 'Test' and dist == 'Test':
+        return jsonify({_keyNameCrops: [{_keyNameCropId: 'Test', _keyNameName: 'Test', }, ]})
+    base_url = 'outputs/datasets/'
+    file = 'found_crop_data.csv'
+    df = pd.read_csv(base_url + file)
+
+    df1 = df[df['State'] == state]
+    df1 = df1[df1['District'] == dist]
+
+    crops_res = []
+    if df1.shape[0] > 0:
+        for i, j in df1.iterrows():
+            crops_res.append({_keyNameCropId: str(j[4]), _keyNameName: j[3]})
+
+        crops_res = list({v[_keyNameCropId]: v for v in crops_res}.values())
 
     return jsonify({_keyNameCrops: crops_res}), 200
 
