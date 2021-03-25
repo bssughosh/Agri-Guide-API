@@ -18,12 +18,17 @@
     * **/agri_guide/downloads?states={[state1],[state2]...}&dists={[dist1],[dist2]...}&years={[start],[end]}&params={[temp],[humidity],[rainfall],[yield]}** : Will return a zip file containing the CSV files for the filters applied
 
 2. Weather
-    * **/weather?state=[state]&dist=[dist]** : JSON output containing temperature, humidity and rainfall predictions for 2020
-    * **/weather/files?state=[state]&dist=[dist]** : Download _all_ the predicted values in CSV format compressed together in a ZIP file
-    * **/weather/downloads?states={[state1],[state2]...}&dists={[dist1],[dist2]...}&years={[start],[end]}&params={[temp],[humidity],[rainfall]}** : Will return a zip file containing the CSV files for the filters applied
+   * **/weather?state=[state]&dist=[dist]** : JSON output containing temperature, humidity and rainfall predictions for
+     2020
+   * **/weather/files?state=[state]&dist=[dist]** : Download _all_ the predicted values in CSV format compressed
+     together in a ZIP file
+   * **/weather/downloads?states={[state1],[state2]...}&dists={[dist1],[dist2]...}&years={[start],[end]}&params={[temp]
+     ,[humidity],[rainfall]}** : Will return a zip file containing the CSV files for the filters applied
 
 3. Yield
-   * **/get_seasons?state=[state]&dist=[dist]** : JSON Output containing the possible seasons for the state and dist
-   * **/get_crops?state=[state]&dist=[dist]&season=[season]** : JSON Output containing the possible crops for the state and dist in a season
-   * **/yield?state=[state]&dist=[dist]&season=[season]&crop=[crop_id]** : JSON output containing yield predictions for 2020 for the state and dist in a season
+   * **/get_crops?state=[state]&dist=[dist]** : JSON Output containing the possible crops for the state and dist
+   * **/get_seasons?state=[state]&dist=[dist]&crop=[crop_id]** : JSON Output containing the possible seasons for a crop
+     growing in the state and dist
+   * **/yield?state=[state]&dist=[dist]&season=[season]&crop=[crop_id]** : JSON output containing yield predictions for
+     2020 for the state and dist in a season
     
