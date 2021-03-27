@@ -422,55 +422,6 @@ def get_dist_for_dist_id():
     return jsonify({_keyNameDists: res}), 200
 
 
-@app.route('/get_seasons')
-def get_seasons():
-    state = request.args.get(_queryParamState)
-    dist = request.args.get(_queryParamDist)
-    print(f'/get_types_of_crops endpoint called with state={state} and '
-          f'dist={dist}')
-    if state == 'Test' and dist == 'Test':
-        return jsonify({_keyNameSeasons: ['Test', ]})
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
-    file = 'found1_all_18.csv'
-    df = pd.read_csv(base_url + file)
-    df1 = df[df['State'] == state]
-    df1 = df1[df1['District'] == dist]
-    seasons = []
-    if df1.shape[0] > 0:
-        seasons = list(df1['Season'].unique())
-
-    return jsonify({_keyNameSeasons: seasons}), 200
-
-
-@app.route('/get_crops')
-def get_crops():
-    state = request.args.get(_queryParamState)
-    dist = request.args.get(_queryParamDist)
-    season = request.args.get(_queryParamSeason)
-    print(f'/get_crops endpoint called with state={state}, '
-          f'dist={dist} and season={season}')
-    if state == 'Test' and dist == 'Test' and season == 'Test':
-        return jsonify({_keyNameCrops: [{_keyNameCropId: 'Test', _keyNameName: 'Test', }, ]})
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
-    file = 'found1_all_18.csv'
-    df = pd.read_csv(base_url + file)
-    all_crops = list(df['Crop'].unique())
-    all_crops_dict = {}
-    for i, crop in enumerate(all_crops):
-        all_crops_dict[crop] = str(i)
-
-    df1 = df[df['State'] == state]
-    df1 = df1[df1['District'] == dist]
-    df1 = df1[df1['Season'] == season]
-    crops_res = []
-    if df1.shape[0] > 0:
-        crops = list(df1['Crop'].unique())
-        for crop in crops:
-            crops_res.append({_keyNameCropId: all_crops_dict[crop], _keyNameName: crop, })
-
-    return jsonify({_keyNameCrops: crops_res}), 200
-
-
 @app.route('/get_seasons_v2')
 def get_seasons_v2():
     state = request.args.get(_queryParamState)
@@ -592,6 +543,12 @@ def generate_statistics_data():
         return jsonify({'message': 'The requested location cannot be processed'}), 404
 
     return jsonify(res), 200
+
+
+@app.route('/yield-statistics')
+def get_statistics_for_crop():
+    state = request.args.get(_queryParamState)
+    dist = request.args.get(_queryParamDist)
 
 # Uncomment when running locally
 # app.run(port=4999)
