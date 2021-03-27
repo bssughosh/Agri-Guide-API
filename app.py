@@ -8,7 +8,8 @@ from flask_cors import CORS
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from statistics_data_fetcher import fetch_rainfall_whole_data, fetch_temp_whole_data, fetch_humidity_whole_data
+from statistics_data_fetcher import fetch_rainfall_whole_data, fetch_temp_whole_data, fetch_humidity_whole_data, \
+    fetch_yield_whole_data
 from weather_filters import multiple_states, single_loc, multiple_dists
 from yield_filters import multiple_states_yield, single_loc_yield, multiple_dists_yield
 
@@ -549,6 +550,32 @@ def generate_statistics_data():
 def get_statistics_for_crop():
     state = request.args.get(_queryParamState)
     dist = request.args.get(_queryParamDist)
+    season = request.args.get(_queryParamSeason)
+    crop = request.args.get(_queryParamCrop)
+
+    print(f'/yield-statistics endpoint called with state={state}, '
+          f'dist={dist}, crop={crop} and season={season}')
+
+    base_url = 'outputs/datasets/'
+    file = 'all_crops.csv'
+    crop_data = pd.read_csv(base_url + file)
+
+    crop_name = ''
+
+    for i, j in crop_data.iterrows():
+        if int(j[1]) == int(crop):
+            crop_name = j[0]
+            break
+
+    res = {}
+    try:
+        yield_res = fetch_yield_whole_data(state, dist, crop_name, season)
+        res[_keyNameYield] = yield_res
+
+    except:
+        return jsonify({'message': 'The requested location cannot be processed'}), 404
+
+    return jsonify(res), 200
 
 # Uncomment when running locally
 # app.run(port=4999)

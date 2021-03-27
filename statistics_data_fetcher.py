@@ -75,3 +75,33 @@ def fetch_humidity_whole_data(state, dist):
             res.append({str(int(j[0])): round(j[1], 0)})
 
     return res
+
+
+def fetch_yield_whole_data(state, dist, crop, season):
+    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
+    file1 = 'Master_data_1.csv'
+
+    yield_data = pd.read_csv(base_url + file1)
+
+    df = yield_data[yield_data['State_Name'] == state]
+    df = df[df['District_Name'] == dist]
+
+    df['Crop'] = df['Crop'].apply(lambda c: c.strip())
+    df['Season'] = df['Season'].apply(lambda c: c.strip())
+
+    df = df[df['Season'] == season]
+    df = df[df['Crop'] == crop]
+
+    if df.shape[0] == 0:
+        raise FileNotFoundError
+
+    df.sort_values('Crop_Year', axis=0, ascending=True, inplace=True, na_position='last')
+
+    df['PpA'] = df['Production'] / df['Area']
+
+    res = []
+
+    for i, j in df.iterrows():
+        res.append({str(j[2]): round(j[7], 2)})
+
+    return res
