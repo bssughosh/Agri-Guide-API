@@ -97,7 +97,7 @@ def fetch_yield_whole_data(state, dist, crop, season):
 
     df.sort_values('Crop_Year', axis=0, ascending=True, inplace=True, na_position='last')
 
-    df['PpA'] = df['Production'] / df['Area']
+    df['PpA'] = df['Production'] * 10 / df['Area']
 
     res = []
 
