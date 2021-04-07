@@ -12,7 +12,7 @@ def fetch_single_loc_rainfall_data(state, dist, years):
     dist1 = dist.replace('+', ' ') if len(dist) > 0 else ''
     state1 = state.replace('+', ' ')
 
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    base_url = 'datasets/weather/'
     file1 = 'rainfall_data_3.csv'
 
     rain = pd.read_csv(base_url + file1)
@@ -32,7 +32,7 @@ def fetch_single_loc_temp_data(state, dist, years):
     dist1 = dist.replace('+', ' ') if len(dist) > 0 else ''
     state1 = state.replace('+', ' ')
 
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    base_url = 'datasets/weather/'
     file1 = 'whole_temp_2.csv'
 
     temp = pd.read_csv(base_url + file1)
@@ -49,9 +49,8 @@ def fetch_single_loc_temp_data(state, dist, years):
 
 
 def fetch_single_loc_humidity_data(state, dist, years):
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
-    file = dist + '%2C' + state + '.csv'
-    file = file.replace('+', '%2B')
+    base_url = 'datasets/weather/'
+    file = dist + ',' + state + '.csv'
     df = pd.read_csv(base_url + file)
     cols = ['date_time', 'humidity']
     cols1 = ['humidity']
@@ -121,11 +120,11 @@ def single_loc(state, dist, years, params):
 
 def fetch_multiple_dists_rainfall_data(state, dists, years):
     state1 = state.replace('+', ' ')
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    base_url = 'datasets/weather/'
     file1 = 'rainfall_data_3.csv'
 
     if len(dists) == 1 and '0' in dists:
-        places = pd.read_csv(base_url + 'places.csv')
+        places = pd.read_csv(base_url + 'new_places.csv')
         places = places[places['State'] == state]
         final_dists = places['District'].to_list()
         final_dists = [dist.replace('+', ' ') for dist in final_dists]
@@ -160,11 +159,11 @@ def fetch_multiple_dists_rainfall_data(state, dists, years):
 
 def fetch_multiple_dists_temp_data(state, dists, years):
     state1 = state.replace('+', ' ')
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    base_url = 'datasets/weather/'
     file1 = 'whole_temp_2.csv'
 
     if len(dists) == 1 and '0' in dists:
-        places = pd.read_csv(base_url + 'places.csv')
+        places = pd.read_csv(base_url + 'new_places.csv')
         places = places[places['State'] == state]
         final_dists = places['District'].to_list()
         final_dists = [dist.replace('+', ' ') for dist in final_dists]
@@ -198,8 +197,8 @@ def fetch_multiple_dists_temp_data(state, dists, years):
 
 
 def fetch_multiple_dists_humidity_data(state, dists, years):
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
-    places = pd.read_csv(base_url + 'places.csv')
+    base_url = 'datasets/weather/'
+    places = pd.read_csv(base_url + 'new_places.csv')
     states_present = places['State'].to_list()
     dists_present = places['District'].to_list()
 
@@ -207,8 +206,7 @@ def fetch_multiple_dists_humidity_data(state, dists, years):
     for state1, dist in zip(states_present, dists_present):
         if state == state1:
             if dists == ['0']:
-                file = dist + '%2C' + state + '.csv'
-                file = file.replace('+', '%2B')
+                file = dist + ',' + state + '.csv'
                 df = pd.read_csv(base_url + file)
                 cols = ['date_time', 'humidity']
                 cols1 = ['humidity']
@@ -247,8 +245,7 @@ def fetch_multiple_dists_humidity_data(state, dists, years):
                         res.append(r)
 
             if dist in dists:
-                file = dist + '%2C' + state + '.csv'
-                file = file.replace('+', '%2B')
+                file = dist + ',' + state + '.csv'
                 df = pd.read_csv(base_url + file)
                 cols = ['date_time', 'humidity']
                 cols1 = ['humidity']
@@ -323,7 +320,7 @@ def multiple_dists(state, dists, years, params):
 def fetch_multiple_states_rainfall_data(states, years):
     states1 = [state.replace('+', ' ') for state in states]
 
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    base_url = 'datasets/weather/'
     file1 = 'rainfall_data_3.csv'
 
     rain = pd.read_csv(base_url + file1)
@@ -354,7 +351,7 @@ def fetch_multiple_states_rainfall_data(states, years):
 def fetch_multiple_states_temp_data(states, years):
     states1 = [state.replace('+', ' ') for state in states]
 
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    base_url = 'datasets/weather/'
     file1 = 'whole_temp_2.csv'
 
     temp = pd.read_csv(base_url + file1)
@@ -383,16 +380,15 @@ def fetch_multiple_states_temp_data(states, years):
 
 
 def fetch_multiple_states_humidity_data(states, years):
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
-    places = pd.read_csv(base_url + 'places.csv')
+    base_url = 'datasets/weather/'
+    places = pd.read_csv(base_url + 'new_places.csv')
     states_present = places['State'].to_list()
     dists_present = places['District'].to_list()
 
     res = []
     for state, dist in zip(states_present, dists_present):
         if state in states:
-            file = dist + '%2C' + state + '.csv'
-            file = file.replace('+', '%2B')
+            file = dist + ',' + state + '.csv'
             df = pd.read_csv(base_url + file)
             cols = ['date_time', 'humidity']
             cols1 = ['humidity']
