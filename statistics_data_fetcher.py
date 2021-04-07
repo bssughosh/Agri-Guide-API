@@ -6,7 +6,7 @@ def fetch_rainfall_whole_data(state, dist):
     dist1 = dist.replace('+', ' ')
     state1 = state.replace('+', ' ')
 
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    base_url = 'datasets/weather/'
     file1 = 'rainfall_data_3.csv'
 
     rain = pd.read_csv(base_url + file1)
@@ -29,7 +29,7 @@ def fetch_temp_whole_data(state, dist):
     dist1 = dist.replace('+', ' ')
     state1 = state.replace('+', ' ')
 
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
+    base_url = 'datasets/weather/'
     file2 = 'whole_temp_2.csv'
 
     temp = pd.read_csv(base_url + file2)
@@ -49,10 +49,8 @@ def fetch_temp_whole_data(state, dist):
 
 
 def fetch_humidity_whole_data(state, dist):
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
-    file = dist + '%2C' + state + '.csv'
-    file = file.replace('+', '%2B')
-    print(base_url + file)
+    base_url = 'datasets/weather/'
+    file = dist + ',' + state + '.csv'
     humidity = pd.read_csv(base_url + file)
 
     h1 = humidity[['date_time', 'humidity']]
@@ -78,7 +76,7 @@ def fetch_humidity_whole_data(state, dist):
 
 
 def fetch_yield_whole_data(state, dist, crop, season):
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
+    base_url = 'datasets/yield/'
     file1 = 'Master_data_1.csv'
 
     yield_data = pd.read_csv(base_url + file1)
