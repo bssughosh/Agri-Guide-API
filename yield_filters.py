@@ -7,7 +7,7 @@ def fetch_single_loc_yield_data(state, dist):
     dist1 = dist.replace('+', ' ') if len(dist) > 0 else ''
     state1 = state.replace('+', ' ')
 
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
+    base_url = 'datasets/yield/'
     file1 = 'Master_data_1.csv'
 
     yield_data = pd.read_csv(base_url + file1)
@@ -26,7 +26,7 @@ def single_loc_yield(state, dist):
 
 def fetch_multiple_dists_yield_data(state, dists):
     state1 = state.replace('+', ' ')
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
+    base_url = 'datasets/yield/'
     file1 = 'Master_data_1.csv'
 
     if len(dists) == 1 and '0' in dists:
@@ -67,7 +67,7 @@ def multiple_dists_yield(state, dists):
 def fetch_multiple_states_yield_data(states):
     states1 = [state.replace('+', ' ') for state in states]
 
-    base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/yield/'
+    base_url = 'datasets/yield/'
     file1 = 'Master_data_1.csv'
 
     yield_data = pd.read_csv(base_url + file1)
