@@ -1,13 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
-from flask_httpauth import HTTPBasicAuth
 
 from routes import *
 from statistics_data_fetcher import fetch_rainfall_whole_data, fetch_temp_whole_data, fetch_humidity_whole_data, \
     fetch_yield_whole_data
 
 app = Flask(__name__)
-auth = HTTPBasicAuth()
 CORS(app)
 app.register_blueprint(routes)
 
@@ -36,45 +34,6 @@ _queryParamStateId = 'state_id'
 _queryParamDistId = 'dist_id'
 _queryParamSeason = 'season'
 _queryParamCrop = 'crop'
-
-
-@app.route('/yield')
-def predict_yield():
-    state = request.args.get(_queryParamState)
-    dist = request.args.get(_queryParamDist)
-    season = request.args.get(_queryParamSeason)
-    crop = request.args.get(_queryParamCrop)
-
-    state = state.replace(' ', '+')
-    dist = dist.replace(' ', '+')
-    if state is None or dist is None or season is None or crop is None:
-        return jsonify({'message': 'The requested location cannot be processed'}), 404
-
-    print(f'/yield endpoint called with state={state}, '
-          f'dist={dist}, season={season} and crop={crop}')
-    if state == 'Test' and dist == 'Test' and season == 'Test' and crop == 'Test':
-        return jsonify({_keyNameYield: [1.0, ]})
-    files = os.listdir('outputs/yield')
-
-    file = dist + ',' + state + ',' + season + ',' + crop + '.csv'
-    try:
-        if file not in files:
-            # yield_caller(state, dist, season, crop)
-            return jsonify({'message': 'The requested location cannot be processed'}), 404
-
-        print(f'All yield prediction complete for state={state}, dist={dist}'
-              f', season={season} and crop={crop}')
-
-        df1 = pd.read_csv(f'outputs/yield/{file}')
-
-        my_values = {
-            _keyNameYield: df1['Predicted'].to_list(),
-        }
-
-        return jsonify(my_values), 200
-
-    except FileNotFoundError:
-        return jsonify({'message': 'The requested location cannot be processed'}), 404
 
 
 @app.route('/statistics_data')
