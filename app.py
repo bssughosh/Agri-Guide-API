@@ -8,7 +8,7 @@ CORS(app)
 app.register_blueprint(routes)
 
 # Uncomment when running locally
-app.run(port=4999)
+# app.run(port=4999)
 
 # Uncomment when pushing to GCP
 # if __name__ == "__main__":
