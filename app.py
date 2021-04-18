@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from flask import Flask, send_from_directory
 from flask_cors import CORS
 from flask_httpauth import HTTPBasicAuth
@@ -52,34 +50,6 @@ def verify_password(username, password):
         return username
 
 
-def create_file_name():
-    present_time = datetime.now()
-    _day = present_time.day
-    _month = present_time.month
-    _year = present_time.year
-    _minute = present_time.minute
-    _hour = present_time.hour
-    _second = present_time.second
-
-    _filename = str(_year) + '_' + str(_month) + '_' + str(_day) + '_' + str(_hour) + '_' + str(_minute) + '_' + str(
-        _second) + '.zip'
-
-    return _filename
-
-
-def clear_file_contents(param):
-    if param == 'yield':
-        file = open(f'filter_outputs/yield/{param}.csv', 'w+')
-        file.close()
-    else:
-        file = open(f'filter_outputs/weather/{param}.csv', 'w+')
-        file.close()
-
-
-
-
-
-
 @app.route('/weather/files')
 @auth.login_required
 def download_weather_predicted_files():
@@ -117,51 +87,10 @@ def preprocessing(s):
     return s
 
 
-@app.route('/get_states')
-def get_state():
-    isTest = request.args.get('isTest')
-    print(f'/get_states endpoint called')
-    base_url = 'outputs/datasets/'
-    file = 'new_places.csv'
-    df = pd.read_csv(base_url + file)
-
-    df['State'] = df['State'].apply(lambda c: preprocessing(c))
-    res = {}
-    res1 = []
-
-    states = list(df['State'].unique())
-
-    for i, j in enumerate(states):
-        t = {_keyNameId: str(i + 1), _keyNameName: j}
-        res1.append(t)
-
-    if isTest == 'true':
-        return jsonify({_keyNameState: [{_keyNameId: 'Test', _keyNameName: 'Test'}, ]})
-
-    res[_keyNameState] = res1
-    return jsonify(res), 200
 
 
-@app.route('/get_state_value')
-def get_state_for_state_id():
-    state_id = request.args.getlist(_queryParamStateId)
-    base_url = 'outputs/datasets/'
-    file = 'new_places.csv'
-    df = pd.read_csv(base_url + file)
-    if len(state_id) == 1:
-        state_id = state_id[0].split(',')
-        state_id = [(int(s) - 1) for s in state_id]
-    print(f'/get_state_value endpoint called with state_id={state_id}')
-    if state_id == [1000, ]:
-        return jsonify({_keyNameStates: ['Test', ]})
-    states = list(df['State'].unique())
-    res = []
-    for s in state_id:
-        res.append(states[s])
 
-    print(f'/get_state_value endpoint returned => {res}')
 
-    return jsonify({_keyNameStates: res}), 200
 
 
 @app.route('/get_dists')

@@ -3,8 +3,8 @@ import os
 import pandas as pd
 from flask import jsonify, request
 
+from routes.utils.key_names import KeyNames
 from . import routes
-from .key_names import KeyNames
 
 
 @routes.route('/weather')

@@ -2,9 +2,9 @@ from zipfile import ZipFile, ZIP_DEFLATED
 
 from flask import jsonify, request, send_file
 
+from routes.utils.key_names import KeyNames
 from weather_filters import multiple_states, single_loc, multiple_dists
 from . import routes
-from .key_names import KeyNames
 from .utils.create_file_name import create_file_name
 
 
