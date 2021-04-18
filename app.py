@@ -8,6 +8,7 @@ from flask_cors import CORS
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from routes import *
 from statistics_data_fetcher import fetch_rainfall_whole_data, fetch_temp_whole_data, fetch_humidity_whole_data, \
     fetch_yield_whole_data
 from weather_filters import multiple_states, single_loc, multiple_dists
@@ -16,6 +17,7 @@ from yield_filters import multiple_states_yield, single_loc_yield, multiple_dist
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 CORS(app)
+app.register_blueprint(routes)
 
 _keyNameTemperature = 'temperature'
 _keyNameHumidity = 'humidity'
@@ -53,12 +55,6 @@ def verify_password(username, password):
     if username in users and check_password_hash(users.get(username), password):
         print('Authenticated')
         return username
-
-
-@app.route('/')
-def home():
-    print(f'/home endpoint called ')
-    return 'Agri Guide'
 
 
 @app.route('/weather')
@@ -577,8 +573,9 @@ def get_statistics_for_crop():
 
     return jsonify(res), 200
 
+
 # Uncomment when running locally
-# app.run(port=4999)
+app.run(port=4999)
 
 # Uncomment when pushing to GCP
 # if __name__ == "__main__":
