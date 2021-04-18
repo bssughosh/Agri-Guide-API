@@ -81,14 +81,15 @@ def download_weather_predicted_files():
         return jsonify({'message': 'File not found'}), 404
 
 
-@app.route('/get_crops_v2')
-def get_crops_v2():
+@app.route('/get_seasons_v2')
+def get_seasons_v2():
     state = request.args.get(_queryParamState)
     dist = request.args.get(_queryParamDist)
-    print(f'/get_crops endpoint called with state={state}, '
-          f'and dist={dist}')
-    if state == 'Test' and dist == 'Test':
-        return jsonify({_keyNameCrops: [{_keyNameCropId: 'Test', _keyNameName: 'Test', }, ]})
+    crop = request.args.get(_queryParamCrop)
+    print(f'/get_types_of_crops endpoint called with state={state} and '
+          f'dist={dist} and crop={crop}')
+    if state == 'Test' and dist == 'Test' and crop == 'Test':
+        return jsonify({_keyNameSeasons: ['Test', ]})
     base_url = 'outputs/datasets/'
     file = 'found_crop_data.csv'
     df = pd.read_csv(base_url + file)
@@ -96,14 +97,15 @@ def get_crops_v2():
     df1 = df[df['State'] == state]
     df1 = df1[df1['District'] == dist]
 
-    crops_res = []
+    seasons = []
     if df1.shape[0] > 0:
         for i, j in df1.iterrows():
-            crops_res.append({_keyNameCropId: str(j[4]), _keyNameName: j[3]})
+            if str(j[4]) == crop:
+                seasons.append(j[2])
 
-        crops_res = list({v[_keyNameCropId]: v for v in crops_res}.values())
+        seasons = list(set(seasons))
 
-    return jsonify({_keyNameCrops: crops_res}), 200
+    return jsonify({_keyNameSeasons: seasons}), 200
 
 
 @app.route('/yield')
