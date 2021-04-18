@@ -1,7 +1,6 @@
-from flask import Flask, send_from_directory
+from flask import Flask
 from flask_cors import CORS
 from flask_httpauth import HTTPBasicAuth
-from werkzeug.security import generate_password_hash, check_password_hash
 
 from routes import *
 from statistics_data_fetcher import fetch_rainfall_whole_data, fetch_temp_whole_data, fetch_humidity_whole_data, \
@@ -37,75 +36,6 @@ _queryParamStateId = 'state_id'
 _queryParamDistId = 'dist_id'
 _queryParamSeason = 'season'
 _queryParamCrop = 'crop'
-
-users = {
-    "sughosh": generate_password_hash("hello")
-}
-
-
-@auth.verify_password
-def verify_password(username, password):
-    if username in users and check_password_hash(users.get(username), password):
-        print('Authenticated')
-        return username
-
-
-@app.route('/weather/files')
-@auth.login_required
-def download_weather_predicted_files():
-    state = request.args.get(_queryParamState)
-    dist = request.args.get(_queryParamDist)
-    state = state.replace(' ', '+')
-    dist = dist.replace(' ', '+')
-
-    print(f'/weather/files endpoint called with state={state} and '
-          f'dist={dist}')
-    if state is None or dist is None:
-        return jsonify({'message': 'The requested location cannot be processed'}), 404
-
-    files3 = os.listdir('outputs/rainfall')
-
-    file = dist + ',' + state + '.csv'
-    if file in files3:
-        handle = ZipFile(f'{dist},{state}.zip', 'w')
-        handle.write(f'outputs/temp/{file}', 'temperature.csv', compress_type=ZIP_DEFLATED)
-        handle.write(f'outputs/humidity/{file}', 'humidity.csv', compress_type=ZIP_DEFLATED)
-        handle.write(f'outputs/temp/{file}', 'rainfall.csv', compress_type=ZIP_DEFLATED)
-        handle.close()
-
-        print(f'ZipFile created for state={state} and '
-              f'dist={dist}')
-
-        return send_from_directory('', f'{dist},{state}.zip', as_attachment=True)
-    else:
-        return jsonify({'message': 'File not found'}), 404
-
-
-@app.route('/get_seasons_v2')
-def get_seasons_v2():
-    state = request.args.get(_queryParamState)
-    dist = request.args.get(_queryParamDist)
-    crop = request.args.get(_queryParamCrop)
-    print(f'/get_types_of_crops endpoint called with state={state} and '
-          f'dist={dist} and crop={crop}')
-    if state == 'Test' and dist == 'Test' and crop == 'Test':
-        return jsonify({_keyNameSeasons: ['Test', ]})
-    base_url = 'outputs/datasets/'
-    file = 'found_crop_data.csv'
-    df = pd.read_csv(base_url + file)
-
-    df1 = df[df['State'] == state]
-    df1 = df1[df1['District'] == dist]
-
-    seasons = []
-    if df1.shape[0] > 0:
-        for i, j in df1.iterrows():
-            if str(j[4]) == crop:
-                seasons.append(j[2])
-
-        seasons = list(set(seasons))
-
-    return jsonify({_keyNameSeasons: seasons}), 200
 
 
 @app.route('/yield')
