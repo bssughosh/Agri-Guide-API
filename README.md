@@ -4,31 +4,80 @@
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=bssughosh&theme=blue-green)](https://github.com/anuraghazra/github-readme-stats)
-
 # Agri-Guide-API
 
-## API Endpoints - 
+This is the API used for the project Agri Guide. The driver code is present inside `app.py` and the routes are present
+inside the folder `routes/`. The endpoints are listed below:
 
-1. General Endpoints
-    * **/get_states** : JSON Output containing all the states available in the repository with its unique ID
-    * **/get_dists?state_id=[state_id]** :  JSON Output containing all the districts available in the repository with a unique state ID
-    * **/get_state_value?state_id={[state_id1],[state_id2]...}** : JSON Output with a list of all the names of states for the state ids passed
-    * **/get_dist_value?dist_id={[dist_id1],[dist_id2]...}** : JSON Output with a list of all the names of districts for the district ids passed
-    * **/agri_guide/downloads?states={[state1],[state2]...}&dists={[dist1],[dist2]...}&years={[start],[end]}&params={[temp],[humidity],[rainfall],[yield]}** : Will return a zip file containing the CSV files for the filters applied
+## API Endpoints -
 
-2. Weather
-   * **/weather?state=[state]&dist=[dist]** : JSON output containing temperature, humidity and rainfall predictions for
-     2020
-   * **/weather/files?state=[state]&dist=[dist]** : Download _all_ the predicted values in CSV format compressed
-     together in a ZIP file
-   * **/weather/downloads?states={[state1],[state2]...}&dists={[dist1],[dist2]...}&years={[start],[end]}&params={[temp]
-     ,[humidity],[rainfall]}** : Will return a zip file containing the CSV files for the filters applied
+### General Endpoints
 
-3. Yield
-   * **/get_crops?state=[state]&dist=[dist]** : JSON Output containing the possible crops for the state and dist
-   * **/get_seasons?state=[state]&dist=[dist]&crop=[crop_id]** : JSON Output containing the possible seasons for a crop
-     growing in the state and dist
-   * **/yield?state=[state]&dist=[dist]&season=[season]&crop=[crop_id]** : JSON output containing yield predictions for
-     2020 for the state and dist in a season
-    
+#### 1. Get States
+
+    https://agri-guide-api.herokuapp.com/get_states
+
+JSON Output containing all the states available in the repository with its unique ID
+
+#### 2. Get districts for a state
+
+    https://agri-guide-api.herokuapp.com/get_dists
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| state_id | state ID whose districts are required | `state_id` |
+
+JSON Output containing all the districts available in the repository with a unique state ID.
+
+#### 3. Get state name for state ID
+
+    https://agri-guide-api.herokuapp.com/get_state_value
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| state_id | List of state IDs separated by a comma | `state_id1`, `state_id2` |
+
+This API endpoint would take list of state IDs to be processed and returns a list of state names.
+
+#### 4. Get district name for district ID
+
+    https://agri-guide-api.herokuapp.com/get_dist_value
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| dist_id | List of district IDs separated by a comma | `dist_id1`, `dist_id2` |
+
+This API endpoint would take list of district IDs to be processed and returns a list of district names.
+
+#### 5. Get Crops
+
+    https://agri-guide-api.herokuapp.com/get_crops
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| state | The state name in lower case is passed | `state` |
+| dist | The district name in lower case is passed | `dist` |
+
+Get list of crops that grow in a district in JSON format. It would return an ID and a name for every crop.
+
+#### 6. Get seasons
+
+    https://agri-guide-api.herokuapp.com/get_seasons
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| state | The state name in lower case is passed | `state` |
+| dist | The district name in lower case is passed | `dist` |
+| crop | Crop ID which grows in the region | `crop_id` |
+
+Get list of seasons that a crop is grown in a district in JSON format.
