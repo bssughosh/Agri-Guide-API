@@ -4,9 +4,9 @@ import time
 
 import pandas as pd
 
-from humidity_predictions import humidity_caller
+from humidity_prediction import humidity_caller
 from rainfall_predictions import rain_caller
-from temp_predictions import temperature_caller
+from temperature_prediction import temperature_caller
 
 base_url = 'https://raw.githubusercontent.com/bssughosh/agri-guide-data/master/datasets/weather/'
 places_file = 'places.csv'
