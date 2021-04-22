@@ -114,3 +114,64 @@ Params:
 Predict the crop yield for a particular crop grown in the required season in the district and return the output as a
 JSON.
 
+### Data Download Endpoints
+
+#### 1. Weather files downloads
+
+    https://agri-guide-api.herokuapp.com/weather/downloads
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| states | List of states separated by a comma | `state1`, `state2` |
+| dists | List of districts separated by a comma | `dist1`, `dist2` |
+| years | Start year and end year separated by a comma | `start`, `end` |
+| params | Parameters required in downloads separated by a comma | `temp`, `rainfall`, `humidity` |
+
+Give proper filters to get the downloads in a zip file containing the CSV files for given parameters.
+
+#### 2. All files downloads
+
+    https://agri-guide-api.herokuapp.com/agri_guide/downloads
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| states | List of states separated by a comma | `state1`, `state2` |
+| dists | List of districts separated by a comma | `dist1`, `dist2` |
+| years | Start year and end year separated by a comma | `start`, `end` |
+| params | Parameters required in downloads separated by a comma | `temp`, `rainfall`, `humidity`, `yield` |
+
+Give proper filters to get the downloads in a zip file containing the CSV files for given parameters.
+
+### Statistics
+
+#### 1. Weather statistics
+
+    https://agri-guide-api.herokuapp.com/statistics_data
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| state | The state name in lower case is passed | `state` |
+| dist | The district name in lower case is passed | `dist` |
+
+Return statistics of yearly data for the district in a JSON format.
+
+#### 2. Yield Statistics
+
+    https://agri-guide-api.herokuapp.com/yield-statistics
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| state | The state name in lower case is passed | `state` |
+| dist | The district name in lower case is passed | `dist` |
+| crop | Crop ID which grows in the region | `crop_id` |
+| season | The season in which the crop is to be grown | `season` |
+
+Return yield statistics of yearly data for the district in a JSON format.
