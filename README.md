@@ -81,3 +81,36 @@ Params:
 | crop | Crop ID which grows in the region | `crop_id` |
 
 Get list of seasons that a crop is grown in a district in JSON format.
+
+### Prediction Endpoints
+
+#### 1. Weather Prediction
+
+    https://agri-guide-api.herokuapp.com/weather
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| state | The state name in lower case is passed | `state` |
+| dist | The district name in lower case is passed | `dist` |
+
+Predict the weather for the particular district and return the next year's monthly rainfall, temperature and humidity as
+a JSON output.
+
+#### 2. Yield Prediction
+
+    https://agri-guide-api.herokuapp.com/yield
+
+Params:
+
+| Parameter | Description | Format |
+|-----------|-------------|--------|
+| state | The state name in lower case is passed | `state` |
+| dist | The district name in lower case is passed | `dist` |
+| crop | Crop ID which grows in the region | `crop_id` |
+| season | The season in which the crop is to be grown | `season` |
+
+Predict the crop yield for a particular crop grown in the required season in the district and return the output as a
+JSON.
+
